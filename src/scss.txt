@@ -4,7 +4,7 @@
 true
   
   
-Web750 x 7112
+Web1920 x 5010
 iOSpt
 
 Androiddp
@@ -27,46 +27,46 @@ CSS Rem
 
 
 
-750px × 7112px
+1920px × 5010px
 
-iOS @2x复制成功
-图层Moniter & Accessories
+iOS @2x
+图层$ 299.99
 位置
-166px
-1205px
+341px
+1518px
 大小
-169px
-19px
+76px
+16px
 不透明度100%
-字体Montserrat
-字重Light
+填充100%
+字体Montserrat-Regular
+字重Regular
 对齐
 
 左对齐
 颜色
-rgba(191, 191, 191, 1)RGBA
+rgba(0, 0, 0, 1)RGBA
 
 
 
 
 
 字号
-16px
+18px
 空间
 0
 字间距
-19px
+72px
 行间距
-内容Moniter & Accessories
+内容$ 299.99
 代码复制代码
-width:169px;
-height:19px;
-font-size:16px;
+width:76px;
+height:16px;
+font-size:18px;
 font-family:Montserrat;
-font-weight:300;
-line-height:19px;
-color:rgba(191,191,191,1);
-opacity:1;
+font-weight:400;
+color:rgba(0,0,0,1);
+line-height:72px;
  
 
 
