@@ -1,0 +1,74 @@
+由于打开过分享页，用户状态发生变化，为安全起见，请重新登录D&D跨境电商
+请刷新页面，如果一直出现这个界面可能是你浏览器版本过低
+
+true
+  
+  
+Web750 x 7112
+iOSpt
+
+Androiddp
+
+Webpx
+
+像素px
+
+自定义
+
+像素 x 2
+
+指定宽度 
+1080
+像素
+
+CSS Rem
+12
+ px
+
+
+
+750px × 7112px
+
+iOS @2x复制成功
+图层Moniter & Accessories
+位置
+166px
+1205px
+大小
+169px
+19px
+不透明度100%
+字体Montserrat
+字重Light
+对齐
+
+左对齐
+颜色
+rgba(191, 191, 191, 1)RGBA
+
+
+
+
+
+字号
+16px
+空间
+0
+字间距
+19px
+行间距
+内容Moniter & Accessories
+代码复制代码
+width:169px;
+height:19px;
+font-size:16px;
+font-family:Montserrat;
+font-weight:300;
+line-height:19px;
+color:rgba(191,191,191,1);
+opacity:1;
+ 
+
+
+
+
