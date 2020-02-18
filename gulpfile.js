@@ -108,6 +108,9 @@ gulp.task('watchdev', function(cb) {
             if ('deleted' === event.type) return cleanFiles([paths.distPath.replace(/\.\w+$/, '.css')]);
             gutil.log('Dist ' + paths.distPath)
             lab.buildTxtToLess(paths.srcPath, paths.distPath);
+        } else if(/variable\.scss$/.test(paths.srcPath)) {
+            gutil.log('Dist ' + paths.distPath)
+            lab.updateVariableCache(paths.srcPath, paths.distPath);
         } else {
             gutil.log(gutil.colors.green(event.type || 'changed') + ' ' + paths.srcPath + '-->' + '???');
         }

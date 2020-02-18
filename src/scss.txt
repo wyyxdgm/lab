@@ -4,7 +4,7 @@
 true
   
   
-Web1920 x 5010
+Web1920 x 1080
 iOSpt
 
 Androiddp
@@ -27,46 +27,24 @@ CSS Rem
 
 
 
-1920px × 5010px
+1920px × 1080px
 
 iOS @2x
-图层$ 299.99
+图层genaray_sp_e_500iib_spectroled_essential_500_ii_bi_color_1570016197_1492203
 位置
-341px
-1518px
+589px
+215px
 大小
-76px
-16px
+1010px
+661px
 不透明度100%
 填充100%
-字体Montserrat-Regular
-字重Regular
-对齐
-
-左对齐
-颜色
-rgba(0, 0, 0, 1)RGBA
-
-
-
-
-
-字号
-18px
-空间
-0
-字间距
-72px
-行间距
-内容$ 299.99
-代码复制代码
-width:76px;
-height:16px;
-font-size:18px;
-font-family:Montserrat;
-font-weight:400;
-color:rgba(0,0,0,1);
-line-height:72px;
+预览
+PNG
+Web
+1010px x 661px
+2020px x 1322px
+普通画质
  
 
 
