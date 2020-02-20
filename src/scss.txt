@@ -4,7 +4,7 @@
 true
   
   
-Web1920 x 1080
+Web1920 x 3559
 iOSpt
 
 Androiddp
@@ -27,23 +27,22 @@ CSS Rem
 
 
 
-1920px × 1080px
+1920px × 3559px
 
-iOS @2x
-图层genaray_sp_e_500iib_spectroled_essential_500_ii_bi_color_1570016197_1492203
+Web @1x
+图层位图
 位置
-589px
-215px
+1341px
+840px
 大小
-1010px
-661px
+197px
+38px
 不透明度100%
-填充100%
 预览
 PNG
 Web
-1010px x 661px
-2020px x 1322px
+197px x 38px
+394px x 76px
 普通画质
  
 
