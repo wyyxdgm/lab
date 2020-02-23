@@ -4,7 +4,7 @@
 true
   
   
-Web1920 x 3559
+Web1920 x 4079
 iOSpt
 
 Androiddp
@@ -27,23 +27,29 @@ CSS Rem
 
 
 
-1920px × 3559px
+1920px × 4079px
 
-Web @1x
-图层位图
+iOS @2x
+图层形状 1 拷贝 2
 位置
-1341px
-840px
+327px
+484px
 大小
-197px
-38px
+239px
+1px
 不透明度100%
-预览
-PNG
-Web
-197px x 38px
-394px x 76px
-普通画质
+填充100%
+颜色
+rgba(235, 235, 235, 1)RGBA
+
+
+
+
+
+代码复制代码
+width:239px;
+height:1px;
+background:rgba(235,235,235,1);
  
 
 
