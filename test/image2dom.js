@@ -15,6 +15,7 @@ const ImageModel = require('../lib/imageModel');
 const input2File = getPath('./input/input2.png');
 const tagFile = getPath('./input/tag.png');
 const tagsFile = getPath('./input/tags.png');
+const pageFile = getPath('./input/help-center@70%.png');
 
 
 function ri(res, i) {
@@ -24,9 +25,14 @@ function ri(res, i) {
   // imageModel.drawEmptyArea(path.join(__dirname, `./output-${pad(i,2)}-${tt}-empty.png`));
 }
 
-ImageModel.newTagInstance(tagFile).then(imageModel => {
+ImageModel.newInstance(tagFile).then(imageModel => {
   const shape = imageModel.tranTag();
-  console.log(shape)
+  console.log(shape);
+  ImageModel.newInstance(pageFile).then(pageModel => {
+    const points = pageModel.searchShape(shape);
+    console.log(points);
+    console.log(`${points.length} points matched!`)
+  })
 })
 
 // imageToRgbaMatrix(tagFile).then((res) => {
