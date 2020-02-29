@@ -6,26 +6,33 @@ const { pad } = require('../lib/util');
 // const png = fs.readFileSync('in.png')
 
 
+const getPath = p => path.join(__dirname, p);
 
 let fs = require('fs');
 let path = require('path');
 const ImageModel = require('../lib/imageModel');
 
-const _path = './input2.png';
+const input2File = getPath('./input/input2.png');
+const tagFile = getPath('./input/tag.png');
+const tagsFile = getPath('./input/tags.png');
 
 
 function ri(res, i) {
   const imageModel = new ImageModel(res, i);
   const model = imageModel.analysModel();
-  const tt = 'aa' || moment().format('HHmmss');
-  imageModel.drawArea(path.join(__dirname, `./output-${pad(i,2)}-${tt}.png`));
+  imageModel.drawArea(getPath(`./output/${pad(i,2)}.png`));
   // imageModel.drawEmptyArea(path.join(__dirname, `./output-${pad(i,2)}-${tt}-empty.png`));
 }
 
-imageToRgbaMatrix(path.join(__dirname, _path)).then((res) => {
-  for (let i = 1; i < 30; i++) {
-    ri(res, i);
-  }
-  // ri(res, 11);
+ImageModel.newTagInstance(tagFile).then(imageModel => {
+  const shape = imageModel.tranTag();
+  console.log(shape)
+})
 
-});
+// imageToRgbaMatrix(tagFile).then((res) => {
+//   // for (let i = 1; i < 30; i++) {
+//   //   ri(res, i);
+//   // }
+//   ri(res, 11);
+
+// });
