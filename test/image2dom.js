@@ -30,11 +30,11 @@ function ri(res, i) {
 Shape.newInstance(tagFile).then(shapeModel => {
   shapeModel.getTagShape();
   shapeModel.console();
-  ImageModel.newInstance(pageFile).then(pageModel => {
+  ImageModel.newInstance(tagFile).then(pageModel => {
     const points = pageModel.searchShape(shapeModel);
+    console.log(`points matched size: ${points.length}`);
     console.log(points);
     pageModel.getReacAreaAroundPoints(points, shapeModel);
-    console.log(`points matched size: ${points.length}`);
   })
 })
 
