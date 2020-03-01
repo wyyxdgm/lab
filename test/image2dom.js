@@ -10,7 +10,9 @@ const getPath = p => path.join(__dirname, p);
 
 let fs = require('fs');
 let path = require('path');
-const ImageModel = require('../lib/imageModel');
+const ImageModel = require('../lib/ImageModel');
+
+const Shape = require('../lib/Shape');
 
 const input2File = getPath('./input/input2.png');
 const tagFile = getPath('./input/tag.png');
@@ -25,13 +27,14 @@ function ri(res, i) {
   // imageModel.drawEmptyArea(path.join(__dirname, `./output-${pad(i,2)}-${tt}-empty.png`));
 }
 
-ImageModel.newInstance(tagFile).then(imageModel => {
-  const shape = imageModel.tranTag();
-  console.log(shape);
+Shape.newInstance(tagFile).then(shapeModel => {
+  shapeModel.tranTag();
+  shapeModel.console();
   ImageModel.newInstance(pageFile).then(pageModel => {
-    const points = pageModel.searchShape(shape);
+    const points = pageModel.searchShape(shapeModel);
     console.log(points);
-    console.log(`${points.length} points matched!`)
+    pageModel.getReacAreaAroundPoints(points);
+    console.log(`points matched size: ${points.length}`);
   })
 })
 
