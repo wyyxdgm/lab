@@ -2,4 +2,4 @@ dist
 node_modules
 *.log
 yarn.lock
-test/output*.png
+test/output/*.png

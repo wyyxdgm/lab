@@ -13,6 +13,7 @@ let path = require('path');
 const ImageModel = require('../lib/ImageModel');
 
 const Shape = require('../lib/Shape');
+const ShapeRect = require('../lib/ShapeRect');
 
 const input2File = getPath('./input/input2.png');
 const tagFile = getPath('./input/tag.png');
@@ -30,11 +31,13 @@ function ri(res, i) {
 Shape.newInstance(tagFile).then(shapeModel => {
   shapeModel.getTagShape();
   shapeModel.console();
-  ImageModel.newInstance(tagFile).then(pageModel => {
+  ImageModel.newInstance(tagsFile).then(pageModel => {
     const points = pageModel.searchShape(shapeModel);
     console.log(`points matched size: ${points.length}`);
     console.log(points);
-    pageModel.getReacAreaAroundPoints(points, shapeModel);
+    let shapeRects = pageModel.getReacAreaAroundPoints(points, shapeModel);
+    console.log('shapeRects', shapeRects);
+    pageModel.drawRectsToFile(shapeRects, getPath('./output/{name}.png'));
   })
 })
 
