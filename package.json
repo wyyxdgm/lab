@@ -61,6 +61,7 @@
         "moment": "^2.24.0",
         "node-html-light": "^1.1.0",
         "parse5": "^5.1.1",
-        "puppeteer": "^2.1.1"
+        "puppeteer": "^2.1.1",
+        "underscore.deepclone": "^0.1.3"
     }
 }

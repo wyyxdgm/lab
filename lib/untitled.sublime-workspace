@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"transp",
+				"transparent"
+			],
+			[
+				"grid-gap",
+				"grid-column-gap\tproperty"
+			],
+			[
+				"gridtmpl",
+				"grid-template-columns\tproperty"
+			],
+			[
+				"gridtemple",
+				"grid-template-columns\tproperty"
+			],
+			[
+				"transition",
+				"transition\tproperty"
+			],
+			[
+				"icon-",
+				"icon-crown-red"
+			],
+			[
+				"cofn",
+				"config"
+			],
+			[
+				"transa",
+				"transparent"
+			],
+			[
+				"type",
+				"TYPE\tproperty"
+			],
+			[
+				"CONST",
+				"const"
+			],
+			[
 				"mki",
 				"mkdirSync\tfunction"
 			],
@@ -58,10 +98,6 @@
 			[
 				"grid-co",
 				"grid-template-columns\tproperty"
-			],
-			[
-				"grid-gap",
-				"grid-gap\tproperty"
 			],
 			[
 				"align",
@@ -230,10 +266,6 @@
 			[
 				"bg",
 				"title-bg.js"
-			],
-			[
-				"type",
-				"open-type\tAttr"
 			],
 			[
 				"init",
@@ -482,60 +514,103 @@
 			[
 				"pa",
 				"paused\twarning"
-			],
-			[
-				"finis",
-				"finishEvent"
-			],
-			[
-				"allYea",
-				"allYearsXiaChe"
-			],
-			[
-				"get",
-				"getDesignWH\twarning"
-			],
-			[
-				"proto",
-				"prototype"
-			],
-			[
-				"scss",
-				"style.scss"
-			],
-			[
-				"横版",
-				"横版浮层-参观结束.png\tw:624 h:484"
-			],
-			[
-				"colu",
-				"column"
-			],
-			[
-				"columnfill",
-				"columnFill\t = '' Style CSS"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "/Users/guimaodai/workspace/lab/test/image2dom.js",
+			"file": "/Users/guimaodai/workspace/ddphoto/laravel/webpack.mix.js",
 			"settings":
 			{
-				"buffer_size": 842,
+				"buffer_size": 1318,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "// const imageToRgbaMatrix = require('image-to-rgba-matrix');\nvar output = require('image-output')\nlet fs = require('fs');\nlet path = require('path');\nconst _ = require('underscore');\n\nconst SIMILAR_VALUE = 4;\n\nclass ImageModel {\n  constructor(data, similarValue, xywh) {\n    this.data = data;\n    this.height = data.length;\n    this.width = data[0].length;\n    this.similarValue = similarValue;\n\n    if (xywh) {\n      const [x, y, w, h] = xywh;\n      this.data = this.data.slice(x, x + h).map(line => line.slice(y, y + w));\n      this.width = w;\n      this.height = h;\n    }\n\n    console.log(this.height, this.width, similarValue);\n  }\n  _initArray(h, w) {\n    const m = [];\n    for (let i = 0; i < h; i++) {\n      m[i] = [];\n      for (let j = 0; j < w; j++) {\n        m[i][j] = 0;\n      }\n    }\n    return m;\n  }\n  analysModel() {\n    return this._drawSimilarArea(0, 0);\n    // this._getEmptyArea();\n  }\n  /**\n   * 从某点起，绘制相似点为1,非相似点-1\n   * @param  {[type]} __x [description]\n   * @param  {[type]} __y [description]\n   * @return {[type]}     [description]\n   */\n  _drawSimilarArea(__x, __y) {\n    this.area = this._initArray(this.height, this.width);\n    // console.log('current', __x, __y);\n    // 当前 rgba\n    const stack = [\n      [__x, __y]\n    ];\n    let item = null;\n    while (item = stack.pop()) {\n      const [x, y] = item;\n      const [r, g, b, a] = this.data[x][y];\n      // 周围4点\n      const points = [\n        [x - 1, y], // 上\n        [x + 1, y], // 下\n        [x, y - 1], // 左\n        [x, y + 1], // 右\n      ].filter(([_x, _y]) => (_x >= 0 && _x < this.height && _y >= 0 && _y < this.width && this.area[_x][_y] === 0));\n      // 设置 -1\n      points.forEach(([_x, _y]) => {\n        // -1 是分类边界，1 已经处理过\n        // if (this.area[_x][_y] !== 0) return;\n        // 未处理的点\n        const [_r, _g, _b, _a] = this.data[_x][_y];\n        if (this._isSimilar(r, g, b, _r, _g, _b)) {\n          this.area[_x][_y] = 1;\n          stack.push([_x, _y]);\n        } else {\n          this.area[_x][_y] = -1;\n        }\n      });\n    }\n    return this.area;\n  }\n  /**\n   * 获取矩形区域中的div分块\n   * @param  RectangleObject rectObj {x,y,w,h}\n   * @return {[type]}         [description]\n   */\n  getLineBlocks(rectObj) {\n    let x = rectObj.x;\n    let h = rectObj.h;\n    let bgba = this.data[x,]\n    const lineBlocks = [];\n    for (let line = 0; line < this.height; line++) {\n      const lineArray = this.area[line];\n      let isAllBlack = true;\n      for (let w = 0; w < this.width; w++) {\n        if (lineArray[w] !== 1) {\n          isAllBlack = false;\n          break;\n        }\n      }\n      if (isAllBlack) {\n        if (h) {\n          lineBlocks.push({ x, h });\n          h = 0;\n          x = 0;\n        }\n      } else {\n        if (!x) {\n          x = line;\n          h = 0;\n        } else {\n          h++;\n        }\n      }\n    }\n    this.lineBlocks = lineBlocks;\n    return this.lineBlocks;\n  }\n  /**\n   * 找出area中，含有与非相似点的行\n   * @return [Object] 结构[{x,h},{x,h}]\n   */\n  _getEmptyArea() {\n    let x = 0;\n    let h = 0;\n    const emptyArea = [];\n    for (let line = 0; line < this.height; line++) {\n      const lineArray = this.area[line];\n      let isAllBlack = true;\n      for (let w = 0; w < this.width; w++) {\n        if (lineArray[w] !== 1) {\n          isAllBlack = false;\n          break;\n        }\n      }\n      if (isAllBlack) {\n        if (h) {\n          emptyArea.push({ x, h });\n          h = 0;\n          x = 0;\n        }\n      } else {\n        if (!x) {\n          x = line;\n          h = 0;\n        } else {\n          h++;\n        }\n      }\n    }\n    this.emptyArea = emptyArea;\n    return this.emptyArea;\n    // drawEmptyArea()\n  }\n\n  drawEmptyArea(file) {\n    this.emptyAreaData = this.genAreaData();\n    for (let e = 0; e < this.emptyArea.length; e++) {\n      for (let i = this.emptyArea[e].x; i < this.emptyArea[e].x + this.emptyArea[e].h; i++) {\n        for (let w = 0; w < 10; w++) {\n          this.emptyAreaData[i][w] = [255, 0, 0, 255];\n        }\n      }\n    }\n    output({\n      data: _.flatten(this.emptyAreaData),\n      width: this.width,\n      height: this.height\n    }, file);\n    console.log(`emptyAreaData ${file}`);\n  }\n  genAreaData() {\n    return this.data.map((line, i) => line.map((rgba, j) => {\n      return this.area[i][j] == 1 ? [0, 0, 0, 255] : [0, 0, 0, 0];\n    }));\n  }\n  genAreaBorderData() {\n    return this.data.map((line, i) => line.map((rgba, j) => {\n      return this.area[i][j] == -1 ? [0, 0, 0, 255] : [0, 0, 0, 0];\n    }));\n  }\n  drawArea(file) {\n    this.areaData = this.genAreaData();\n    output({\n      data: _.flatten(this.areaData),\n      width: this.width,\n      height: this.height\n    }, file);\n    console.log(`drawArea ${file}`);\n  }\n\n  _isSimilar(r1, g1, b1, _r, _g, _b) {\n    return Math.abs(r1 - _r) + Math.abs(g1 - _g) + Math.abs(b1 - _b) < (this.similarValue || SIMILAR_VALUE);\n  }\n}\n\nmodule.exports = ImageModel;",
-			"file": "imageModel.js",
-			"file_size": 4966,
-			"file_write_time": 132274236501023068,
+			"file": "/Users/guimaodai/workspace/lab/src/components.html",
 			"settings":
 			{
-				"buffer_size": 4861,
+				"buffer_size": 4512,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/guimaodai/workspace/lab/src/dom.html",
+			"settings":
+			{
+				"buffer_size": 1411,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/components.scss",
+			"settings":
+			{
+				"buffer_size": 22164,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/page-shipping-address.scss",
+			"settings":
+			{
+				"buffer_size": 16297,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/guimaodai/workspace/ddphoto/laravel/resources/views/checkout/pay-method.blade.php",
+			"settings":
+			{
+				"buffer_size": 15653,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/guimaodai/workspace/ddphoto/laravel/resources/views/layouts/master.blade.php",
+			"settings":
+			{
+				"buffer_size": 3188,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/guimaodai/workspace/ddphoto/laravel/resources/views/layouts/clear.blade.php",
+			"settings":
+			{
+				"buffer_size": 3047,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/guimaodai/workspace/lab/dist/scss.css",
+			"settings":
+			{
+				"buffer_size": 171,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/guimaodai/workspace/lab/dist/dom.css",
+			"settings":
+			{
+				"buffer_size": 904,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/icons.scss",
+			"settings":
+			{
+				"buffer_size": 18989,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -594,16 +669,80 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/guimaodai/workspace/lab",
-		"/Users/guimaodai/workspace/lab/src",
-		"/Users/guimaodai/workspace/lab/test",
-		"/Users/guimaodai/workspace/lab/test/output"
+		"/Users/guimaodai/workspace/ddphoto/laravel",
+		"/Users/guimaodai/workspace/ddphoto/laravel/public",
+		"/Users/guimaodai/workspace/ddphoto/laravel/public/js"
 	],
 	"file_history":
 	[
-		"/Users/guimaodai/workspace/lab/doc/LAB.md",
+		"/Users/guimaodai/workspace/lab/src/components.html",
+		"/Users/guimaodai/workspace/lab/src/dom.html",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/components.scss",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/page-shipping-address.scss",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/checkout/pay-method.blade.php",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/layouts/master.blade.php",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/layouts/clear.blade.php",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/app.scss",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/components.blade.php",
+		"/Users/guimaodai/workspace/ddphoto/laravel/routes/web.php",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/checkout/place-order.blade.php",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/category/detail.blade.php",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/page-category-detail.scss",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/category/list.blade.php",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/_mixins.scss",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/_mui.scss",
+		"/Users/guimaodai/workspace/lab/dist/dom.css",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/page-account-vip.scss",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/customers/account/vip/index.blade.php",
+		"/Users/guimaodai/workspace/github/gooey-hover-codrops/webpack.config.js",
+		"/Users/guimaodai/workspace/github/gooey-hover-codrops/index.html",
+		"/Users/guimaodai/workspace/github/gooey-hover-codrops/src/js/Scene.js",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/js/app.js",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/js/components/expanded-toogle-component.vue",
+		"/Users/guimaodai/workspace/lab/lib/util.js",
+		"/Users/guimaodai/workspace/lab/lib/Shape.js",
+		"/Users/guimaodai/workspace/lab/lib/ShapeRect.js",
+		"/Users/guimaodai/workspace/lab/test/image2dom.js",
+		"/Users/guimaodai/workspace/lab/lib/ImageModel.js",
+		"/Users/guimaodai/workspace/lab/test/output/16_28_82_28.png",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/customers/account/orders/detail.blade.php",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/page-account-orders-detail.scss",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/customers/account/orders/index.blade.php",
+		"/Users/guimaodai/workspace/ddphoto/laravel/public/css/ui.css",
+		"/Users/guimaodai/workspace/ddphoto/ddphoto/packages/Webkul/Shop/webpack.mix.js",
+		"/Users/guimaodai/workspace/ddphoto/ddphoto/webpack.mix.js",
+		"/Users/guimaodai/workspace/ddphoto/laravel/webpack.mix.js",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/theme-chalk/index.css",
+		"/Users/guimaodai/workspace/ddphoto/laravel/package.json",
+		"/Users/guimaodai/workspace/ddphoto/laravel/public/css/shop.css",
+		"/Users/guimaodai/workspace/ddphoto/ddphoto/public/css/app.css",
+		"/Users/guimaodai/workspace/ddphoto/laravel/node_modules/element-ui/lib/theme-chalk/index.css",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/page-account-orders.scss",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/icons.blade.php",
+		"/Users/guimaodai/workspace/lab/lib/config.js",
+		"/Users/guimaodai/workspace/lab/.gitignore",
+		"/Users/guimaodai/workspace/lab/test/output/undefined.png",
+		"/Users/guimaodai/workspace/lab/test/output/20_7_12_12.png",
+		"/Users/guimaodai/workspace/lab/test/output/6_15_12_12.png",
+		"/Users/guimaodai/workspace/lab/lib/Rect.js",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/customers/account/login/index.blade.php",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/header.scss",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/layouts/header/index.blade.php",
+		"/Users/guimaodai/workspace/ddphoto/ddphoto/.env",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/customers/account/profile/myinfo.blade.php",
 		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/checkout/cart/index.blade.php",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/page-account-wishlist.scss",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/customers/account/wishlist/wishlist.blade.php",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/products/wishlist.blade.php",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/page-help.scss",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/help/index.blade.php",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/page-about-us.scss",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/about-us/index.blade.php",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/layouts/footer/about-grid-links.blade.php",
+		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/icons.scss",
+		"/Users/guimaodai/workspace/lab/doc/LAB.md",
 		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/page-checkout-cart.scss",
+		"/Users/guimaodai/workspace/lab/lib/imageModel.js",
 		"/Users/guimaodai/workspace/sketch2json/layers.json",
 		"/Users/guimaodai/workspace/lab/src/scss.txt",
 		"/Users/guimaodai/Downloads/猎人谷之梦 (1)/Web 1920 – 17.png",
@@ -616,11 +755,7 @@
 		"/Users/guimaodai/Downloads/猎人谷之梦 (1)/Web 1920 – 48.png",
 		"/Users/guimaodai/Downloads/猎人谷之梦 (1)/Web 1920 – 9.png",
 		"/Users/guimaodai/workspace/ddphoto/laravel/lab/src/scss.txt",
-		"/Users/guimaodai/workspace/ddphoto/laravel/routes/web.php",
-		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/icons.scss",
-		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/header.scss",
 		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/products/detail.blade.php",
-		"/Users/guimaodai/workspace/ddphoto/laravel/package.json",
 		"/Users/guimaodai/workspace/career/career-mina/config/api.js",
 		"/Users/guimaodai/workspace/career/career-mina/pages/my/history/index.js",
 		"/Users/guimaodai/workspace/career/career-mina/pages/detail/index/index.js",
@@ -646,8 +781,6 @@
 		"/Users/guimaodai/workspace/career/career-mina/pages/index/index.wxss",
 		"/Users/guimaodai/workspace/career/career-mina/pages/index/index.wxml",
 		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/home/index.blade.php",
-		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/_mixins.scss",
-		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/_mui.scss",
 		"/Users/guimaodai/workspace/ddphoto/laravel/lab/gulpfile.js",
 		"/Users/guimaodai/workspace/ddphoto/laravel/lab/lib/lab.js",
 		"/Users/guimaodai/workspace/ddphoto/laravel/lab/lib/txt2sass.js",
@@ -666,79 +799,41 @@
 		"/Users/guimaodai/workspace/udentity/udentity-frontend/TIM.md",
 		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/_variables.scss",
 		"/Users/guimaodai/workspace/ddphoto/laravel/DEV.md",
-		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/layouts/header/index.blade.php",
 		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/page-products-detail.scss",
 		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/page-home.scss",
 		"/Users/guimaodai/workspace/ddphoto/laravel/lab/src/variable.scss",
-		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/app.scss",
-		"/Users/guimaodai/workspace/ddphoto/ddphoto/packages/Webkul/Ui/src/Resources/assets/js/components/image/image-wrapper-multiple.vue",
-		"/Users/guimaodai/workspace/ddphoto/ddphoto/public/vendor/webkul/admin/assets/js/tinymce-uploadimage.js",
-		"/Users/guimaodai/workspace/career/career-mina/pages/my/auth/index/index.wxml",
-		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/layouts/master.blade.php",
-		"/Users/guimaodai/workspace/udentity/udentity-frontend/src/assets/js/const.js",
-		"/Users/guimaodai/workspace/udentity/udentity-frontend/src/helpers/images-helper.js",
-		"/Users/guimaodai/workspace/udentity/H.md",
-		"/Users/guimaodai/workspace/udentity/udentity-frontend/src/services/shared/message.js",
-		"/Users/guimaodai/workspace/ddphoto/shop/package.json",
-		"/Users/guimaodai/workspace/udentity/TIMSDK/H5/dist/js/chunk-vendors.0491b933.js",
-		"/Users/guimaodai/workspace/udentity/udentity-frontend/.env",
-		"/Users/guimaodai/workspace/udentity/udentity-frontend/src/assets/js/tim/const.js",
-		"/Users/guimaodai/workspace/udentity/udentity-frontend/src/assets/js/sendbird/utils.js",
-		"/Users/guimaodai/workspace/udentity/udentity-frontend/src/assets/js/tim/utilsjs",
-		"/Users/guimaodai/workspace/udentity/udentity-frontend/src/assets/js/tim/GenerateTestUserSig.js",
-		"/Users/guimaodai/workspace/udentity/TIMSDK/WXMini/dist/wx/static/utils/GenerateTestUserSig.js",
-		"/Users/guimaodai/workspace/udentity/TIMSDK/H5/v1.7.x/AVChatRoom/js/debug/GenerateTestUserSig.js",
-		"/Users/guimaodai/workspace/ddphoto/laravel/cp.sh",
-		"/Users/guimaodai/workspace/nw/nature-website/src/js/script.js",
-		"/Users/guimaodai/workspace/ddphoto/laravel/lab/dist/scss.css",
-		"/Users/guimaodai/workspace/ddphoto/laravel/lab/dist/dom.css",
-		"/Users/guimaodai/workspace/ddphoto/laravel/lab/src/dom.html",
-		"/Users/guimaodai/workspace/nw/nature-website/package.json",
-		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/js/app.js",
-		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/footer.scss",
-		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/js/main.js",
-		"/Users/guimaodai/workspace/udentity/TIMSDK/H5/src/store/modules/conversation.js",
-		"/Users/guimaodai/workspace/udentity/TIMSDK/H5/src/index.vue",
-		"/Users/guimaodai/workspace/udentity/TIMSDK/H5/src/store/index.js",
-		"/Users/guimaodai/workspace/udentity/udentity-frontend/src/assets/js/sendbird/SendBirdAction.js",
-		"/Users/guimaodai/workspace/udentity/TIMSDK/H5/src/utils/rtc-client.js",
-		"/Users/guimaodai/workspace/udentity/udentity-frontend/package.json",
-		"/Users/guimaodai/workspace/udentity/udentity-frontend/src/app/index.js",
-		"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/layouts/footer/footer.blade.php",
-		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/components.scss",
-		"/Users/guimaodai/workspace/udentity/udentity-frontend/src/components/shared/app/message/message.less",
-		"/Users/guimaodai/workspace/udentity/udentity-frontend/package-lock.json",
-		"/Users/guimaodai/workspace/udentity/udentity-frontend/README.md",
-		"/Users/guimaodai/workspace/im/udentity-frontend/.env",
-		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/responsive.scss",
-		"/Users/guimaodai/workspace/ddphoto/laravel/.gitignore",
-		"/Users/guimaodai/workspace/ddphoto/laravel/lab/package.json",
-		"/Users/guimaodai/workspace/ddphoto/laravel/lab/config.js",
-		"/Users/guimaodai/workspace/ddphoto/laravel/lab/test/parse.js",
-		"/Users/guimaodai/workspace/ddphoto/laravel/lab/lib/dom2css.js",
-		"/Users/guimaodai/workspace/ddphoto/laravel/lab/dist/style.css",
-		"/Users/guimaodai/workspace/ddphoto/laravel/lab/node_modules/rx/ts/iterable.es6.d.ts",
-		"/Users/guimaodai/workspace/ddphoto/laravel/lab/node_modules/css-beauty/package.json",
-		"/Users/guimaodai/workspace/ddphoto/laravel/lab/node_modules/css-beauty/lib/CSSBeauty.min.js",
-		"/Users/guimaodai/workspace/qiaqia/build/package.json",
-		"/Users/guimaodai/workspace/ddphoto/laravel/lab/src/input.html",
-		"/Users/guimaodai/workspace/ddphoto/laravel/lab/lib/txt2less.js",
-		"/Users/guimaodai/workspace/ddphoto/laravel/lab/.gitignore",
-		"/Users/guimaodai/workspace/ddphoto/laravel/lab/lib/compile.js",
-		"/Users/guimaodai/workspace/nw/nature-website/gulpfile.js",
-		"/Users/guimaodai/workspace/ddphoto/laravel/public/css/shop.css",
-		"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/func.scss",
-		"/Users/guimaodai/workspace/nw/nature-website/src/css/func.css"
+		"/Users/guimaodai/workspace/ddphoto/ddphoto/packages/Webkul/Ui/src/Resources/assets/js/components/image/image-wrapper-multiple.vue"
 	],
 	"find":
 	{
-		"height": 42.0
+		"height": 41.0
 	},
 	"find_in_files":
 	{
-		"height": 123.0,
+		"height": 140.0,
 		"where_history":
 		[
+			"/Users/guimaodai/workspace/ddphoto/laravel/resources/views",
+			"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets",
+			"/Users/guimaodai/workspace/ddphoto/laravel/resources/views/layouts",
+			"/Users/guimaodai/workspace/ddphoto/laravel/resources/views",
+			"/Users/guimaodai/workspace/ddphoto/ddphoto/packages/Webkul",
+			"/Users/guimaodai/workspace/ddphoto/shop/src",
+			"/Users/guimaodai/workspace/ddphoto/ddphoto/packages/Webkul/Shop",
+			"/Users/guimaodai/workspace/ddphoto/ddphoto",
+			"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets",
+			"/Users/guimaodai/workspace/ddphoto/laravel/resources/views",
+			"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/",
+			"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass",
+			"/Users/guimaodai/workspace/ddphoto/laravel/resources/assets",
+			"/Users/guimaodai/workspace/ddphoto/laravel/resources/views",
+			"/Users/guimaodai/workspace/lab/test",
+			"/Users/guimaodai/workspace/lab",
+			"/Users/guimaodai/workspace/ddphoto/laravel/resources/",
+			"/Users/guimaodai/workspace/ddphoto/laravel/resources/views",
+			"/Users/guimaodai/workspace/ddphoto/laravel/resources/",
+			"/Users/guimaodai/workspace/ddphoto/laravel/resources/views",
+			"/Users/guimaodai/workspace/ddphoto/laravel/resources"
 		]
 	},
 	"find_state":
@@ -746,15 +841,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"emptyArea",
-			"_drawSimilarArea",
-			"analysModel",
-			"drawEmptyArea",
-			"_getEmptyArea",
-			"_drawSimilarArea",
-			"analysModel",
-			"path.join(__dirname, `./output/${pad(i,2)}.png`)",
-			"title-wrapper"
+			"pay",
+			"transfor",
+			"label-left",
+			"active",
+			"webpackJsonp",
+			"tab",
+			"shop.js",
+			"apply",
+			"menu-item",
+			"button ",
+			"input-container",
+			"checkbox-component",
+			"checkbox",
+			"36px",
+			"button",
+			" TRADING CO., LIMITED",
+			"shop.js",
+			"app.js",
+			"\n",
+			"\": ",
+			" \"",
+			"tab-menu-component",
+			"tab-menu-componen",
+			"div",
+			"pannel-body",
+			"tab-wrapper",
+			"place-order",
+			".expanded-toogle-component .expaned-toggle-title').click",
+			" $('.expanded-toogle-component .expaned-toggle-title').click",
+			"$('.expanded-toogle-component .expaned-toggle-title').clic",
+			"rgba(217, 217, 217, 1)",
+			"push",
+			"shaders",
+			"title",
+			"PLUS EXCLUSIV",
+			"font-weight: 400;",
+			"discount",
+			"title-wrapper",
+			"join",
+			"49K+",
+			" Answers",
+			"Computing Answers",
+			"margin-top: 20px",
+			"margin-bottom",
+			"<i class=\"icon-",
+			"<i class=\"icon",
+			"<i class=\"icon-",
+			"<div class=\"title\"></div>\n        <div class=\"desc\"></div>",
+			".",
+			" {",
+			".icon-",
+			"0px",
+			"swiper-container",
+			"plus-swiper-container",
+			"swiper-container",
+			"icon icon",
+			"<image s",
+			"image",
+			"img",
+			"background-image: url(\"",
+			"icon-sony",
+			"div",
+			"grid-item",
+			"vip-deals-grid",
+			"icon-crown-white",
+			"crown",
+			"76px",
+			"bgcover",
+			" stock, every day! B&H puts a world of technology at your fingertips.",
+			"450k+ ",
+			"bg-cover",
+			"<i class=\"icon-",
+			"Clear-All",
+			"Clear All",
+			"icon icon-close-filter-tag ml-10",
+			"filter-value",
+			"span",
+			"Canon",
+			"filter-label",
+			"filter-group",
+			"16px",
+			"div",
+			"Digital Came",
+			"Digital Cameras: 1 - 24 of 1530",
+			"Fltered by :",
+			"toggle",
+			"toggle-component",
+			"expanded",
+			"expended",
+			"expanded-toggle-component",
+			"expaned-toggle-component",
+			"Search within results",
+			"<i class=\"icon-arrow-right\">",
+			"icon-arrow-right",
+			"collapse",
+			"el-collapse",
+			"expanded-toogle",
+			"expanded-toogle-wrapper",
+			"title",
+			"expaned-toggle-body",
+			"expanded-toogle-wrapper",
+			"expanded-toogle-component",
+			"</expanded-toogle-component>",
+			"expanded-toogle-wrapper",
+			"expanded-toogle-component",
+			"<expanded-toogle-component",
+			"expanded-toogle-component",
+			"Brand",
+			".h",
+			"h",
+			"lineToGetRect",
+			"joinToGetMostMatchedRect",
+			"likes. TODO filter th",
+			"getBorderPoints",
+			"isEqureRGBA",
+			"similarValue",
+			"3",
+			"positive_not_match_count",
+			"similarValue",
+			"17",
+			"positive_not_match_count",
+			".map",
+			"drawToFile",
+			"sliceRectToFile",
+			"drawRectToFile",
+			"drawRectsToFile",
+			"drawRectToFile",
+			"this."
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -772,210 +986,35 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/Users/guimaodai/workspace/lab/test/image2dom.js",
+					"file": "/Users/guimaodai/workspace/ddphoto/laravel/webpack.mix.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 842,
+						"buffer_size": 1318,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								546,
-								557
+								1104,
+								1104
 							]
 						],
 						"settings":
 						{
-							"SL.48.region_keys":
+							"SL.605.region_keys":
+							[
+							],
+							"SL.631.region_keys":
 							[
 							],
 							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										714,
-										715
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										472,
-										473
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										558,
-										559
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/round_bracket.png",
-										"region.yellowish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										557,
-										558
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
 							"origin_encoding": "ASCII",
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"typescript_plugin_format_options":
@@ -987,216 +1026,329 @@
 							"use_tab_stops": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 65.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "imageModel.js",
+					"file": "/Users/guimaodai/workspace/lab/src/components.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4861,
+						"buffer_size": 4512,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2272,
-								2272
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"SL.53.region_keys":
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/guimaodai/workspace/lab/src/dom.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1411,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/components.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 22164,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/page-shipping-address.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16297,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/guimaodai/workspace/ddphoto/laravel/resources/views/checkout/pay-method.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15653,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"SL.636.region_keys":
+							[
+							],
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/guimaodai/workspace/ddphoto/laravel/resources/views/layouts/master.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3188,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2583,
+								2583
+							]
+						],
+						"settings":
+						{
+							"SL.637.region_keys":
 							[
 							],
 							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										2851,
-										2852
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										2197,
-										2198
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1585.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/Users/guimaodai/workspace/ddphoto/laravel/resources/views/layouts/clear.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3047,
+						"regions":
+						{
+						},
+						"selection":
+						[
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										2272,
-										2273
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/square_bracket.png",
-										"region.bluish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										2269,
-										2270
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
+								2721,
+								2729
+							]
+						],
+						"settings":
+						{
+							"SL.638.region_keys":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content"
 							],
+							"auto_complete": false,
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1510.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 8,
+					"file": "/Users/guimaodai/workspace/lab/dist/scss.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 171,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								32,
+								32
+							]
+						],
+						"settings":
+						{
+							"SL.71.region_keys":
+							[
+							],
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/CSS3/CSS3.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/Users/guimaodai/workspace/lab/dist/dom.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 904,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								904
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/CSS3/CSS3.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 0,
+					"file": "/Users/guimaodai/workspace/ddphoto/laravel/webpack.mix.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1318,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								742,
+								742
+							]
+						],
+						"settings":
+						{
+							"SL.605.region_keys":
+							[
+							],
+							"auto_complete": false,
+							"origin_encoding": "ASCII",
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
 							"typescript_plugin_format_options":
 							{
 								"convertTabsToSpaces": true,
@@ -1206,10 +1358,43 @@
 							"use_tab_stops": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1450.0,
+						"translation.y": 356.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/Users/guimaodai/workspace/ddphoto/laravel/resources/assets/sass/icons.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 18989,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18649,
+								18649
+							]
+						],
+						"settings":
+						{
+							"SL.164.region_keys":
+							[
+							],
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 17934.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -1217,11 +1402,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 30.0
+		"height": 29.0
 	},
 	"input":
 	{
-		"height": 45.0
+		"height": 52.0
 	},
 	"layout":
 	{
@@ -1232,6 +1417,12 @@
 				0,
 				1,
 				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
 			]
 		],
 		"cols":
@@ -1242,6 +1433,7 @@
 		"rows":
 		[
 			0.0,
+			0.650425149937,
 			1.0
 		]
 	},
@@ -1274,7 +1466,7 @@
 	"project": "untitled.sublime-project",
 	"replace":
 	{
-		"height": 56.0
+		"height": 54.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1283,6 +1475,190 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"webpac",
+				"laravel/webpack.mix.js"
+			],
+			[
+				"webpack",
+				"laravel/webpack.mix.js"
+			],
+			[
+				"compon.scss",
+				"laravel/resources/assets/sass/components.scss"
+			],
+			[
+				"page-shipping-address",
+				"laravel/resources/assets/sass/page-shipping-address.scss"
+			],
+			[
+				"dom.s",
+				"lab/dist/dom.css"
+			],
+			[
+				"dom.html",
+				"lab/src/dom.html"
+			],
+			[
+				"compon",
+				"lab/src/components.html"
+			],
+			[
+				"web",
+				"laravel/routes/web.php"
+			],
+			[
+				"place",
+				"laravel/resources/views/checkout/place-order.blade.php"
+			],
+			[
+				"detail.scss",
+				"laravel/resources/assets/sass/page-category-detail.scss"
+			],
+			[
+				"categorydeti",
+				"laravel/resources/views/category/detail.blade.php"
+			],
+			[
+				"categorylist.",
+				"laravel/resources/views/category/list.blade.php"
+			],
+			[
+				"dom.css",
+				"lab/dist/dom.css"
+			],
+			[
+				"componen",
+				"lab/src/components.html"
+			],
+			[
+				"mixin.scss",
+				"laravel/resources/assets/sass/_mixins.scss"
+			],
+			[
+				"mui.scss",
+				"laravel/resources/assets/sass/_mui.scss"
+			],
+			[
+				"components/expanded-toogle-component.vue",
+				"laravel/resources/assets/js/components/expanded-toogle-component.vue"
+			],
+			[
+				"component.scss",
+				"laravel/resources/assets/sass/components.scss"
+			],
+			[
+				"categordetail.",
+				"laravel/resources/views/category/detail.blade.php"
+			],
+			[
+				"util",
+				"lab/lib/util.js"
+			],
+			[
+				"placerder",
+				"laravel/resources/views/checkout/place-order.blade.php"
+			],
+			[
+				"app.scss",
+				"laravel/resources/assets/sass/app.scss"
+			],
+			[
+				"route/web.ph",
+				"laravel/routes/web.php"
+			],
+			[
+				"category",
+				"laravel/resources/assets/sass/page-category-detail.scss"
+			],
+			[
+				"shipping-address",
+				"laravel/resources/assets/sass/page-shipping-address.scss"
+			],
+			[
+				"placeorder.",
+				"laravel/resources/views/checkout/place-order.blade.php"
+			],
+			[
+				"app.js",
+				"laravel/resources/assets/js/app.js"
+			],
+			[
+				"ordersblade.php",
+				"laravel/resources/views/customers/account/orders/index.blade.php"
+			],
+			[
+				"components.scss",
+				"laravel/resources/assets/sass/components.scss"
+			],
+			[
+				"header.scss",
+				"laravel/resources/assets/sass/header.scss"
+			],
+			[
+				"web.php",
+				"laravel/routes/web.php"
+			],
+			[
+				"header/index.blade.php",
+				"laravel/resources/views/layouts/header/index.blade.php"
+			],
+			[
+				"componscss",
+				"laravel/resources/assets/sass/components.scss"
+			],
+			[
+				"accountorder.php",
+				"laravel/resources/views/customers/account/orders/index.blade.php"
+			],
+			[
+				"icon.scss",
+				"laravel/resources/assets/sass/icons.scss"
+			],
+			[
+				"account-wishlist",
+				"laravel/resources/assets/sass/page-account-wishlist.scss"
+			],
+			[
+				"wishlist.php",
+				"laravel/resources/views/customers/account/wishlist/wishlist.blade.php"
+			],
+			[
+				"wishlist.ba",
+				"laravel/resources/views/products/wishlist.blade.php"
+			],
+			[
+				"route/web",
+				"laravel/routes/web.php"
+			],
+			[
+				"compons.scss",
+				"laravel/resources/assets/sass/components.scss"
+			],
+			[
+				"abouus.",
+				"laravel/resources/assets/sass/page-about-us.scss"
+			],
+			[
+				"iconscss",
+				"laravel/resources/assets/sass/icons.scss"
+			],
+			[
+				"routeweb",
+				"laravel/routes/web.php"
+			],
+			[
+				"scss.css",
+				"lab/dist/scss.css"
+			],
+			[
+				"scss.tx",
+				"lab/src/scss.txt"
+			],
+			[
+				"",
+				"lab/lib/imageModel.js"
+			],
 			[
 				"imagemodel",
 				"lab/lib/imageModel.js"
@@ -1336,20 +1712,12 @@
 				"src/assets/js/tim/TimAction.js"
 			],
 			[
-				"header.scss",
-				"resources/assets/sass/header.scss"
-			],
-			[
 				"header/index",
 				"resources/views/layouts/header/index.blade.php"
 			],
 			[
 				"assets/js/tinymce-uploadimage.js",
 				"ddphoto/packages/Webkul/Admin/src/Resources/assets/js/tinymce-uploadimage.js"
-			],
-			[
-				"app.scss",
-				"resources/assets/sass/app.scss"
 			],
 			[
 				"mui.",
@@ -1372,20 +1740,12 @@
 				"laravel/resources/assets/sass/footer.scss"
 			],
 			[
-				"app.js",
-				"laravel/resources/assets/js/app.js"
-			],
-			[
 				"pagehome",
 				"resources/assets/sass/page-home.scss"
 			],
 			[
 				"app.c",
 				"resources/assets/sass/app.scss"
-			],
-			[
-				"iconscss",
-				"laravel/resources/assets/sass/icons.scss"
 			],
 			[
 				"icons",
@@ -1626,174 +1986,6 @@
 			[
 				"home",
 				"vendor/laravel/dusk/stubs/HomePage.stub"
-			],
-			[
-				"shop",
-				"ddphoto/public/themes/default/assets/js/shop.js"
-			],
-			[
-				"component/QuestionnaireItem",
-				"audit-revenue-h5/src/pages/Questionnaire/List/component/QuestionnaireItem.js"
-			],
-			[
-				"questionnaire/list",
-				"audit-revenue-h5/src/pages/Questionnaire/List/index.js"
-			],
-			[
-				"SigningRoomAuditPreview",
-				"audit-revenue-h5/src/components/QuestionList/components/SigningRoomAuditPreview.js"
-			],
-			[
-				"components/SingleChoicePreview",
-				"audit-revenue-h5/src/components/QuestionList/components/SingleChoicePreview.js"
-			],
-			[
-				"utils/bizDict",
-				"audit-revenue-h5/src/utils/bizDict.js"
-			],
-			[
-				"services/questionnaire",
-				"src/services/questionnaire.js"
-			],
-			[
-				"Webkul\\Product\\Helpers\\View",
-				"packages/Webkul/Product/src/Helpers/View.php"
-			],
-			[
-				"func-rem.css",
-				"nature-website/src/css/func-rem.css"
-			],
-			[
-				"Webkul\\API\\Http\\Resources\\Catalog\\Category",
-				"packages/Webkul/API/Http/Resources/Catalog/Category.php"
-			],
-			[
-				"gulpfile",
-				"gulpfile.js"
-			],
-			[
-				"config.js",
-				"config.js"
-			],
-			[
-				"detail.css",
-				"src/css/store-detail.css"
-			],
-			[
-				"configj",
-				"config.js"
-			],
-			[
-				"gulpfile.js",
-				"gulpfile.js"
-			],
-			[
-				"components/StandardForm",
-				"audit-revenue-h5/src/components/StandardForm/index.js"
-			],
-			[
-				"statistics/auditSituation",
-				"audit-revenue-h5/src/pages/Statistics/AuditSituation/index.js"
-			],
-			[
-				"menu.html",
-				"src/pages/template/menu.html"
-			],
-			[
-				"ComplaintHandling/SearchForm",
-				"src/pages/Statistics/ComplaintHandling/SearchForm.js"
-			],
-			[
-				"auditSituation",
-				"src/pages/Statistics/AuditSituation/models/index.js"
-			],
-			[
-				"statistics/agency",
-				"src/pages/Statistics/AgencyFee/index.js"
-			],
-			[
-				"services/auditSituation",
-				"audit-revenue-h5/src/services/auditSituation.js"
-			],
-			[
-				"company",
-				"career-mina/pages/comment/company/index.wxml"
-			],
-			[
-				"func",
-				"nature-website/src/css/func.css"
-			],
-			[
-				"lab.js",
-				"nature-website/lib/lab.js"
-			],
-			[
-				"storedetail.css",
-				"nature-website/src/css/store-detail.css"
-			],
-			[
-				"func.css",
-				"nature-website/src/css/func.css"
-			],
-			[
-				"store-detail.html",
-				"nature-website/src/pages/store-detail.html"
-			],
-			[
-				"utils/utils",
-				"audit-revenue-h5/src/utils/utils.js"
-			],
-			[
-				"util",
-				"career-mina/utils/util.js"
-			],
-			[
-				"appeal/distribution",
-				"audit-revenue-h5/src/pages/Appeal/Distribution/index.js"
-			],
-			[
-				"appeal/allocating",
-				"audit-revenue-h5/src/pages/Appeal/Allocating/models/index.js"
-			],
-			[
-				"mock.js",
-				"career-mina/config/mock.js"
-			],
-			[
-				"stodetail.css",
-				"nature-website/src/css/store-detail.css"
-			],
-			[
-				"store-detail-pc",
-				"nature-website/src/css/store-detail-pc.css"
-			],
-			[
-				"src/pages/store-list.html",
-				"nature-website/src/pages/store-list.html"
-			],
-			[
-				"src/pages/store-detail.html",
-				"nature-website/src/pages/store-detail.html"
-			],
-			[
-				"style.css",
-				"nature-website/src/css/style.css"
-			],
-			[
-				"responsive",
-				"nature-website/src/css/responsive.css"
-			],
-			[
-				"responsive.css",
-				"nature-website/src/css/responsive.css"
-			],
-			[
-				"css/style.css",
-				"nature-website/src/css/style.css"
-			],
-			[
-				"template/header.html",
-				"nature-website/src/pages/template/header.html"
 			]
 		],
 		"width": 0.0
@@ -1824,9 +2016,10 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 176.0,
+	"side_bar_width": 192.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
+		"max_columns": 3
 	}
 }

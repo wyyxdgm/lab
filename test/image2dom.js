@@ -34,10 +34,12 @@ Shape.newInstance(tagFile).then(shapeModel => {
   ImageModel.newInstance(tagsFile).then(pageModel => {
     const points = pageModel.searchShape(shapeModel);
     console.log(`points matched size: ${points.length}`);
-    console.log(points);
+    // console.log(points);
     let shapeRects = pageModel.getReacAreaAroundPoints(points, shapeModel);
-    console.log('shapeRects', shapeRects);
-    pageModel.drawRectsToFile(shapeRects, getPath('./output/{name}.png'));
+    console.log('shapeRects', shapeRects.filter(sr => sr.w > 0));
+    shapeRects = shapeRects.filter(sr => sr.w > 0);
+    // pageModel.sliceRectsToFile(shapeRects, getPath('./output/{name}.png'));
+    pageModel.drawRectsOnSelfToFile(shapeRects, getPath('./output/all.png'));
   })
 })
 

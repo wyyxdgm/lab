@@ -111,6 +111,9 @@ gulp.task('watchdev', function(cb) {
         } else if(/variable\.scss$/.test(paths.srcPath)) {
             gutil.log('Dist ' + paths.distPath)
             lab.updateVariableCache(paths.srcPath, paths.distPath);
+        } else if(/h5\.scss$/.test(paths.srcPath)) {
+            gutil.log('Dist ' + paths.distPath)
+            lab.toH5(paths.srcPath, paths.distPath);
         } else {
             gutil.log(gutil.colors.green(event.type || 'changed') + ' ' + paths.srcPath + '-->' + '???');
         }

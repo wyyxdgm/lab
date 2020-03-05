@@ -1,0 +1,492 @@
+@media (max-width: rem(767px)) {
+
+    .pannel-subtotal {
+
+        // margin-top: rem(0px);
+        // height: auto;
+        padding: rem(15px) rem(23px) rem(26px);
+        // margin-top: rem(24px);
+        width: rem(320px);
+        // height: rem(376px);
+        box-shadow: rem(0px) rem(4px) rem(8px) rem(0px) rgba(0, 0, 0, 0.06);
+
+        .line-info.flex-between {
+            .label-left {}
+
+            .value {}
+        }
+
+        .line-info.flex-between {
+
+            font-size: rem(22px);
+            line-height: rem(27px);
+            margin-bottom: rem(16px);
+
+            .label-left {
+                .icon {
+                    margin-left: rem(3px);
+                }
+            }
+
+            .value {}
+        }
+
+        .black-line {}
+
+        .button.checkout {
+            width: rem(288px);
+        }
+
+        .or-line-wrapper {
+            .line {}
+
+            .or {}
+
+            .line {}
+        }
+
+        .paypal {
+            margin-top: rem(16px);
+
+            .icon {
+                @include w_(197px);
+                @include h_(38px);
+            }
+        }
+    }
+
+    .checkbox-component {
+        width: rem(14px);
+        height: rem(14px);
+    }
+
+    .page-shipping-address {
+        padding-bottom: rem(100px);
+
+        .top-steps-wrapper {
+            height: rem(148px);
+            width: 100%;
+            box-shadow: rem(0px) rem(4px) rem(8px) rem(0px) rgba(0, 0, 0, 0.04);
+
+            .steps-bar {
+                width: 7.5rem;
+            }
+        }
+
+        .lr-container.flex-start {
+            width: $content-width-h5;
+
+            .l-c {
+                .title-wrapper {
+                    height: rem(95px);
+
+                    .title-36 {
+                        @include fs_(36px);
+                    }
+                }
+
+                // 支付方式
+                .tab-menu-component.pay-tab {
+                    .tab-menu-wrapper {
+
+                        .menu-item {
+                            .icon {
+                                margin-right: rem(8px);
+                            }
+
+                            flex: 1;
+                            height: rem(64px);
+                            box-shadow: rem(0px) rem(4px) rem(8px) rem(0px) rgba(0, 0, 0, 0.04);
+                            font-size: rem(22px);
+                            line-height: rem(26px);
+                        }
+
+                        .menu-item.active {}
+
+                        margin-bottom: rem(24px);
+                    }
+
+                    .tab-body-wrapper {
+                        .tab-body.active {
+                            .pannel.pannel-paypal {
+
+                                // padding-top: rem(10px);
+                                .button {
+                                    width: rem(288px);
+                                }
+
+                                .p-wrapper {
+                                    .p {
+                                        font-size: rem(22px);
+                                        line-height: rem(30px);
+                                    }
+                                }
+
+                                .checkbox-content {
+                                    @include flex;
+                                    font-size: rem(18px);
+
+                                    input {}
+
+                                    .check-text {}
+                                }
+
+                                .fs-18.c-gray {}
+                            }
+                        }
+
+                        .tab-body {
+                            .pannel {
+                                margin-bottom: rem(24px);
+                            }
+
+                            .pannel.pannel-transfer {
+                                .list-wrapper {
+                                    .list-item {
+                                        border-bottom: rem(1px) solid rgba(216, 216, 216, 0.2);
+
+                                        &:last-child {
+                                            border-bottom: rem(1px) solid rgba(216, 216, 216, 0);
+                                        }
+
+                                        line-height: rem(21px);
+                                        min-height: rem(57px);
+                                        @include ptb_(8px);
+                                        @include plr_(76px);
+                                        font-size: rem(18px);
+
+                                        .label-left {
+                                            line-height: rem(22px);
+                                        }
+
+                                        .value {
+                                            line-height: rem(21px);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .pannel.pannel-rewards {
+                    .title {
+                        font-size: rem(22px);
+                        line-height: rem(32px);
+                        padding-bottom: rem(11px);
+                        border-bottom: rem(1px) solid rgba(216, 216, 216, .4);
+                    }
+
+                    .pannel-body {
+                        @include pt_(15px);
+
+                        .input-container {
+                            width: rem(273px);
+                            height: rem(32px);
+                            font-size: rem(12px);
+                            line-height: rem(32px);
+
+                            input {
+                                width: 100%;
+                                height: 100%;
+                                @include clear-input;
+                                padding-left: rem(12px);
+                                padding-right: rem(12px);
+                            }
+                        }
+
+                        .button.red.btn-bg {
+                            width: rem(132px);
+                        }
+                    }
+                }
+
+                .review-wrapper {
+                    .button {
+                        width: rem(288px);
+                        border-radius: rem(6px);
+                    }
+                }
+
+                // 预先无地址
+                .form-wrapper {
+                    width: rem(936px);
+                    padding: rem(32px) rem(85px);
+
+                    .form-item {
+                        .form-label {}
+
+                        .input-container {
+                            input {}
+                        }
+
+                        .selector-wrapper {
+                            margin-top: rem(12px);
+                            height: rem(51px);
+                            width: 100%;
+                            border-radius: rem(6px);
+                            min-width: rem(348px);
+                            // .el-select{
+                            //     width: 100%;
+                            // }
+                        }
+
+                        .error-tip {}
+                    }
+
+                    .flex {
+
+                        .form-item {
+                            .form-label {}
+
+                            .input-container {
+                                input {}
+                            }
+
+                            .error-tip {}
+                        }
+
+                    }
+
+                    .button.red {
+                        width: rem(288px);
+                    }
+                }
+
+                // 下单页
+                .place-order-wrapper {
+                    .title-wrapper {
+                        padding-left: rem(15px);
+                        height: rem(83px);
+                    }
+
+                    .pannel-wrapper {
+                        .pannel.sm {
+                            width: rem(425px);
+                            margin-right: rem(40px);
+
+                            padding: rem(22px) rem(15px) rem(20px);
+                            min-height: rem(155px);
+
+                            .header-title-wrapper {
+                                padding-bottom: rem(20px);
+                            }
+
+                            .title-wrapper {
+                                .title-36 {}
+                            }
+
+                            .header-title-wrapper {
+                                .text-left {}
+
+
+                                .action-change {
+                                    font-size: rem(18px);
+                                    line-height: rem(22px);
+                                }
+                            }
+
+                            .body {
+                                font-size: rem(18px);
+                                line-height: rem(21px);
+
+                                .left {}
+
+                                .right {}
+                            }
+                        }
+                    }
+                }
+
+                // 预先有地址
+                .pannel {
+                    padding: rem(20px) rem(24px);
+                    width: rem(936px);
+                    min-height: rem(72px);
+                }
+
+                .pannel.pannel-1 {
+                    font-size: rem(18px);
+
+                    i.icon.icon-check-ok {}
+
+                    .p1 {
+                        padding-left: rem(20px);
+                        font-size: rem(18px);
+                    }
+
+                    .p2.flex-1 {
+                        padding-left: rem(20px);
+                        font-size: rem(18px);
+                    }
+
+                    .p3 {}
+                }
+
+                .title-wrapper {
+                    .title-36 {}
+                }
+
+                .pannel.pannel-2 {
+                    padding-bottom: rem(10px);
+                    font-size: rem(18px);
+
+                    .c1.flex {
+                        padding-bottom: rem(15px);
+
+                        .block-1.flex-1 {
+                            .p1 {
+                                line-height: rem(31px);
+                                font-size: rem(26px);
+                            }
+
+                            .p2 {
+                                line-height: rem(21px);
+                                margin-top: rem(5px);
+                            }
+                        }
+
+                        .p3 {
+                            font-size: rem(22px);
+                        }
+                    }
+
+                    .c2 {
+                        min-height: rem(136px);
+                        padding-top: rem(29px);
+
+                        .c2-l {
+                            i.icon {}
+
+                            .c2-l-block-r {
+                                margin-left: rem(20px);
+
+                                .p1 {
+                                    font-size: rem(18px);
+                                }
+
+                                .p2 {
+                                    margin-top: rem(10px);
+                                    font-size: rem(14px);
+                                }
+                            }
+                        }
+
+                        .c2-r {
+
+                            .button {
+                                bottom: rem(10px);
+                                right: rem(24px);
+
+                                &.light {}
+                            }
+                        }
+
+                    }
+
+                    .table-layout {
+
+                        .titles {
+                            font-size: rem(14px);
+                            padding-bottom: rem(6px);
+
+                            .span-1 {}
+
+                            .span-2 {}
+
+                            .span-3 {}
+
+                            .span-4 {}
+
+                            .span-5 {}
+                        }
+
+                        .body {
+                            line-height: rem(18px);
+
+                            .row {
+                                padding-top: rem(4px);
+                                font-size: rem(14px);
+
+                                .span-1 {
+                                    img {
+                                        width: rem(80px);
+                                        height: rem(80px);
+                                    }
+                                }
+
+                                .span-2 {}
+
+                                .span-3 {}
+
+                                .span-4 {}
+
+                                .span-5 {}
+
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            .r-c {
+                margin-left: rem(24px);
+
+                .button-wrapper {
+                    height: rem(95px);
+                }
+
+                .button.edit-cart {}
+
+                .pannel-subtotal {
+                    .line-info.flex-between {
+                        .label-left.fw-5 {}
+
+                        .value.fw-5 {}
+                    }
+
+                    .line-info.flex-between {
+                        div {}
+
+                        .value {}
+                    }
+
+                    .line-info.flex-between {
+                        .label-left.flex {
+                            i.icon.icon-help {}
+                        }
+
+                        .value {}
+                    }
+
+                    .black-line {}
+
+                    .line-info.flex-between.mt-15 {
+                        .label-left.fw-5 {}
+
+                        .value.fw-5 {}
+                    }
+
+                    .checkout.button.red.btn-bg {}
+
+                    .or-line-wrapper.gray {
+                        .line {}
+
+                        .or {}
+
+                        .line {}
+                    }
+
+                    .paypal {
+                        a {
+                            i.icon.icon-paypal {}
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
