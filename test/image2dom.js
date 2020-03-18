@@ -17,7 +17,8 @@ const ShapeRect = require('../lib/ShapeRect');
 const input2File = fixPath('test/input/input2.png');
 const tagFile = fixPath('test/input/tag.png');
 const tagsFile = fixPath('test/input/tags.png');
-const pageFile = fixPath('test/input/help-center@70%.png');
+// const pageFile = fixPath('test/input/help-center@70%.png');
+const pageFile = fixPath('test/input/input-cap.png');
 
 
 function ri(res, i) {
@@ -27,19 +28,25 @@ function ri(res, i) {
   // imageModel.drawEmptyArea(path.join(__dirname, `./output-${pad(i,2)}-${tt}-empty.png`));
 }
 
-Shape.newInstance(tagFile).then(shapeModel => {
-  shapeModel.getTagShape();
-  shapeModel.console();
-  ImageModel.newInstance(tagsFile).then(pageModel => {
-    const points = pageModel.searchShape(shapeModel);
-    console.log(`points matched size: ${points.length}`);
-    console.log(points);
-    let shapeRects = pageModel.getReacAreaAroundPoints(points, shapeModel);
-    console.log('shapeRects', shapeRects.filter(sr => sr.w > 0));
-    shapeRects = shapeRects.filter(sr => sr.w > 0);
-    pageModel.sliceRectsToFile(shapeRects, fixPath('test/output/{name}.png'));
-    pageModel.drawRectsOnSelfToFile(shapeRects, fixPath('test/output/all.png'));
-  })
+Shape.newInstance(pageFile).then(shapeModel => {
+  // const map = shapeModel.randomColorToFile(`test/output/colorful.png`);
+  shapeModel.findOutlineToFile(`test/output/outline.png`, 0, 0);
+  // for (let color in map) {
+  //   shapeModel.drawWidthPointsToFile(`test/output/${color}-${map[color].length}.png`, map[color], color.split(',').map(i => 255 - i));
+  // }
+  // shapeModel.drawWidthColorPointsMapToFile(`test/output/colorful.png`, map);
+
+  // shapeModel.console();
+  // ImageModel.newInstance(tagsFile).then(pageModel => {
+  //   const points = pageModel.searchShape(shapeModel);
+  //   console.log(`points matched size: ${points.length}`);
+  //   console.log(points);
+  //   let shapeRects = pageModel.getReacAreaAroundPoints(points, shapeModel);
+  //   console.log('shapeRects', shapeRects.filter(sr => sr.w > 0));
+  //   shapeRects = shapeRects.filter(sr => sr.w > 0);
+  //   pageModel.sliceRectsToFile(shapeRects, fixPath('test/output/{name}.png'));
+  //   pageModel.drawRectsOnSelfToFile(shapeRects, fixPath('test/output/all.png'));
+  // })
 })
 
 // imageToRgbaMatrix(tagFile).then((res) => {
