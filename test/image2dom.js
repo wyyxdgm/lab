@@ -30,7 +30,7 @@ function ri(res, i) {
 
 Shape.newInstance(pageFile).then(shapeModel => {
   // const map = shapeModel.randomColorToFile(`test/output/colorful.png`);
-  shapeModel.findOutlineToFile(`test/output/outline.png`, 0, 0);
+  shapeModel.findOutlineToFile(`test/output/outline.png`, 520, 100);
   // for (let color in map) {
   //   shapeModel.drawWidthPointsToFile(`test/output/${color}-${map[color].length}.png`, map[color], color.split(',').map(i => 255 - i));
   // }
