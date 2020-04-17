@@ -1,0 +1,5 @@
+// font
+@muiFontEN: -apple-system-font, "Helvetica Neue";
+@muiFontCN: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei";
+@muiFontSans: sans-serif;
+@muiFontDefault: @muiFontEN, @muiFontCN, @muiFontSans;

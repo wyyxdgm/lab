@@ -1,0 +1,587 @@
+@import "base/reset.wxss";
+
+/*no-event*/
+.no-event {
+  pointer-events: none;
+}
+
+/*margin*/
+.ma() {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mt-0 {
+  margin-top: unit(0, px) !important;
+}
+
+.mt-1 {
+  margin-top: unit(1, rpx) !important;
+}
+
+.mt-5 {
+  margin-top: unit(5*.9, rpx);
+}
+
+.mt-10 {
+  margin-top: unit(10*.9, rpx);
+}
+
+.mt-15 {
+  margin-top: unit(15*.9, rpx);
+}
+
+.mt-20 {
+  margin-top: unit(20*.9, rpx);
+}
+
+.mt-25 {
+  margin-top: unit(25*.9, rpx);
+}
+
+.mt-30 {
+  margin-top: unit(30*.9, rpx);
+}
+
+.mt-35 {
+  margin-top: unit(35*.9, rpx);
+}
+
+.mt-40 {
+  margin-top: unit(40*.9, rpx);
+}
+
+.mt-45 {
+  margin-top: unit(45*.9, rpx);
+}
+
+.mt-60 {
+  margin-top: unit(60*.9, rpx);
+}
+
+.mt-75 {
+  margin-top: unit(75*.9, rpx);
+}
+
+.mt-80 {
+  margin-top: unit(80*.9, rpx);
+}
+
+.mt-160 {
+  margin-top: unit(160*.9, rpx);
+}
+
+.ml-5 {
+  margin-left: 5rpx;
+}
+
+.ml-10 {
+  margin-left: 10rpx;
+}
+
+.ml-15 {
+  margin-left: 15rpx;
+}
+
+.ml-20 {
+  margin-left: 20rpx;
+}
+
+.ml-25 {
+  margin-left: 25rpx;
+}
+
+.ml-30 {
+  margin-left: 30rpx;
+}
+
+.ml-35 {
+  margin-left: 35rpx;
+}
+
+.ml-40 {
+  margin-left: 40rpx;
+}
+
+.ml-45 {
+  margin-left: 45rpx;
+}
+
+.mr-5 {
+  margin-right: 5rpx;
+}
+
+.mr-10 {
+  margin-right: 10rpx;
+}
+
+.mr-15 {
+  margin-right: 15rpx;
+}
+
+.mr-20 {
+  margin-right: 20rpx;
+}
+
+.mr-25 {
+  margin-right: 25rpx;
+}
+
+.mr-30 {
+  margin-right: 30rpx;
+}
+
+.mr-35 {
+  margin-right: 35rpx;
+}
+
+.mr-40 {
+  margin-right: 40rpx;
+}
+
+.mr-45 {
+  margin-right: 45rpx;
+}
+
+.mb-5 {
+  margin-bottom: unit(5*.9, rpx);
+}
+
+.mb-10 {
+  margin-bottom: unit(10*.9, rpx);
+}
+
+.mb-15 {
+  margin-bottom: unit(15*.9, rpx);
+}
+
+.mb-20 {
+  margin-bottom: unit(20*.9, rpx);
+}
+
+.mb-25 {
+  margin-bottom: unit(25*.9, rpx);
+}
+
+.mb-30 {
+  margin-bottom: unit(30*.9, rpx);
+}
+
+.mb-35 {
+  margin-bottom: unit(35*.9, rpx);
+}
+
+.mb-40 {
+  margin-bottom: unit(40*.9, rpx);
+}
+
+.mb-60 {
+  margin-bottom: unit(60*.9, rpx);
+}
+
+.mb-80 {
+  margin-bottom: unit(80*.9, rpx);
+}
+
+.mb-45 {
+  margin-bottom: unit(45*.9, rpx);
+}
+
+.mb-50 {
+  margin-bottom: unit(50*.9, rpx);
+}
+
+.mb-88 {
+  margin-bottom: unit(88*.9, rpx);
+}
+
+.mb-100 {
+  margin-bottom: unit(100*.9, rpx);
+}
+
+/*padding*/
+.pt-0 {
+  padding-top: unit(0*.9, px) !important;
+}
+
+.pt-1 {
+  padding-top: unit(1*.9, rpx) !important;
+}
+
+.pt-5 {
+  padding-top: unit(5*.9, rpx);
+}
+
+.pt-10 {
+  padding-top: unit(10*.9, rpx);
+}
+
+.pt-15 {
+  padding-top: unit(15*.9, rpx);
+}
+
+.pt-20 {
+  padding-top: unit(20*.9, rpx);
+}
+
+.pt-25 {
+  padding-top: unit(25*.9, rpx);
+}
+
+.pt-30 {
+  padding-top: unit(30*.9, rpx);
+}
+
+.pt-35 {
+  padding-top: unit(35*.9, rpx);
+}
+
+.pt-40 {
+  padding-top: unit(40*.9, rpx);
+}
+
+.pt-45 {
+  padding-top: unit(45*.9, rpx);
+}
+
+.pl-5 {
+  padding-left: 5rpx;
+}
+
+.pl-10 {
+  padding-left: 10rpx;
+}
+
+.pl-15 {
+  padding-left: 15rpx;
+}
+
+.pl-20 {
+  padding-left: 20rpx;
+}
+
+.pl-25 {
+  padding-left: 25rpx;
+}
+
+.pl-30 {
+  padding-left: 30rpx;
+}
+
+.pl-35 {
+  padding-left: 35rpx;
+}
+
+.pl-40 {
+  padding-left: 40rpx;
+}
+
+.pl-45 {
+  padding-left: 45rpx;
+}
+
+.pr-5 {
+  padding-right: 5rpx;
+}
+
+.pr-10 {
+  padding-right: 10rpx;
+}
+
+.pr-15 {
+  padding-right: 15rpx;
+}
+
+.pr-20 {
+  padding-right: 20rpx;
+}
+
+.pr-25 {
+  padding-right: 25rpx;
+}
+
+.pr-30 {
+  padding-right: 30rpx;
+}
+
+.pr-35 {
+  padding-right: 35rpx;
+}
+
+.pr-40 {
+  padding-right: 40rpx;
+}
+
+.pr-45 {
+  padding-right: 45rpx;
+}
+
+.pb-5 {
+  padding-bottom: unit(5*.9, rpx);
+}
+
+.pb-10 {
+  padding-bottom: unit(10*.9, rpx);
+}
+
+.pb-15 {
+  padding-bottom: unit(15*.9, rpx);
+}
+
+.pb-20 {
+  padding-bottom: unit(20*.9, rpx);
+}
+
+.pb-25 {
+  padding-bottom: unit(25*.9, rpx);
+}
+
+.pb-30 {
+  padding-bottom: unit(30*.9, rpx);
+}
+
+.pb-35 {
+  padding-bottom: unit(35*.9, rpx);
+}
+
+.pb-40 {
+  padding-bottom: unit(40*.9, rpx);
+}
+
+.pb-45 {
+  padding-bottom: unit(45*.9, rpx);
+}
+
+.pb-100 {
+  padding-bottom: unit(100*.9, rpx);
+}
+
+/*flex*/
+.flex-row {
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: vertical;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+.flex-end {
+  align-self: flex-end;
+}
+
+.flex-avg {
+  align-items: space-between;
+  justify-content: space-between;
+}
+
+.flex-center-bottom {
+  justify-content: flex-end;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.flex-1 {
+  flex: 1
+}
+
+.flex-2 {
+  flex: 2
+}
+
+.flex-3 {
+  flex: 3
+}
+
+/*font-size*/
+.fs-9 {
+  .fs(9px);
+}
+
+.fs-10 {
+  .fs(10px);
+}
+
+.fs-14 {
+  .fs(14px);
+}
+
+.fs-13 {
+  .fs(13px);
+}
+
+.fs-16 {
+  .fs(16px);
+}
+
+.fs-17-imp {
+  font-size: 17px !important;
+}
+
+.fs-18 {
+  .fs(18px);
+}
+
+.fs-18-imp {
+  font-size: 18px !important;
+}
+
+.fs-20 {
+  .fs(20px);
+}
+
+.fs-22 {
+  .fs(22px);
+}
+
+.fs-24 {
+  .fs(24px);
+}
+
+.fs-26 {
+  .fs(26px);
+}
+
+.fs-28 {
+  .fs(28px);
+}
+
+/*font-size*/
+.fs2rpx-10 {
+  .fs2rpx(10px);
+}
+
+.fs2rpx-14 {
+  .fs2rpx(14px);
+}
+
+.fs2rpx-16 {
+  .fs2rpx(16px);
+}
+
+.fs2rpx-18 {
+  .fs2rpx(18px);
+}
+
+.fs2rpx-20 {
+  .fs2rpx(20px);
+}
+
+.fs2rpx-22 {
+  .fs2rpx(22px);
+}
+
+.fs2rpx-24 {
+  .fs2rpx(24px);
+}
+
+.fs2rpx-26 {
+  .fs2rpx(26px);
+}
+
+/*text*/
+.text-bold {
+  font-weight: bold;
+}
+
+/*text-align*/
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/*color*/
+.c-black {
+  color: rgb(51, 51, 51);
+}
+
+.c-text-light {
+  color: rgb(150, 122, 80);
+}
+
+.c-gold {
+  color: rgb(150, 122, 80);
+}
+
+/*component*/
+.gray-line {
+  border-bottom: 1px solid rgb(128, 128, 128)
+}
+
+.icon-image {
+  margin-left: 10rpx;
+  vertical-align: middle;
+  width: 20rpx;
+  height: 20rpx;
+  display: inline-block;
+}
+
+.icon-image-xs {
+  margin-left: 10rpx;
+  width: 16rpx;
+  height: 12rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*display*/
+.inline-block {
+  display: inline-block;
+}
+
+.block {
+  display: block;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.clear-fix {
+  clear: both;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.aspectFill {
+  width: 100%;
+  height: 100%;
+}

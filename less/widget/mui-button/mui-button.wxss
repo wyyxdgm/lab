@@ -1,0 +1,5 @@
+@import "../../base/fn.wxss";
+
+.mui-btn{
+    margin-top: @muiBtnDefaultGap;
+}
