@@ -1,0 +1,138 @@
+/* ##### Import All CSS ##### */
+@import (less) 'variable.css';
+@import (less) 'func-common.css';
+@import (less) 'func.css';
+
+.page.page-case {
+
+  .series-list {
+    width: 100%;
+    .flex();
+
+    .series-item {
+      cursor: pointer;
+      flex: 1;
+      height: 871px;
+      position: relative;
+      transition: all .6s ease-in-out;
+
+      .bgcover();
+      background-position: left center;
+
+      .title-wrapper {
+        color: rgba(255, 255, 255, .65);
+        transition: color .5s;
+        position: absolute;
+        left: 70px;
+        bottom: 72px-10px;
+        /* margin-left: unit(59*100/480, %); */
+        /* margin-left: 59px; */
+
+        .title-en {
+          font-size: 16px;
+          font-family: Gill Sans;
+          font-weight: 600;
+          line-height: (16+9*2)/16;
+        }
+
+        .title-cn {
+          font-size: 60px;
+          font-family: HYQingYaTiJ;
+          font-weight: 400;
+          line-height: 60/40;
+          .letterspacingcn(40, -180);
+        }
+      }
+
+      &:hover {
+        .title-wrapper {
+          color: rgba(255, 255, 255, 1);
+        }
+      }
+
+      &.s1 {
+        background-image: url('../img/case/s1.jpg');
+      }
+
+      &.s2 {
+        background-image: url('../img/case/s2.jpg');
+      }
+
+
+      &::before {
+        content: '';
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, .3));
+        pointer-events: none;
+        z-index: 3;
+        position: absolute;
+        left: 0;
+        height: 200px;
+        bottom: 0;
+        right: 0;
+      }
+
+      &::after {
+        content: "";
+        background: rgba(0, 0, 0, 1);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 2;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+      }
+    }
+
+    &:hover {
+      .series-item {
+        &::after {
+          opacity: .6;
+        }
+
+        &:hover {
+          &::after {
+            opacity: 0;
+          }
+        }
+      }
+    }
+
+    .series-item {
+      cursor: pointer;
+
+      &:hover {
+        flex: 4;
+
+        &::after {
+          content: "";
+          opacity: 0;
+          /* display: none; */
+        }
+
+        .title-wrapper {
+          .title-en {}
+
+          .title-cn {
+            &::after {
+              content: '>';
+              font-stretch: ultra-expanded;
+              /* font-stretch: ultra-condensed; */
+              /* font-size: 3px/20px; */
+            }
+          }
+        }
+
+        &.s1 {
+          /* background-image: url('../img/product-list/s1.png'); */
+        }
+
+        &.s2 {
+          /* background-image: url('../img/product-list/s2.png'); */
+        }
+      }
+
+    }
+  }
+}

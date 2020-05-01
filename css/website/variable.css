@@ -1,0 +1,24 @@
+@text-success: #28a745;
+@text-danger: #dc3545;
+@text-warning: #ffc107;
+@text-lightgray: #dfe2eb;
+
+@nav-bg-clolor: rgba(0, 0, 0, 0.8);
+@nav-title-bg-color: rgba(0, 0, 0, .3);
+
+/* 手机特定 pading-left,padding-right */
+@vhtmlpl: 90;
+
+.h5plr() {
+  .pl(@vhtmlpl);
+  .pr(120);
+}
+
+.h5mlr() {
+  .ml(@vhtmlpl);
+  .mr(120);
+}
+
+.h5ml() {
+  .ml(@vhtmlpl);
+}

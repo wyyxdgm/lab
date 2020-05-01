@@ -1,0 +1,147 @@
+/* ##### Import All CSS ##### */
+@import (less) 'variable.css';
+@import (less) 'func-common.css';
+@import (less) 'func-rem.css';
+
+@media (max-width: 1199px) {}
+
+@media (max-width: 991px) {}
+
+@media (max-width: 767px) {
+  .page-store-list {
+
+    /* banner */
+    .banner-image {
+      width: 100%;
+      .w(750);
+      .h(382);
+      .bgcover();
+      .flexcenter();
+
+      .banner-title {
+        text-align: center;
+        font-family: HYQingYaTiJ;
+        color: rgba(255, 255, 255, 1);
+
+        .t1 {
+          .fs(54);
+          .letterspacing(54, -65);
+          .letterspacingmr(54, -65);
+        }
+
+        .t2 {
+          .mt(32-5);
+          .fs(22);
+          font-weight: 300;
+          font-family: PingFang;
+          /* .letterspacing(22, 280);
+        .letterspacingmr(22, 280); */
+          .letterspacing(22, 220);
+          .letterspacingmr(22, 220);
+        }
+      }
+    }
+
+    .tab-bar-area {
+      width: 100%;
+      overflow-x: auto;
+
+      &::-webkit-scrollbar {
+        display: none
+      }
+
+      .tab-bar {
+        .ma();
+        .w(1328);
+        .flexrow();
+        .flexaround();
+        align-items: center;
+
+        .tab-item {
+          cursor: pointer;
+          .h(87);
+          .lh(87);
+          .w(89);
+          border-bottom: 3px solid rgba(35, 35, 35, 0);
+
+          &.active {
+            border-bottom: 3px solid rgba(35, 35, 35, 1);
+          }
+
+          text-align: center;
+          vertical-align: top;
+          display: inline-block;
+          position: relative;
+          font-family: PingFang;
+          font-weight: bold;
+          color: rgba(0, 0, 0, 1);
+          .fs(26);
+
+          .red-num {
+            display: inline-block;
+            vertical-align: top;
+            .ml(5);
+            .lh(80);
+            .fs(20);
+          }
+        }
+      }
+
+    }
+
+    .detail-body-bg {
+      text-align: center;
+      background: rgba(245, 245, 245, 1);
+      .pt(0);
+      .pb(135);
+    }
+
+    .detail-body {
+      .w(650);
+      display: block;
+      .ma();
+      grid-column-gap: none;
+      grid-row-gap: none;
+      grid-template-columns: none;
+
+      .item-box {
+        .pt(64);
+        .w(650);
+        .flexcolumn();
+
+        img.main {
+          .w(650);
+          .h(340);
+        }
+
+        .info-box {
+          text-align: left;
+          .mt(30);
+
+          .icon {
+            .w(15);
+            .h(17);
+            .mr(9);
+          }
+
+          .title {
+            .fs(34);
+            .letterspacing(34, 20);
+            font-family: PingFang;
+            font-weight: bold;
+            color: rgba(0, 0, 0, 1);
+
+            .i {
+              height: 0.8em;
+            }
+          }
+
+          .location {
+            .fs(20);
+          }
+        }
+      }
+    }
+  }
+
+}

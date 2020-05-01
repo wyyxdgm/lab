@@ -1,0 +1,592 @@
+/* ##### Import All CSS ##### */
+
+@import (less) 'variable.css';
+@import (less) 'func-common.css';
+@import (less) 'func.css';
+
+
+
+/* ##### Custom CSS ##### */
+a {
+  color: white;
+
+  &:hover {
+    color: #DDD;
+  }
+}
+
+[a-link] {
+  cursor: pointer;
+  /* .hover-opacity50(); */
+}
+
+body {
+  font-family: PingFangSC-Regular, PingFangSC, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  width: 100%;
+  background: #FFF;
+  /* min-width: 1920px; */
+  /* min-width: 1720px; */
+  /* min-width: 1300px; */
+  min-width: 1600px;
+}
+
+.dialog {
+  padding-bottom: 60px+35px;
+  position: relative;
+
+  .dialog-body {
+    /* width:900px; */
+    /* height:341px; */
+    background: rgba(246, 246, 243, 1);
+  }
+
+  .dialog-close-wrapper {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+
+    img.icon {
+      .ma();
+      width: 60px;
+      height: 60px;
+    }
+  }
+}
+
+/* fonts */
+
+/* @font-face {
+  font-family: 'PingFang SC';
+  src: url('../fonts/PingFang.ttc');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PingFangSC';
+  src: url('../fonts/PingFang.ttc');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PingFang';
+  src: url('../fonts/PingFang.ttc');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PingFangSC-Medium';
+  src: url('../fonts/PingFang.ttc');
+  font-weight: 500;
+  font-style: normal;
+} */
+
+@font-face {
+  font-family: 'Bjorn';
+  src: url('../fonts/Bjorn Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gill';
+  src: url('../fonts/GillSansCE-Roman.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GillSans';
+  src: url('../fonts/GillSansCE-Roman.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat-light_[allfont.net].ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'HYQingYaTiJ';
+  src: url('../fonts/汉仪清雅体简.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* 菜单 */
+
+.left-menu {
+  outline: none;
+  width: 331px;
+  position: fixed;
+  transition: transform .3s ease 0s;
+  will-change: transform;
+  transform: translateX(-331px);
+
+  &.on {
+    transform: translateX(0px);
+  }
+
+  z-index: 12;
+  left: 0px;
+  top: 0px;
+  height: 100vh;
+  background: rgba(9, 40, 33, 1);
+
+  .header {
+    .brand-container {
+      width: unit(134+10+35.8, px);
+      margin-top: 10px;
+      margin-left: 20px;
+      cursor: pointer;
+      padding: 40px;
+      padding-bottom: 43px;
+      .flexrow();
+      .flexavg();
+
+      .brand-left {
+        height: 50px;
+        width: 35.8px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      .brand-right {
+        height: unit(50-12, px);
+        flex: 1;
+        .pl(19);
+        .flexcolumn();
+        .flexavg();
+        .pt(6);
+        .pb(6);
+
+        .title-t {
+          height: 12px;
+          font-size: 16px;
+          font-family: Gill Sans;
+          font-weight: 600;
+          color: rgba(255, 255, 255, 1);
+          line-height: 16px;
+        }
+
+        .title-b {
+          .flexrow();
+          .flexavg();
+          align-items: center;
+          height: 14px;
+          font-size: 14px;
+          font-family: PingFang SC;
+          font-weight: 400;
+          color: rgba(255, 255, 255, 1);
+          line-height: 14px;
+          .mt(12);
+
+          img.position-icon {
+            float: right;
+            width: 10px;
+            height: 10px;
+            /* margin-top: 2px; */
+          }
+        }
+      }
+    }
+
+    .line {
+      width: 262px;
+      height: 1px;
+      .ml(32);
+      background: rgba(149, 149, 149, 0.2);
+    }
+  }
+
+
+  .menu-wrapper {
+    height: ~"calc(100% - 210px - 63px)";
+    margin-top: 58px;
+    margin-bottom: 63px;
+    overflow-y: scroll;
+
+    .menu-container {
+      padding-left: 28px;
+      margin: 0px 32px;
+      height: 100%;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        /*隐藏滚轮*/
+        display: none;
+      }
+
+      li.menu-item {
+        display: block;
+
+        .menu-block {
+          line-height: 40px;
+
+          padding: calc((40 - 14) / 2);
+
+          .hover-opacity50();
+
+          .zh-name {
+            cursor: pointer;
+            display: inline-block;
+            .letterspacing(14px, -65);
+            font-size: 14px;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 1);
+            line-height: 14px;
+            width: 40px;
+          }
+
+          .en-name {
+            cursor: pointer;
+            display: inline-block;
+            width: 64px;
+            .ml(12);
+            font-size: 14px;
+            font-family: Gill Sans;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.2);
+            line-height: 14px;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+.header-area {
+  padding: 53px 61px 67px;
+  .flexrow();
+
+  a {
+    cursor: pointer;
+  }
+
+  .nav-padding-bottom {
+    position: relative;
+    .pb(45);
+    border-bottom: 1px solid rgba(212, 212, 212, 1);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0px;
+      bottom: -1px;
+      width: 0%;
+      height: 2px;
+      background: rgba(0, 0, 0, 1);
+      transition: width .3s linear 0s;
+      will-change: width;
+    }
+
+    &:hover,
+    &.active {
+      .pb(45);
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+
+  .nav-brand-left {
+    min-width: 180px;
+    cursor: pointer;
+
+    .flexrow();
+    .flexavg();
+
+    .brand-left {
+      height: 44px;
+      width: 35.4px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .brand-right {
+      height: 44px;
+      flex: 1;
+      .pl(18);
+      .flexcolumn();
+      .flexavg();
+
+      .title-t {
+        height: 12px;
+        font-size: 16px;
+        font-family: Gill Sans;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 1);
+        line-height: 16px;
+      }
+
+      .title-b {
+        .flexrow();
+        .flexavg();
+        height: 14px;
+        font-size: 14px;
+        font-family: PingFang SC;
+        font-weight: 400;
+        color: rgba(0, 0, 0, 1);
+        line-height: 14px;
+        .mt(12);
+
+        img.position-icon {
+          float: right;
+          width: 14px;
+          height: 14px;
+        }
+      }
+    }
+  }
+
+  nav.nav-menu-container {
+    .ml(92);
+    transition: margin-left .3s ease 0s;
+
+    .left-menu-on& {
+      .ml(92+63);
+    }
+
+    ul {
+      width: unit(124*2+723, px);
+      .flexrow();
+      .flexavg();
+
+      li.menu-item {
+        transition: all .3s;
+
+        .nav-block {
+          display: block;
+          width: 124px;
+          height: 44px;
+
+          .flexcolumn();
+          .flexavg();
+
+          .t-link {
+            height: 12px;
+            line-height: 12px;
+
+            &,
+            a {
+              line-height: 12px;
+              font-size: 16px;
+              font-family: Gill Sans;
+              font-weight: 600;
+              color: rgba(0, 0, 0, 1);
+            }
+          }
+
+          .b-link {
+            height: 14px;
+            line-height: 14px;
+
+            &,
+            a {
+              line-height: 14px;
+              font-size: 14px;
+              font-family: PingFang SC;
+              /* 常规字体 */
+              font-weight: 400;
+              color: rgba(0, 0, 0, 1);
+            }
+          }
+        }
+
+        &.active,
+        &:hover {
+          .b-link a {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+
+  .nav-brand-right {
+    min-width: 287.2px;
+    height: 22.7px;
+    flex: 1;
+    text-align: right;
+    align-self: flex-start;
+    justify-self: flex-end;
+
+    img {
+      width: 287.2px;
+      height: 22.7px;
+    }
+  }
+
+}
+
+/* 底部 */
+.section-footer {
+  height: 530px;
+  background: rgba(42, 42, 42, 1);
+  color: white;
+  .flexrow();
+
+  .left {
+    width: 126px;
+    border-right: 1px solid rgba(59, 59, 59, 1);
+    .flexcolumn();
+    .flexavg();
+
+    img {
+      margin: 64px auto;
+      cursor: pointer;
+    }
+  }
+
+  .mid {
+    flex: 1;
+    .flexcolumn();
+
+    .top {
+      .flexrow();
+      height: 367px;
+      border-bottom: 1px solid rgba(59, 59, 59, 1);
+      padding: 0 141px;
+      .flexavg();
+
+      ul {
+        .pt(72);
+        width: 187px;
+
+        .title {
+          font-size: 12px;
+          font-family: PingFang SC;
+          font-weight: 400;
+          color: rgba(119, 119, 119, 1);
+          line-height: 12px;
+          .mb(36);
+        }
+
+        .link {
+          .hover-opacity40();
+          font-size: 14px;
+          font-family: PingFang SC;
+          font-weight: 400;
+          color: rgba(255, 255, 255, 1);
+          line-height: 34px;
+        }
+      }
+
+    }
+
+    .bottom {
+      flex: 1;
+      .flexrow();
+      .flexavg();
+      align-items: center;
+
+      .partner-wrapper {
+        margin-left: 138px;
+        flex: 1;
+
+        .partner {
+          width: 628px;
+          height: 25px;
+        }
+      }
+
+      .weixin {
+        width: 24px;
+        height: 24px;
+        .mr(24);
+      }
+
+      .weibo {
+        width: 24px;
+        height: 24px;
+        .mr(107);
+      }
+    }
+
+  }
+
+  .right {
+    width: 412px;
+    .flexcolumn();
+    border-left: 1px solid rgba(59, 59, 59, 1);
+
+    .top {
+      border-bottom: 1px solid rgba(59, 59, 59, 1);
+      .flexcenter();
+      height: 367px;
+
+      .content-wrapper {
+        .mb(40);
+        .flexcolumn();
+        align-items: center;
+
+        .position {
+          width: 44px;
+          height: 44px;
+        }
+
+        .txt {
+          .mt(5);
+          height: 15px;
+          font-size: 14px;
+          font-family: PingFang SC;
+          font-weight: 400;
+          color: rgba(255, 255, 255, 1);
+          line-height: 15px;
+        }
+      }
+    }
+
+    .bottom {
+      flex: 1;
+      .flexcenter();
+
+      .copyright {
+        text-align: center;
+        font-size: 14px;
+        font-family: PingFang SC;
+        font-weight: 400;
+        color: rgba(89, 89, 89, 1);
+        line-height: 24px;
+      }
+    }
+  }
+}
+
+@import 'plugin.css';
+
+@import (less) 'brand-pc.css';
+@import (less) 'product-list-pc.css';
+@import (less) 'product-detail-pc.css';
+@import (less) 'case-pc.css';
+@import (less) 'case-type-pc.css';
+@import (less) 'case-detail-pc.css';
+
+@import (less) 'cooperation-pc.css';
+@import (less) 'services-pc.css';
+@import (less) 'news-pc.css';
+@import (less) 'news-detail-pc.css';
+
+
+/* @import (less) 'store-list2-pc.css'; */
+/* @import (less) 'store-list2.css'; */
