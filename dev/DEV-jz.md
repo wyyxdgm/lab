@@ -1,3 +1,8 @@
+## cdn refresh
+
+~~~
+https://wximg01.happyjuzi.com/linglong/
+~~~
 
 ## require
 
