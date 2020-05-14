@@ -1,0 +1,140 @@
+/* ##### Import All CSS ##### */
+@import (less) 'variable.css';
+@import (less) 'func-common.css';
+@import (less) 'func-rem.css';
+
+@media (max-width: 767px) {
+
+  .page.page-case-detail {
+    .template-line {
+      background: rgba(170, 170, 170, 1);
+      opacity: 0.2;
+    }
+
+    .icon-group {
+      display: grid;
+      .grid(3);
+      /* grid-column-gap: 117px; */
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        width: 100%;
+        background: #E9E9E9;
+      }
+
+
+      .icon-wrapper {
+        text-align: center;
+        border-right: none;
+        border-bottom: 1px solid #E9E9E9;
+        position: relative;
+        .flexcenter();
+        flex-direction: column;
+
+        &:not(:nth-child(3)) {
+          /* border-right: 1px solid #E9E9E9; */
+
+          &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: #E9E9E9;
+          }
+        }
+
+        &:last-child {
+          border-right: 0;
+        }
+
+        .icon {
+          .w(100);
+          .h(100);
+        }
+
+        .txt {
+          text-align: center;
+          font-family: PingFang SC;
+          font-weight: 400;
+          color: rgba(89, 89, 89, 1);
+          .fs(18);
+          .lh(26);
+          .pb(30);
+        }
+      }
+    }
+
+    .template-title-info {
+      .left .fs14 {
+        .fs(20);
+        .lh(40);
+        color: rgba(127, 127, 127, 1);
+      }
+
+      &.no-bb {
+        border-bottom: none;
+      }
+    }
+
+    /* banner */
+    .banner-image {
+      width: 100vw;
+      .h(404);
+      min-height: auto;
+      .bgcover();
+      .flexcenter();
+    }
+
+    .store-name {
+      .name-en {
+        .h(38);
+        font-family: GillSans;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 1);
+        .fs(42);
+        .letterspacing(42, 300);
+      }
+
+      .name-cn {
+        .h(36);
+        font-family: HYQingYaTiJ;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 1);
+        .fs(40);
+        .letterspacing(40, -65);
+      }
+    }
+
+    .detail-body-box {
+      background: url('../img/case-detail/bg.jpg') center top repeat-y transparent;
+      background-size: 1920px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .detail-body {
+      .ma();
+      .h5w();
+      position: relative;
+    }
+
+    .goback {
+      position: absolute;
+      .left(-25-18);
+      .top(84);
+      .wh(18);
+
+      img {
+        .wh(18);
+      }
+    }
+  }
+
+}

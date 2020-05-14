@@ -1,0 +1,103 @@
+/* ##### Import All CSS ##### */
+@import (less) 'variable.css';
+@import (less) 'func-common.css';
+@import (less) 'func.css';
+
+.page-news-detail {
+  background: rgba(245, 245, 245, 1);
+
+  .lr-container {
+    width: 1250px;
+    .ma();
+    .flex-start();
+
+    .r-container {
+      width: 315px;
+      .ml(99);
+
+      .nav-list {
+        .list-item {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          padding: 18px 0;
+          border-bottom: 1px solid rgba(227, 227, 227, 1);
+
+          &:first-child {
+            border-top: 1px solid rgba(227, 227, 227, 1);
+          }
+        }
+      }
+
+      .icons-wrapper {
+        .share {
+          font-size: 14px;
+          font-family: PingFang SC;
+          font-weight: 400;
+          color: rgba(125, 125, 125, 1);
+          line-height: 26px;
+          .mb(16);
+        }
+
+        .icon-group {
+          img.icon {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+    }
+  }
+
+  .template-title-info {
+    &.no-bb {
+      border-bottom: none;
+    }
+  }
+
+  /* banner */
+  .banner-image {
+    width: 100vw;
+    height: unit(44900/1920, vw);
+    .bgcover();
+  }
+
+  .store-name {
+    .name-en {
+      .h(38);
+      font-family: GillSans;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 1);
+      .fs(42);
+      .letterspacing(42, 300);
+    }
+
+    .name-cn {
+      .h(36);
+      font-family: HYQingYaTiJ;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 1);
+      .fs(40);
+      .letterspacing(40, -65);
+    }
+  }
+
+  .detail-body-box {
+    flex: 1;
+  }
+
+  .detail-body {
+    position: relative;
+  }
+
+  .goback {
+    position: absolute;
+    .left(-25-18);
+    top: 5px;
+    .wh(18);
+
+    img {
+      .wh(18);
+    }
+  }
+}

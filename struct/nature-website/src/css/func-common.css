@@ -1,0 +1,86 @@
+.flexcenter() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex() {
+  display: flex;
+  align-items: center;
+}
+
+.flexrow() {
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.flexcolumn() {
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: vertical;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+.flexavg() {
+  display: flex;
+  align-items: space-between;
+  justify-content: space-between;
+}
+
+.flexaround() {
+  align-items: space-around;
+  justify-content: space-around;
+}
+
+.border-bottom(@c: rgba(224, 224, 224, 1)) {
+  border-bottom: 1px solid @c;
+}
+
+.bb(@c: rgba(224, 224, 224, 1)) {
+  border-bottom: 1px solid @c;
+}
+
+.bb-245(@c: rgba(245, 245, 245, 1)) {
+  border-bottom: 1px solid @c;
+}
+
+.flex-between() {
+  display: flex;
+  align-items: space-between;
+  justify-content: space-between;
+}
+
+.flexstart() {
+  display: flex;
+  align-items: flex-start;
+}
+
+.grid(@n) {
+  display: grid;
+  grid-template-columns: repeat(@n, 1fr);
+}
+
+.obj-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.obj-contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.flex-start() {
+  display: flex;
+  align-items: flex-start;
+}

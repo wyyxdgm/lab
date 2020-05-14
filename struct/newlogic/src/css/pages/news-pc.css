@@ -1,0 +1,8 @@
+/* ##### Import All CSS ##### */
+@import (less) 'variable.css';
+@import (less) 'func-common.css';
+@import (less) 'func.css';
+
+.page.page-news {
+  
+}

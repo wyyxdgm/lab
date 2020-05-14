@@ -1,0 +1,340 @@
+/* ##### Import All CSS ##### */
+@import (less) 'variable.css';
+@import (less) 'func-common.css';
+@import (less) 'func-rem.css';
+
+@media (max-width: 767px) {
+  .line {
+    height: 1px;
+    background: rgba(163, 162, 157, 1);
+
+    &.line-163 {
+      background: rgba(163, 162, 157, 1);
+    }
+
+    &.line-98 {
+      background: rgba(98, 105, 97, 1);
+    }
+
+    &.line-216 {
+      background: rgba(216, 215, 212, 1);
+    }
+
+    &.line-245 {
+      background: rgba(245, 245, 245, 1);
+    }
+  }
+
+  .content-width {
+    .w(750-50*2);
+    .ma();
+  }
+
+  .title-4240 {
+    &.white {
+      .lh(50);
+
+      .en {
+        /*  font-family: Gill Sans;
+        font-weight: 600;
+        color: white;
+        line-height: 1em; */
+        /* margin-right: 10px; */
+        font-weight: 400;
+        /* font-weight: 300; */
+        .fs(50);
+        /* .letterspacing(50, -65); */
+        .letterspacing(50, 80);
+        /* 这个和设计稿效果比较一致 */
+      }
+
+      .cn {
+        /*  font-family: HYQingYaTiJ;
+        font-weight: 400;
+        color: white;
+        line-height: 1em; */
+        .fs(50);
+        .letterspacing(50, -65);
+        margin-left: -.15em;
+      }
+    }
+  }
+
+  .title-56 {
+    &.black {
+      color: rgba(0, 0, 0, 1);
+    }
+
+    font-size: 56px;
+    font-family: HYQingYaTiJ;
+    font-weight: 400;
+
+    .letterspacingcn(-180, 56);
+    line-height: 1em;
+  }
+
+  .title-44 {
+    font-family: PingFang SC;
+    font-weight: 300;
+    color: #000000;
+    .fs(44);
+    .letterspacing(44, 20);
+    line-height: 1.2em;
+    height: auto;
+  }
+
+  .title-30 {
+    font-size: 30px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    line-height: 1em;
+    .letterspacing(20, 30);
+  }
+
+  .title-12 {
+    font-size: 12px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    color: rgba(127, 127, 127, 1);
+
+    &.rt {
+      line-height: 1em;
+      margin-left: 12px;
+    }
+
+    /* line-height: 2; */
+    /* .letterspacing(20, 30); */
+  }
+
+
+  .ppp {
+    &.p14 {
+      /* font-size: 14px; */
+      font-family: PingFang SC;
+      font-weight: 400;
+      color: rgba(62, 62, 62, 1);
+      line-height: 42/24;
+      .fs(24);
+    }
+
+    &.p12 {
+      font-size: 12px;
+      font-family: PingFang SC;
+      font-weight: 400;
+      color: rgba(62, 62, 62, 1);
+      line-height: 26/12;
+    }
+  }
+
+  .fs14 {
+    font-size: 14px;
+  }
+
+  .gray127 {
+    color: rgba(127, 127, 127, 1);
+  }
+
+
+
+
+
+
+  /* template */
+  .template-gap-10 {
+    .pt(10);
+  }
+
+  .template-gap-20 {
+    .pt(20);
+  }
+
+  .template-gap-30 {
+    .pt(30);
+  }
+
+  .template-gap-40 {
+    .pt(40);
+  }
+
+  .template-gap-50 {
+    .pt(50);
+  }
+
+  .template-gap-60 {
+    .pt(60);
+  }
+
+  .template-gap-70 {
+    .pt(70);
+  }
+
+  .template-gap-80 {
+    .pt(80);
+  }
+
+  .template-gap-90 {
+    .pt(90);
+  }
+
+  .template-gap-100 {
+    .pt(100);
+  }
+
+  .template-gap-110 {
+    .pt(110);
+  }
+
+  .template-gap-130 {
+    .pt(130);
+  }
+
+  .template-gap-120 {
+    .pt(120);
+  }
+
+  .template-image-1316-690 {
+    width: 100%;
+    .h(423);
+    .bgcover();
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .title-20 {
+    font-size: 20px;
+    font-family: PingFang SC;
+    font-weight: 500;
+    color: rgba(62, 62, 62, 1);
+    line-height: 24px;
+  }
+
+  .template-title {
+    font-family: PingFang;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 1);
+    .fs(24);
+    .letterspacing(24, 20);
+  }
+
+  .template-desc {
+    font-family: PingFang;
+    font-weight: 500;
+    color: rgba(62, 62, 62, 1);
+    .fs(24);
+    .lh(42);
+  }
+
+  .template-coloumn-3-image-box {
+    .flexrow();
+    .flexavg();
+
+    img {
+      .w(418);
+      .h(604);
+    }
+  }
+
+  .template-grid-3-image-box {
+    .grid(3);
+    grid-gap: 8px;
+    .h(369);
+
+    img {
+      /* border: 1px solid #ddd; */
+      height: 100%;
+      .w(650/3);
+      object-fit: cover;
+    }
+  }
+
+  .template-line {
+    border-bottom: 1px solid rgba(195, 195, 195, 1);
+  }
+
+  .template-title-info {
+    border-bottom: 1px solid rgba(195, 195, 195, 1);
+    .flexrow();
+    .flexavg();
+
+    .left {
+      .mb(0);
+
+      .title {
+        font-family: PingFang;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 1);
+        .fs(40);
+        .letterspacing(40, 20);
+        .lh(40);
+        .mb(49);
+      }
+
+      .info-box {
+        .address {
+          .h(14);
+          font-family: PingFang;
+          font-weight: 500;
+          color: rgba(0, 0, 0, 1);
+          .fs(14);
+        }
+      }
+
+      .line {
+        .mlr(16);
+        color: rgba(195, 195, 195, 1);
+      }
+
+      .time {
+        .h(14);
+        font-family: PingFang;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 1);
+        .fs(14);
+      }
+    }
+
+    .right {
+      display: grid;
+      .grid(3);
+      .fs(14);
+      .mb(36);
+
+      justify-content: flex-end;
+
+      i.icon {
+        .w(15);
+        .h(15);
+        display: inline-block;
+        .mr(10);
+      }
+
+      .avatar-box {
+        .flexrow();
+        align-items: center;
+
+        .avatar {
+          background-image: url('../img/store-detail/矢量智能对象 拷贝 2@2x.png');
+          .bgcontain();
+        }
+      }
+
+      .phone-box {
+        .mt(10);
+        .flexrow();
+        align-items: center;
+
+        .phone {
+          background-image: url('../img/store-detail/矢量智能对象 拷贝 2@2x(1).png');
+          .bgcontain();
+        }
+      }
+
+    }
+
+  }
+}

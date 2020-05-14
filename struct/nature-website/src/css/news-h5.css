@@ -1,0 +1,99 @@
+/* ##### Import All CSS ##### */
+@import (less) 'variable.css';
+@import (less) 'func-common.css';
+@import (less) 'func-rem.css';
+
+@media (max-width: 767px) {
+
+  .page.page-news {
+    .pb(20);
+
+    .banner-container {
+      width: 100%;
+      .h(382);
+      min-height: auto;
+      .bgcover();
+      .flexcenter();
+
+      background-image: url('../img/news/banner.png');
+
+      .title-wrapper {
+        text-align: center;
+
+        .title.cn {
+          font-family: HYQingYaTiJ;
+          font-weight: 400;
+          color: rgba(255, 255, 255, 1);
+          line-height: 1.2;
+          .fs(54);
+          .letterspacing(54, -180);
+        }
+
+        .title-sm.en {
+          .mt(25-.54-.14);
+          .fs(14);
+          font-family: Bjorn;
+          font-weight: 400;
+          color: rgba(255, 255, 255, 1);
+          line-height: 1.2;
+        }
+      }
+    }
+
+    .grid-body {
+      display: grid;
+      .grid(1);
+      grid-gap: .t(60)[@rem] 0;
+      .ptb(90);
+      .plr(50);
+
+      .grid-item {
+        .image-container {
+          img {}
+        }
+
+        .time {
+          .mt(27);
+          .fs(18);
+          font-family: PingFang SC;
+          font-weight: 400;
+          color: rgba(100, 100, 100, 1);
+          line-height: 1em;
+        }
+
+        .title-24 {
+          .fs(32);
+          .mt(12-3.2);
+          font-family: PingFang SC;
+          font-weight: 500;
+          color: rgba(0, 0, 0, 1);
+          line-height: 1.2;
+
+          a {
+            color: black;
+          }
+        }
+
+        .title-12 {
+          .mt(19-1.6-3.2);
+          .fs(16);
+          font-family: PingFang SC;
+          font-weight: 400;
+          color: rgba(100, 100, 100, 1);
+          line-height: 1.2;
+        }
+      }
+    }
+
+    .more-wrapper {
+      cursor: pointer;
+      border-top: 1px solid rgba(0, 0, 0, .1);
+      border-bottom: 1px solid rgba(0, 0, 0, .1);
+      padding: 35px;
+      line-height: 1em;
+      margin: 18px;
+      text-align: center;
+    }
+  }
+
+}

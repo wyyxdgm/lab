@@ -1,0 +1,56 @@
+/* ##### Import All CSS ##### */
+@import (less) 'variable.css';
+@import (less) 'func-common.css';
+@import (less) 'func.css';
+
+.page-store-detail {
+
+  /* banner */
+  .banner-image {
+    width: 100%;
+    .h(388);
+    .bgcover();
+    .flexcenter();
+  }
+
+  .store-name {
+    .name-en {
+      .h(38);
+      font-family: GillSans;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 1);
+      .fs(42);
+      .letterspacing(42, 300);
+    }
+
+    .name-cn {
+      .h(36);
+      font-family: HYQingYaTiJ;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 1);
+      .fs(40);
+      .letterspacing(40, -65);
+    }
+  }
+
+  .detail-body-box {
+    background: rgba(245, 245, 245, 1);
+  }
+
+  .detail-body {
+    .ma();
+    .w(1316);
+    position: relative;
+  }
+
+  .goback {
+    position: absolute;
+    .left(-25-18);
+    .top(84);
+    .wh(18);
+
+    img {
+      .wh(18);
+    }
+  }
+}

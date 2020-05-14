@@ -1,0 +1,53 @@
+@import (less) 'func-common.css';
+@import (less) 'func.css';
+
+.height-400 {
+  height: 400px;
+}
+
+.height-600 {
+  height: 600px;
+}
+
+.height-700 {
+  height: 700px;
+}
+
+.height-800 {
+  height: 800px;
+}
+
+.height-900 {
+  height: 900px;
+}
+
+.height-1000 {
+  height: 1000px;
+}
+
+/*margin*/
+
+.mt-1 {
+  margin-top: 1px !important;
+}
+
+.mtfun(0);
+
+.mlfun(0);
+
+.mrfun(0);
+
+.mbfun(0);
+
+/*padding*/
+.pt-1 {
+  padding-top: 1px !important;
+}
+
+.ptfun(0);
+
+.plfun(0);
+
+.prfun(0);
+
+.pbfun(0);

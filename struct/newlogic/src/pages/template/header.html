@@ -1,0 +1,23 @@
+<script>
+/*
+ * 根据屏幕宽度改变根元素字体
+ */
+(function(doc, win) {
+  var docEl = doc.documentElement,
+    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    recalc = function() {
+      var clientWidth = docEl.clientWidth;
+      if (!clientWidth) return;
+      // 手机(<768)时,启用rem
+      if (clientWidth < 768) {
+        docEl.style.fontSize = clientWidth / 10 + 'px';
+      } else {
+        docEl.style.fontSize = '';
+      }
+    };
+  if (!doc.addEventListener) return;
+  win.addEventListener(resizeEvt, recalc, false);
+  doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+
+</script>

@@ -1,0 +1,12 @@
+.DS_Store
+doc
+.gitattributes
+node_modules/
+dist/
+script
+lab/
+_archived
+
+src/img/
+
+.idea/

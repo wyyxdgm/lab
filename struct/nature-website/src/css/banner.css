@@ -1,0 +1,70 @@
+.box-banner {
+  height: 440px;
+  background: url("../img/banner/banner.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  .pre {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+  .title {
+    font-family: HYQingYaTiJ;
+    margin-bottom: 28px;
+    font-size:64px;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height: 1;
+  }
+  .button {
+    width: 246px;
+    min-width: 246px;
+    height: 48px;
+    color: #E3E3E3;
+    background: transparent;
+    border:1px solid rgba(207,207,207,1);
+    box-sizing: border-box;
+    &:before {
+      background-color: transparent;
+     }
+    &:hover {
+       color: black;
+      span {
+        z-index: 2;
+      }
+     }
+  }
+}
+
+
+@media screen and (max-width: 575px) {
+  .box-banner {
+    height: 220px;
+    background-size: cover;
+
+  .pre {
+    font-size: 8px;
+    line-height: 15px;
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    font-size: 32px !important;
+    text-align: center;
+    line-height: 35px !important;
+    margin-bottom: 17px !important;
+  }
+
+  a.button {
+    width: 141px !important;
+    min-width: 141px !important;
+    height: 27px;
+
+  span {
+    font-size: 8px;
+  }
+}
+}
+}

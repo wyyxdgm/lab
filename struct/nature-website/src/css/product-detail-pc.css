@@ -1,0 +1,117 @@
+/* ##### Import All CSS ##### */
+@import (less) 'variable.css';
+@import (less) 'func-common.css';
+@import (less) 'func.css';
+
+.page.page-product-detail {
+  .banner-width-title {
+    width: 100%;
+    .h(961);
+    .bgcover();
+    background-image: url('../img/product-detail/banner.png');
+    position: relative;
+
+    .fixed1 {
+      .fix-bottom(60);
+    }
+
+    .title-wrapper {
+      .title-1 {
+        font-size: 14px;
+        font-family: PingFang SC;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 1);
+        line-height: 28/14;
+      }
+
+      .title-2.title-4240.white {
+        margin-top: 20px-10px;
+
+        .en {}
+
+        .cn {}
+      }
+
+      .line.line-245 {
+        .mt(30);
+      }
+    }
+  }
+
+  .bg-dot-white {
+    background: url("../img/brand/bg.jpg");
+    .pt(105);
+
+    .content-width {
+      .title-44 {}
+
+      .ppp {
+        &.pfirst {
+          .mt(36-(26-14)/2);
+        }
+      }
+    }
+
+    img.section-image {
+      width: 1251px;
+      height: 814px;
+      object-fit: cover;
+      margin: 70px auto;
+    }
+  }
+
+  .elaborate-section {
+    width: 100%;
+    .pb(153);
+    /* min-height: 965px; */
+    background: rgba(255, 255, 255, 1);
+    .pt(158);
+
+    .title-wrapper {
+      .flexstart();
+
+      .title-44 {
+        margin-right: 20px;
+      }
+
+      .pagination {
+        font-size: 16px;
+        font-family: PingFang SC;
+        font-weight: 500;
+
+        color: rgba(143, 143, 143, 1);
+
+        .no {
+          color: rgba(0, 0, 0, 1);
+        }
+
+        .gap {}
+
+        .total {}
+      }
+    }
+
+    .ppp {
+      .mt(36-(26-14)/2);
+    }
+
+    .elaborate-swiper-container.swiper-container {
+      .mt(125);
+      text-align: center;
+
+      .swiper-button-next:after, .swiper-button-prev:after {
+        color: rgba(165, 169, 170, 1);
+      }
+
+      .slide-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .ma();
+        height: 400px;
+        /*.w(834);*/
+        /*.h(384);*/
+      }
+    }
+  }
+}

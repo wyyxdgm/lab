@@ -1,0 +1,37 @@
+@media (max-width: 767px) {
+  .box-banner {
+    width: 10rem;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .box-banner {
+    width: 10rem;
+    height: 220px;
+    background-size: cover;
+
+    .pre {
+      font-size: 8px;
+      line-height: 15px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 32px !important;
+      text-align: center;
+      line-height: 35px !important;
+      margin-bottom: 17px !important;
+    }
+
+    a.button {
+      width: 141px !important;
+      min-width: 141px !important;
+      height: 27px;
+
+      span {
+        font-size: 8px;
+      }
+    }
+  }
+}

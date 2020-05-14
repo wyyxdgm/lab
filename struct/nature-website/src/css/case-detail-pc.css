@@ -1,0 +1,101 @@
+/* ##### Import All CSS ##### */
+@import (less) 'variable.css';
+@import (less) 'func-common.css';
+@import (less) 'func.css';
+
+.page.page-case-detail {
+  .template-line {
+    background: rgba(170, 170, 170, 1);
+    opacity: 0.2;
+  }
+
+  .icon-group {
+    display: grid;
+    .grid(5);
+    /* grid-column-gap: 117px; */
+
+    .icon-wrapper {
+      text-align: center;
+      border-right: 1px solid #E9E9E9;
+
+      &:last-child {
+        border-right: 0;
+      }
+
+      .icon {
+        width: 100px;
+        height: 100px;
+      }
+
+      .txt {
+        text-align: center;
+        font-size: 12px;
+        font-family: PingFang SC;
+        font-weight: 400;
+        color: rgba(89, 89, 89, 1);
+        line-height: 26px;
+      }
+    }
+  }
+
+  .template-title-info {
+    .left .fs14 {
+      line-height: 28px;
+    }
+
+    &.no-bb {
+      border-bottom: none;
+    }
+  }
+
+  /* banner */
+  .banner-image {
+    width: 100vw;
+    height: unit(75300/1920, vw);
+    min-height: 400px;
+    .bgcover();
+    .flexcenter();
+  }
+
+  .store-name {
+    .name-en {
+      .h(38);
+      font-family: GillSans;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 1);
+      .fs(42);
+      .letterspacing(42, 300);
+    }
+
+    .name-cn {
+      .h(36);
+      font-family: HYQingYaTiJ;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 1);
+      .fs(40);
+      .letterspacing(40, -65);
+    }
+  }
+
+  .detail-body-box {
+    background: url('../img/case-detail/bg.jpg') center top repeat-y transparent;
+    background-size: 1920px;
+  }
+
+  .detail-body {
+    .ma();
+    .w(1316);
+    position: relative;
+  }
+
+  .goback {
+    position: absolute;
+    .left(-25-18);
+    .top(84);
+    .wh(18);
+
+    img {
+      .wh(18);
+    }
+  }
+}

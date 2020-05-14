@@ -1,0 +1,63 @@
+{
+  "name": "nature-website",
+  "version": "0.0.1",
+  "description": "nature-website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo Error \"no test\"",
+    "build": "gulp prod",
+    "dev": "gulp watch",
+    "build-local": "gulp",
+    "serve": "gulp serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:wyyxdgm/nature-website.git"
+  },
+  "keywords": [
+    "nature-website"
+  ],
+  "author": "wyyxdgm@163.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wyyxdgm/nature-website/issues"
+  },
+  "homepage": "https://github.com/wyyxdgm/nature-website#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "ejs": "^2.6.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-changed": "^3.2.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-connect": "^5.5.0",
+    "gulp-deploy-ftp": "^1.0.1",
+    "gulp-font-spider": "^0.3.6",
+    "gulp-image-resize": "^0.13.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-less": "^4.0.1",
+    "gulp-live-server": "^0.0.31",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-postcss": "^8.0.0",
+    "gulp-ruby-sass": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1",
+    "gulp-util": "^3.0.8",
+    "gulp-watch-path": "^0.1.0",
+    "i18n-baidu": "^1.0.0",
+    "require-nocache": "^1.0.0",
+    "sftp-sync-deploy": "^0.7.1",
+    "stream-combiner2": "^1.1.1",
+    "underscore": "^1.9.1"
+  },
+  "dependencies": {
+    "@jindasong/gulp-watch": "^1.0.0",
+    "animate.css": "^3.7.2",
+    "animateJs": "^0.1.0",
+    "gulp": "^4.0.2",
+    "jquery.scrollto": "^2.1.2",
+    "swiper": "^5.1.0",
+    "vidbacking": "^2.0.1"
+  }
+}

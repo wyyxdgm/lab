@@ -1,0 +1,5 @@
+/* ##### Import All CSS ##### */
+@import (less) 'pages/index-pc.css';
+@import (less) 'pages/about-pc.css';
+@import (less) 'pages/news-pc.css';
+@import (less) 'pages/template-pc.css';

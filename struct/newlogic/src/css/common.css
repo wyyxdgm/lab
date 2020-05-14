@@ -1,0 +1,48 @@
+
+/* ##### Custom CSS ##### */
+
+@font-face {
+  font-family: 'Bjorn';
+  src: url('../fonts/Bjorn Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gill';
+  src: url('../fonts/GillSansCE-Roman.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GillSans';
+  src: url('../fonts/GillSansCE-Roman.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat-light_[allfont.net].ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'HYQingYaTiJ';
+  src: url('../fonts/汉仪清雅体简.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ##### Import All PAGE CSS ##### */
+
+@import (less) 'effect/animate.css';
+@import (less) 'effect/owl.carousel.min.css';
+@import (less) 'plugin/plugin.css';
+@import (less) 'plugin/swiper.css';
+@import (less) 'fn/mui.css';
+@import (less) 'fn/responsive.css';
+

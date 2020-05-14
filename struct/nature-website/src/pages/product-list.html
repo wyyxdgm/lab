@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="官网">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+  <title>产品</title>
+  <link rel="shortcut icon" href="../img/favicon/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <%-include('./template/header.html')%>
+</head>
+
+<body>
+  <div class="dialogs"></div>
+  <%-include('./template/menu.html')%>
+  <%-include('./template/left-menu.html')%>
+  <div class="page page-product-list">
+    <div class="series-list">
+      <div class="series-item s1" a-link="./product-detail-1.html">
+        <div class="title-wrapper">
+          <div class="title-en">
+            Penthouse
+          </div>
+          <div class="title-cn">
+            优雅系列
+          </div>
+        </div>
+      </div>
+      <div class="series-item s3" a-link="./product-detail-3.html">
+        <div class="title-wrapper">
+          <div class="title-en">
+            Artistism
+          </div>
+          <div class="title-cn">
+            时尚系列
+          </div>
+        </div>
+      </div>
+      <div class="series-item s2" a-link="./product-detail-2.html">
+        <div class="title-wrapper">
+          <div class="title-en">
+            Lighxury
+          </div>
+          <div class="title-cn">
+            轻奢系列
+          </div>
+        </div>
+      </div>
+      <div class="series-item s4" style="cursor: auto" a-link="./product-detail.html">
+        <div class="title-wrapper">
+          <div class="title-en">
+            Fusion
+          </div>
+          <div class="title-cn">
+            混搭系列
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%-include('./template/footer.html')%>
+  <script type="text/javascript" src="../js/product-list-pc.js"></script>
+</body>
+
+</html>
