@@ -5,6 +5,8 @@
   <title></title>
   <!-- 开发环境版本，包含了有帮助的命令行警告 -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- <script src="https://unpkg.com/vue/dist/vue.js"></script> -->
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 </head>
 
 <body>
@@ -12,14 +14,21 @@
     {{ message }}
   </div>
 </body>
-
 <script type="text/javascript">
+Vue.config.silent = true
+Vue.config.devtools = true
 var app = new Vue({
   el: '#app',
   data: {
     message: 'Hello Vue!'
   }
 })
+Vue.config.errorHandler = function (err, vm, info) {
+  // handle error
+  // `info` 是 Vue 特定的错误信息，比如错误所在的生命周期钩子
+  // 只在 2.2.0+ 可用
+}
+
 </script>
 
 </html>
