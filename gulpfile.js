@@ -21,7 +21,6 @@ let watch = require('@jindasong/gulp-watch');
 let useChanged = false;
 let CONFIG = require('./config');
 // let compile = require('./lib/compile.js');
-let lab = require('./lib/lab.js')
 let DIST = CONFIG.dist;
 // const ACTIVE_MENU = CONFIG.ACTIVE_MENU;
 /**
@@ -52,8 +51,8 @@ let DIST = CONFIG.dist;
 const cleanFiles = (fileList) => {
     gutil.log('Clean ' + fileList);
     return gulp.src(fileList, {
-            read: false
-        })
+        read: false
+    })
         .pipe(clean({
             force: true
         }));
@@ -79,7 +78,7 @@ const cleanFiles = (fileList) => {
 // }, 100);
 
 gulp.task('watchdev', function(cb) {
-
+    let lab = require('./lib/lab.js')
     if (!fs.existsSync('src')) fs.mkdirSync('src');
     if (!fs.existsSync('dist')) fs.mkdirSync('dist');
     watch(['src/**'], _.throttle(function(event) {
@@ -108,10 +107,10 @@ gulp.task('watchdev', function(cb) {
             if ('deleted' === event.type) return cleanFiles([paths.distPath.replace(/\.\w+$/, '.css')]);
             gutil.log('Dist ' + paths.distPath)
             lab.buildTxtToLess(paths.srcPath, paths.distPath);
-        } else if(/variable\.scss$/.test(paths.srcPath)) {
+        } else if (/variable\.scss$/.test(paths.srcPath)) {
             gutil.log('Dist ' + paths.distPath)
             lab.updateVariableCache(paths.srcPath, paths.distPath);
-        } else if(/h5\.scss$/.test(paths.srcPath)) {
+        } else if (/h5\.scss$/.test(paths.srcPath)) {
             gutil.log('Dist ' + paths.distPath)
             lab.toH5(paths.srcPath, paths.distPath);
         } else {
@@ -354,3 +353,15 @@ gulp.task('watchdev', function(cb) {
 
 gulp.task('default', gulp.series('watchdev', (cb) => cb()));
 // gulp.task('watch', gulp.series('default', 'watchhtml', 'watchi18n', 'watchcss', 'watchcopy', 'watchdev', 'serve'));
+gulp.task('watchreact', function(cb) {
+    if (!fs.existsSync('react')) fs.mkdirSync('react');
+    if (!fs.existsSync('react/src')) fs.mkdirSync('react/src');
+    if (!fs.existsSync('react/dist')) fs.mkdirSync('react/dist');
+    watch(['react/src/**'], _.throttle(function(event) {
+        var paths = watchPath(event, 'react/src/', 'react/dist/')
+        gutil.log(gutil.colors.green(event.type || 'changed') + ' ' + paths.srcPath + '-->' + paths.distPath);
+    }, 500));
+    cb();
+});
+
+gulp.task('react', gulp.series('watchreact', (cb) => cb()))
