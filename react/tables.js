@@ -10,7 +10,7 @@ module.exports = [
       name: 'type',
       title: '父成就类别',
       type: 'int',
-      enum: 'v.TYPES',
+      enum: 'V.TYPES',
     }, {
       name: 'name',
       title: '父成就名称',
@@ -31,6 +31,7 @@ module.exports = [
       name: 'achievement_type',
       title: '成就达成奖励类型',
       type: 'enum',
+      enum: 'V.ACHIEVEMENT_TYPE',
     }, {
       name: 'achievement_value',
       title: '成就达成奖励（卡券ID或零钱金额）',
@@ -60,7 +61,7 @@ module.exports = [
       name: 'type',
       title: '父成就类别',
       type: 'int',
-      enum: 'v.TYPES',
+      enum: 'V.TYPES',
     }, {
       name: 'name',
       title: '父成就名称',
@@ -73,6 +74,7 @@ module.exports = [
       name: 'action_type',
       title: '关联操作类型',
       type: 'enum',
+      enum: 'V.ACTION_TYPE',
     }, {
       name: 'action_times',
       title: '操作次数',
