@@ -70,7 +70,7 @@ module.exports = [
       title: '关联点位',
       type: 'string',
     }, {
-      name: 'action_code',
+      name: 'action_type',
       title: '关联操作类型',
       type: 'enum',
     }, {
