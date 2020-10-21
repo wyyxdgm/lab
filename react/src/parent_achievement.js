@@ -4,11 +4,11 @@ const {updateLocale} = require("moment");
 columns = [
   <%
   function renderEnumTableColumn(enumV) {
-    %>raw: true,
-        render: fieldValue => {
-          let matchedEnumItem = <%=enumV %>.find(i => i.value === fieldValue);
-          return matchedEnumItem && matchedEnumItem.label || '--';
-        },<%
+    %> raw: true,
+      render: fieldValue => {
+        let matchedEnumItem = <%=enumV %>.find(i => i.value === fieldValue);
+        return matchedEnumItem && matchedEnumItem.label || '--';
+      },<%
   }
 
   let table = schema[view.tableModel];
@@ -20,6 +20,7 @@ columns = [
         title: '<%-fieldConfig.title%>',
         dataIndex: '<%-fieldConfig.name%>',
         key: '<%-fieldConfig.name%>',
+        type: '<%-fieldConfig.type%>',
         <%
         if (fieldConfig.type === 'enum' && fieldConfig.enum) {%> <%=renderEnumTableColumn(fieldConfig.enum) %>
         <%} else if (fieldConfig.type === 'datetime') {%>
@@ -44,8 +45,8 @@ columns = [
 
   }) %>
 ];
-columnsMoreForDetail = [];
-columnsMoreForUpdate = [
+columnsForDetail = [];
+columnsForUpdate = [
   <% view.$U.forEach(col => {
   if (typeof col === 'string') {
     let fieldConfig = table.columns.find(c => c.name === col);
@@ -53,6 +54,7 @@ columnsMoreForUpdate = [
       title: '<%-fieldConfig.title%>',
       dataIndex: '<%-fieldConfig.name%>',
       key: '<%-fieldConfig.name%>',
+      type: '<%-fieldConfig.type%>',
        <%if (fieldConfig.type === 'enum' && fieldConfig.enum) {%>
       select: true,
         options: <%=fieldConfig.enum %>,
@@ -62,11 +64,13 @@ columnsMoreForUpdate = [
     }else if (typeof col === 'object') {
   if (col.type === 'upload' && col.field) {
     let fieldConfig = table.columns.find(c => c.name === col.field);
-    %>{
+    %> {
       title: '<%-fieldConfig.title%>',
       dataIndex: '<%-fieldConfig.name%>',
       key: '<%-fieldConfig.name%>',
+      type: '<%-fieldConfig.type%>',
       upload: true,
+      subType: '<%-fieldConfig.subType%>',
     },<%}%>
    <%} });%>
 ];
@@ -74,10 +78,11 @@ searchColumns = [
   <% view.$R.forEach(col => {
   if (typeof col === 'string') {
     let fieldConfig = table.columns.find(c => c.name === col);
-      %>{
+      %> {
       title: '<%-fieldConfig.title%>',
       dataIndex: '<%-fieldConfig.name%>',
       key: '<%-fieldConfig.name%>',
+      type: '<%-fieldConfig.type%>',
       <%if (fieldConfig.type === 'enum' && fieldConfig.enum) {%>
       select: true,
         options: <%=fieldConfig.enum %>,

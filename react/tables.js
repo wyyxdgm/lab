@@ -39,7 +39,8 @@ module.exports = [
       enum: 'V.ACHIEVEMENT_AWARD_TYPE',
     }, {
       name: 'reward_value',
-      title: '成就达成奖励（卡券ID或零钱金额）',
+      title: '成就达成奖励',
+      desc: '（卡券ID或零钱金额）',
       type: INT,
     }, {
       name: 'create_time',
