@@ -1,29 +1,11 @@
-const C = 'Create';
-const R = 'Research';
-const U = 'Update';
-const D = 'Delete';
-const L = 'List';
-
-// {
-//   CREATE_FORM: 'showCreateForm',
-//   UPDATE_FORM: 'showUpdateForm',
-//   DELETE_CONFIRM: 'showDeleteForm',
-// }
-const SHOW_FORM = 'showForm';
-const CLOSE_FORM = 'closeForm';
-
-// const CLOSE_FORM = {
-//   CREATE_FORM: 'deleteCreateForm',
-//   UPDATE_FORM: 'deleteUpdateForm',
-//   DELETE_CONFIRM: 'deleteDeleteForm',
-// }
-
-const REQUEST
+const {C, R, U, D, L, SHOW_FORM, CLOSE_FORM, REQUEST, VIEW_TYPE} = require('./bv');
 
 module.exports = [
   {
-    type: 'page',
+    type: VIEW_TYPE.PAGE,
     subType: 'crud-table',
+    template: 'parent_achievement.js',
+    target: 'parent_achievement.js',
     pageName: '成就设置',
     pagePath: '/parent_achievement',
     tableModel: 'parent_achievement',
@@ -41,11 +23,20 @@ module.exports = [
           {field: 'achievement_medal_active', type: 'upload'},
           {field: 'achievement_medal_normal', type: 'upload'},
           'integral',
-          'achievement_type',
-          'achievement_value',
+          'reward_type',
+          'reward_value',
         ]
       }
     }],
+    $U: [
+      'type',
+      'name',
+      {field: 'achievement_medal_active', type: 'upload'},
+      {field: 'achievement_medal_normal', type: 'upload'},
+      'integral',
+      'reward_type',
+      'reward_value',
+    ],
     $L: ['type', 'name', 'create_time', 'update_time', {
       type: '$action', subType: '', options: [{
         // element: 'button',
@@ -60,8 +51,8 @@ module.exports = [
             {field: 'achievement_medal_active', type: 'upload'},
             {field: 'achievement_medal_normal', type: 'upload'},
             'integral',
-            'achievement_type',
-            'achievement_value',
+            'reward_type',
+            'reward_value',
           ],
           actions: [{text: '取消', action: CLOSE_FORM, name: 'updateForm'}, {text: '保存', action: REQUEST, name: 'post parent_achievement/:id'}]
         }
@@ -100,8 +91,8 @@ module.exports = [
       'action_times',
       'achievement_description',
       'integral',
-      'achievement_type',
-      'achievement_value',
+      'reward_type',
+      'reward_value',
     ],
     $R: [
       'type',

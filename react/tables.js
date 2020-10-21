@@ -1,3 +1,6 @@
+const BV = require('./bv');
+const {INT, STRING, DATE_TIME, NUMBER, ENUM} = BV.FIELD_TYPE;
+const {IMAGE_URL} = BV.FIELD_SUB_TYPE;
 module.exports = [
   {
     table_name_cn: '父成就',
@@ -5,45 +8,47 @@ module.exports = [
     columns: [{
       name: 'id',
       title: '父成就id',
-      type: 'int',
+      type: INT,
     }, {
       name: 'type',
       title: '父成就类别',
-      type: 'int',
-      enum: 'V.TYPES',
+      type: ENUM,
+      enum: 'V.ACHIEVEMENT_TYPES',
     }, {
       name: 'name',
       title: '父成就名称',
-      type: 'string',
+      type: STRING,
     }, {
       name: 'achievement_medal_active',
       title: '成就勋章（完成态）',
-      type: 'string',
+      type: STRING,
+      subType: IMAGE_URL,
     }, {
       name: 'achievement_medal_normal',
       title: '成就勋章（未完成态）',
-      type: 'string',
+      type: STRING,
+      subType: IMAGE_URL,
     }, {
       name: 'integral',
       title: '成就达成积分',
-      type: 'int',
+      type: INT,
     }, {
-      name: 'achievement_type',
+      name: 'reward_type',
       title: '成就达成奖励类型',
-      type: 'enum',
-      enum: 'V.ACHIEVEMENT_TYPE',
+      type: ENUM,
+      enum: 'V.ACHIEVEMENT_AWARD_TYPE',
     }, {
-      name: 'achievement_value',
+      name: 'reward_value',
       title: '成就达成奖励（卡券ID或零钱金额）',
-      type: 'int',
+      type: INT,
     }, {
       name: 'create_time',
       title: '创建时间',
-      type: 'datetime',
+      type: DATE_TIME,
     }, {
       name: 'update_time',
       title: '最近修改时间',
-      type: 'datetime',
+      type: DATE_TIME,
     }],
   },
   {
@@ -52,57 +57,58 @@ module.exports = [
     columns: [{
       name: 'id',
       title: '父成就id',
-      type: 'int',
+      type: INT,
     }, {
       name: 'parent_id',
       title: '父成就id',
-      type: 'int',
+      type: INT,
     }, {
       name: 'type',
       title: '父成就类别',
-      type: 'int',
-      enum: 'V.TYPES',
+      type: ENUM,
+      enum: 'V.ACHIEVEMENT_TYPES',
     }, {
       name: 'name',
       title: '父成就名称',
-      type: 'string',
+      type: STRING,
     }, {
       name: 'poi',
       title: '关联点位',
-      type: 'string',
+      type: STRING,
     }, {
       name: 'action_type',
       title: '关联操作类型',
-      type: 'enum',
+      type: ENUM,
       enum: 'V.ACTION_TYPE',
     }, {
       name: 'action_times',
       title: '操作次数',
-      type: 'int',
+      type: INT,
     }, {
       name: 'achievement_description',
       title: '达成条件描述',
-      type: 'string',
+      type: STRING,
     }, {
       name: 'integral',
       title: '成就达成积分',
-      type: 'int',
+      type: INT,
     }, {
-      name: 'achievement_type',
+      name: 'reward_type',
       title: '成就达成奖励类型',
-      type: 'enum',
+      type: ENUM,
+      enum: 'V.ACHIEVEMENT_AWARD_TYPE',
     }, {
-      name: 'achievement_value',
+      name: 'reward_value',
       title: '成就达成奖励（卡券ID或零钱金额）',
-      type: 'int',
+      type: INT,
     }, {
       name: 'create_time',
       title: '创建时间',
-      type: 'datetime',
+      type: DATE_TIME,
     }, {
       name: 'update_time',
       title: '最近修改时间',
-      type: 'datetime',
+      type: DATE_TIME,
     }],
   },
 ]
