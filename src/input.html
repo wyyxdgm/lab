@@ -1,1 +1,22 @@
-<div class="more-text">展开更多</div>
+<!-- pages/quiz-ranking/quiz-ranking.wxml -->
+<view class="bg">
+  <view class="headr-container">
+    <view class="header-image"></view>
+    <view class="go-back"></view>
+  </view>
+  <view class="ranking-container">
+    <view class="ranking-item-single no-1"></view>
+    <view class="ranking-list">
+      <view class="ranking-item" wx:for="{{item in ranking}}" wx:key="item.avatar">
+        <view class="no"></view>
+        <view class="avatar"></view>
+        <view class="nick-name"></view>
+        <view class="score"></view>
+        <view class="no-icon no-index"></view>
+      </view>
+    </view>
+    <view class="show-more"></view>
+  </view>
+  <view class="empty-box"></view>
+  <view class="share-button">邀请好友</view>
+</view>
