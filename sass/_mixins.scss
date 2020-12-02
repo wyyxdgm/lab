@@ -1,0 +1,257 @@
+@mixin flex {
+    display: flex;
+    align-items: center;
+}
+
+@mixin _setArrow($arrowsize, $borderColor, $borderWidth) {
+    display: inline-block;
+    height: $arrowsize;
+    width: $arrowsize;
+    border-width: $borderWidth $borderWidth 0 0;
+    border-color: $borderColor;
+    border-style: solid;
+}
+
+@mixin setArrow($direction:right, $arrowsize:10px, $borderColor:black, $borderWidth:1px) {
+    @include _setArrow($arrowsize, $borderColor, $borderWidth);
+
+    @if($direction==top) {
+        transform: matrix(0.71, -0.71, 0.71, 0.71, 0, 0); // rotate(-45deg)
+    }
+
+    @else if($direction==right) {
+        transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0); // rotate(45deg);
+        position: relative;
+        top: -2px;
+    }
+
+    @else if($direction==left) {
+        transform: matrix(-0.71, -0.71, 0.71, -0.71, 0, 0); // rotate(-135deg);
+        position: relative;
+        top: -2px;
+    }
+
+    @else if($direction==down) {
+        transform: matrix(-0.71, 0.71, -0.71, -0.71, 0, 0); // rotate(135deg);
+        position: relative;
+        top: -3px;
+    }
+
+}
+
+// 实心箭头混合
+
+@mixin arrow($w: 10px, $color: #000, $dir: top) {
+
+    // 兼容行内和块
+
+    width: 0;
+
+    font-size: 0;
+
+    //多宽的三角
+
+    border: $w solid transparent;
+
+    //朝向和颜色
+
+    border-#{$dir}-color: $color;
+
+}
+
+@mixin flex-start {
+    display: flex;
+    align-items: flex-start;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-column-reverse {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex-around {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@mixin grid-1 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+@mixin grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@mixin grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@mixin grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@mixin clear-button {
+    border: 0;
+    background-color: transparent;
+    outline: none;
+}
+
+@mixin clear-input {
+    outline-color: invert;
+    outline-style: none;
+    outline-width: 0px;
+    border: none;
+    border-style: none;
+    text-shadow: none;
+    -webkit-appearance: none;
+    -webkit-user-select: text;
+    outline-color: transparent;
+    box-shadow: none !important;
+}
+
+@mixin placeholder($color:$text-gray) {
+    &::-webkit-input-placeholder {
+        /* WebKit, Blink, Edge */
+        color: $color;
+    }
+
+    &:-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: $color;
+    }
+
+    &::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: $color;
+    }
+
+    &:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: $color;
+    }
+}
+
+@mixin reset-a($color) {
+
+    a:active,
+    a:focus,
+    a:hover,
+    a:link,
+    a:visited {
+        text-decoration: none;
+        color: $color;
+    }
+}
+
+@mixin abscover($selector, $color: rgba(1, 1, 1, 0.6)) {
+
+    position: relative;
+    overflow: hidden;
+
+    #{$selector} {
+        position: absolute;
+        background: $color;
+        width: 100%;
+        height: 100%;
+    }
+
+}
+
+@mixin clickable($selector) {
+    #{$selector} {
+        cursor: pointer;
+        user-select: none;
+        text-align: center;
+    }
+
+    [disabled="disabled"] {
+        cursor: not-allow;
+    }
+}
+
+@mixin fw($x) {
+    font-weight: #{$x*100};
+}
+
+
+@mixin ha() {
+    height: auto;
+}
+
+@mixin imagecontain() {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@mixin imagecover() {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@mixin imagecontaincenter() {
+    @include flexcenter();
+
+    img {
+        @include imagecontain();
+    }
+}
+
+@mixin imagecovercenter() {
+    @include flexcenter();
+
+    img {
+        @include imagecover();
+    }
+}
+
+@mixin txt() {
+    text-align: justify;
+    text-align-last: left;
+}
+
+@mixin bgcover() {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@mixin bgcontain() {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@mixin border-bottom($color: $border-gray3) {
+    border-bottom: 1px solid $color;
+}
+
+@mixin grid($n:3) {
+    display: grid;
+    grid-template-columns: repeat($n, 1fr);
+}

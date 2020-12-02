@@ -1,0 +1,122 @@
+
+@media (min-width: 352px) {}
+
+@media (min-width: 576px) {}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 1200px) {}
+
+[h5],
+[h5-block] {
+  display: none;
+}
+
+[h5-grid] {
+  display: none;
+}
+
+[h5-important],
+[h5-block-important] {
+  display: none !important;
+}
+
+[h5-inline] {
+  display: none;
+}
+
+[h5-inline-block] {
+  display: none;
+}
+
+[h5-flex] {
+  display: none;
+}
+
+[pc],
+[pc-block] {
+  display: block;
+}
+
+[pc-grid] {
+  display: grid;
+}
+
+[pc-important] {
+  display: block !important;
+}
+
+[pc-flex-important] {
+  display: flex !important;
+}
+
+[pc-flex] {
+  display: flex;
+}
+
+[pc-inline] {
+  display: inline;
+}
+
+[pc-inline-block] {
+  display: inline-block;
+}
+
+@media (max-width: 767px) {
+
+  [h5],
+  [h5-block] {
+    display: block;
+  }
+
+  [h5-grid] {
+    display: grid;
+  }
+
+  [h5-flex] {
+    display: flex;
+  }
+
+  [h5-inline] {
+    display: inline;
+  }
+
+  [h5-inline-block] {
+    display: inline-block;
+  }
+
+  [pc],
+  [pc-block] {
+    display: none;
+  }
+
+  [pc-grid] {
+    display: none;
+  }
+
+  [pc-flex] {
+    display: none;
+  }
+
+  [pc-inline] {
+    display: none;
+  }
+
+  [pc-inline-block] {
+    display: none;
+  }
+
+  [pc-important] {
+    display: none !important;
+  }
+
+  [pc-flex-important] {
+    display: none !important;
+  }
+
+  [h5-important] {
+    display: block !important;
+  }
+}

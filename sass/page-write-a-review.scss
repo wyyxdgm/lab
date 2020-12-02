@@ -1,0 +1,78 @@
+.page-write-a-review {
+    .coments-pannel {
+        padding: 20px;
+        @include flex-center;
+
+        .products-info {
+            padding: 20px;
+            width: 300px;
+            font-size: 18px;
+            font-family: Montserrat;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 1);
+            line-height: 1.5;
+
+            .image-container {
+                width: 195px;
+                height: 195px;
+                @include imagecontaincenter;
+
+                img {}
+            }
+
+            .name {
+                margin-top: 10px;
+            }
+
+            .price {
+                @include mt(10px);
+                color: $main-red;
+                font-weight: 500;
+            }
+        }
+
+        .comement-body {
+            margin-left: 30px;
+            .form-wrapper.horizental.form-wrapper1 {
+                .form-title {}
+
+                .form-item {
+                    .star-wrapper {
+                        i.icon.icon-star {}
+
+                        i.icon.icon-star {}
+
+                        i.icon.icon-star {}
+
+                        i.icon.icon-star {}
+
+                        i.icon.icon-star {}
+                    }
+
+                }
+
+                .form-item {
+                    .input-container {
+                        input {}
+                    }
+
+
+                }
+
+                .form-item {
+                    .input-container {
+                        input {}
+                    }
+
+
+                }
+
+                .form-item {
+                    .button.submit {
+                        min-width: 200px;
+                    }
+                }
+            }
+        }
+    }
+}

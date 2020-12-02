@@ -1,0 +1,430 @@
+@media (max-width: 767px) {
+
+    .input-container.search-container {
+        @include flex;
+        width: rem(320px);
+        height: rem(52px);
+        background: rgba(255, 255, 255, .5);
+        box-shadow: rem(0px) rem(2px) rem(3px) rem(2px) rgba(205, 205, 205, 0.23);
+        border-radius: rem(6px);
+        // opacity: 0.5;
+        border: rem(1px) solid rgba(204, 204, 204, 0.17);
+
+        i.icon.icon-search {
+            margin-left: rem(30px);
+        }
+
+        input {
+            @include clear-input;
+            background: transparent;
+            flex: 1;
+            padding-left: rem(10px);
+            height: rem(52px);
+            line-height: rem(51px);
+            font-size: rem(16px);
+            font-family: Montserrat-Light, Montserrat;
+            // color: rgba(205, 205, 205, 1);
+        }
+    }
+
+    .page.page-account-orders-detail {
+        background: rgba(250, 250, 250, 1);
+
+        .header-title-wrapper {
+            height: auto;
+            min-height: rem(88px);
+            background: rgba(255, 255, 255, 1);
+            box-shadow: rem(0px) rem(4px) rem(8px) rem(0px) rgba(0, 0, 0, 0.04);
+
+            .content-width {
+                width: $content-width-h5;
+                height: auto;
+                min-height: rem(88px);
+                flex-direction: column;
+                align-items: flex-start;
+
+                .title {
+                    font-size: rem(26px);
+                    font-family: Montserrat-Light, Montserrat;
+                    font-weight: 300;
+                    color: rgba(20, 37, 128, 1);
+                }
+
+                .action-groups {
+                    padding: rem(20px) 0;
+                }
+
+                .button {
+                    width: rem(240px);
+                }
+
+            }
+        }
+
+        .content-width.page-t {
+            width: $content-width-h5;
+            @include ma;
+            height: auto;
+            min-height: rem(92px);
+            @include flex;
+
+            .title {
+                @include mtb_(24px);
+            }
+        }
+
+        .content-width.body-wrapper {
+            width: $content-width-h5;
+            @include ma;
+            padding-bottom: rem(32px);
+
+            .text-groups.flex-start {
+                font-size: rem(18px);
+                font-family: Montserrat-Light, Montserrat;
+                font-weight: 300;
+                color: rgba(0, 0, 0, .8);
+                line-height: rem(21px);
+                justify-content: space-between;
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-gap: rem(40px);
+
+                .part {
+
+                    .time {}
+
+                    .oid {}
+
+                    .ostatus {
+                        margin-top: rem(45px);
+
+                        div {
+                            .c-red {}
+                        }
+
+                        div {
+                            .c-red {}
+                        }
+
+                        div {
+                            span {}
+                        }
+                    }
+                }
+
+                .part {
+                    .part-sm-title {
+                        margin-bottom: rem(10px);
+                        font-size: rem(18px);
+                        font-family: Montserrat-Regular, Montserrat;
+                        font-weight: 500;
+                    }
+
+                    .line {
+                        margin-bottom: rem(8px);
+                        width: 100%;
+                        height: rem(1px);
+                        background: rgba(216, 216, 216, 1);
+                    }
+
+                    .gray {
+                        color: rgba(0, 0, 0, .8);
+                    }
+
+                    .ppp {
+                        font-size: rem(18px);
+                        font-family: Montserrat-Light, Montserrat;
+                        font-weight: 300;
+                        color: rgba(0, 0, 0, .8);
+                        line-height: rem(32px);
+                    }
+                }
+
+                .part.part2 {
+                    .time .ppp {}
+
+                    .ppp2 {
+                        // font-size: rem(18px);
+                        // font-family: Montserrat-Light, Montserrat;
+                        // font-weight: 300;
+                        // color: rgba(0, 0, 0, .8);
+                        line-height: rem(21px);
+                    }
+
+                    .line {
+                        width: 100%;
+                        height: rem(1px);
+                        background: rgba(216, 216, 216, 1);
+                    }
+
+                    .fw-5 {}
+
+                    .pay-info.flex {
+                        i.icon.icon-paypal {}
+
+                        .price {}
+                    }
+                }
+
+                .part.part3 {
+                    .time.part-sm-title {}
+
+                    .ppp.flex-between {
+                        div {}
+
+                        div {}
+                    }
+
+                    .ppp.flex-between {
+                        div {}
+
+                        div {}
+                    }
+
+                    .ppp.flex-between {
+                        div {}
+
+                        div {}
+                    }
+
+                    .line {}
+
+                    .ppp.flex-between.fw-5 {
+                        div {}
+
+                        div {}
+                    }
+
+                    .line {}
+
+                    .fw-5 {}
+
+                    .pay-info.flex {
+                        i.icon.icon-paypal {}
+
+                        .price {}
+                    }
+                }
+
+                .part.part4 {
+                    .button {
+                        width: rem(240px);
+                    }
+
+                    .print {
+                        i.icon.icon-print.mr-5 {}
+                    }
+
+                    .red {}
+
+                    .ppp.mt-20 {}
+
+                    .button.learn-how.bg-white {}
+                }
+            }
+
+            .pannel.pannel-order-placed {
+                margin-top: rem(24px);
+                width: $content-width-h5;
+                // min-height: rem(390px);
+                background: rgba(255, 255, 255, 1);
+                box-shadow: rem(0px) rem(4px) rem(8px) rem(0px) rgba(0, 0, 0, 0.04);
+                padding: rem(20px);
+
+                .flex.texts {
+                    width: 100%;
+                    justify-content: space-between;
+
+                    .l-texts {
+                        font-size: rem(18px);
+                        font-family: Montserrat-Light, Montserrat;
+                        font-weight: 300;
+                        color: rgba(0, 0, 0, 1);
+                        line-height: rem(22px);
+
+                        .title.fs-26 {
+                            font-size: rem(26px);
+                            font-family: Montserrat-Regular, Montserrat;
+                            font-weight: 400;
+                            color: rgba(0, 0, 0, 1);
+                            line-height: rem(32px);
+                        }
+
+                        .product {
+                            .c-blue.mr-5 {}
+                        }
+
+                        div {}
+                    }
+
+                    .r-texts.fs-22 {
+                        font-size: rem(22px);
+                        font-family: Montserrat-Light, Montserrat;
+                        font-weight: 300;
+                        color: rgba(0, 0, 0, 1);
+                        line-height: rem(26px);
+                    }
+                }
+
+                .progress-dot-bar {
+                    width: 100%;
+                    margin-top: rem(40px);
+
+                    .dot {}
+
+                    .bar {}
+
+                    .dot {}
+
+                    .bar {}
+
+                    .dot {}
+                }
+
+                .table-list-wrapper {
+                    margin-top: rem(35px);
+
+                    .col1 {}
+
+                    .col2 {
+                        flex: none;
+                        width: 100%;
+                    }
+
+                    .col3 {}
+
+                    .col4 {}
+
+                    .col5 {}
+
+                    .list-header-wrapper.flex {
+                        .col1 {}
+
+                        .col2 {}
+
+                        .col3 {}
+
+                        .col4 {}
+
+                        .col5 {}
+                    }
+
+                    // .list-body-wrapper {
+                    //     .list-item-row.flex-start {
+                    //         .col1.c-black {}
+
+                    //         .col2 {
+                    //             .product-info-block {
+                    //                 .image-container {
+                    //                     img {}
+                    //                 }
+
+                    //                 .info-wrapper.ml-15 {
+                    //                     .name {}
+
+                    //                     .props-and-button-wrapper.flex {
+                    //                         .props.mr-20 {
+                    //                             div {}
+
+                    //                             div {}
+                    //                         }
+
+                    //                         .button.sm.gray.item-shipped {}
+                    //                     }
+                    //                 }
+                    //             }
+                    //         }
+
+                    //         .col3 {}
+
+                    //         .col4.c-black {}
+
+                    //         .col5 {
+                    //             .price.fw-5 {}
+
+                    //             .button.action-button.sm.gray.btn-bg {}
+                    //         }
+                    //     }
+                    // }
+                }
+            }
+
+            .section-3-texts {
+                margin-top: rem(24px);
+                color: rgba(0, 0, 0, .8);
+
+                .p {
+                    font-size: rem(16px);
+                    font-family: Montserrat-Light, Montserrat;
+                    font-weight: 300;
+                    line-height: rem(24px);
+                }
+
+                .flex3-texts {
+                    margin-top: rem(32px);
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-gap: 20px;
+
+                    .links {
+                        margin-top: rem(10px);
+                        font-size: rem(16px);
+                        font-family: Montserrat-Regular, Montserrat;
+                        font-weight: 400;
+                        color: rgba(20, 37, 128, .8);
+                        line-height: rem(36px);
+
+                        &.sm {
+                            font-size: rem(14px);
+                            font-family: Montserrat-Light, Montserrat;
+                            font-weight: 300;
+                            color: rgba(20, 37, 128, 1);
+                            line-height: rem(24px);
+                        }
+                    }
+
+                    .texts {
+                        .title {
+                            font-size: rem(18px);
+                            font-family: Montserrat-Regular, Montserrat;
+                            font-weight: 500;
+                            color: rgba(0, 0, 0, 1);
+                            line-height: rem(22px);
+                        }
+
+                        .pp {
+                            width: 100%;
+                            margin-top: rem(9px);
+                            font-size: rem(14px);
+                            font-family: Montserrat-Light, Montserrat;
+                            font-weight: 300;
+                            line-height: rem(24px);
+                        }
+
+                        .learn-more.links.fs-16 {}
+                    }
+
+                    .texts {
+                        .title {}
+
+                        .pp {}
+
+                        .see-details.links.fs-16 {}
+                    }
+
+                    .texts {
+                        .title {}
+
+                        .pp {
+                            .links {}
+
+                            .links {}
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+}

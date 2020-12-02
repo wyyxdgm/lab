@@ -1,0 +1,405 @@
+.input-container.search-container {
+    @include flex;
+    width: 320px;
+    height: 52px;
+    background: rgba(255, 255, 255, .5);
+    box-shadow: 0px 2px 3px 2px rgba(205, 205, 205, 0.23);
+    border-radius: 6px;
+    // opacity: 0.5;
+    border: 1px solid rgba(204, 204, 204, 0.17);
+
+    i.icon.icon-search {
+        margin-left: 30px;
+    }
+
+    input {
+        @include clear-input;
+        background: transparent;
+        flex: 1;
+        padding-left: 10px;
+        height: 52px;
+        line-height: 51px;
+        font-size: 16px;
+        font-family: Montserrat-Light, Montserrat;
+        // color: rgba(205, 205, 205, 1);
+    }
+}
+
+.page.page-account-orders-detail {
+    background: rgba(250, 250, 250, 1);
+
+    .header-title-wrapper {
+        height: 88px;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.04);
+
+        .content-width {
+            height: 88px;
+
+            .title {
+                font-size: 26px;
+                font-family: Montserrat-Light, Montserrat;
+                font-weight: 300;
+                color: rgba(20, 37, 128, 1);
+            }
+
+            .button {
+                width: 240px;
+            }
+
+        }
+    }
+
+    .page-t {
+        height: 92px;
+        @include flex;
+
+        .title {
+            @include mtb(24px);
+        }
+    }
+
+    .content-width.body-wrapper {
+        padding-bottom: 32px;
+
+        .text-groups.flex-start {
+            font-size: 18px;
+            font-family: Montserrat-Light, Montserrat;
+            font-weight: 300;
+            color: rgba(0, 0, 0, .8);
+            line-height: 21px;
+            justify-content: space-between;
+
+            .part {
+                .time {}
+
+                .oid {}
+
+                .ostatus {
+                    margin-top: 45px;
+
+                    div {
+                        .c-red {}
+                    }
+
+                    div {
+                        .c-red {}
+                    }
+
+                    div {
+                        span {}
+                    }
+                }
+            }
+
+            .part {
+                .part-sm-title {
+                    margin-bottom: 10px;
+                    font-size: 18px;
+                    font-family: Montserrat-Regular, Montserrat;
+                    font-weight: 500;
+                }
+
+                .line {
+                    margin-bottom: 8px;
+                    width: 220px;
+                    height: 1px;
+                    background: rgba(216, 216, 216, 1);
+                }
+
+                .gray {
+                    color: rgba(0, 0, 0, .8);
+                }
+
+                .ppp {
+                    font-size: 18px;
+                    font-family: Montserrat-Light, Montserrat;
+                    font-weight: 300;
+                    color: rgba(0, 0, 0, .8);
+                    line-height: 32px;
+                }
+            }
+
+            .part.part2 {
+                .time .ppp {}
+
+                .ppp2 {
+                    // font-size: 18px;
+                    // font-family: Montserrat-Light, Montserrat;
+                    // font-weight: 300;
+                    // color: rgba(0, 0, 0, .8);
+                    line-height: 21px;
+                }
+
+                .line {
+                    width: 220px;
+                    height: 1px;
+                    background: rgba(216, 216, 216, 1);
+                }
+
+                .fw-5 {}
+
+                .pay-info.flex {
+                    i.icon.icon-paypal {}
+
+                    .price {}
+                }
+            }
+
+            .part.part3 {
+                .time.part-sm-title {}
+
+                .ppp.flex-between {
+                    div {}
+
+                    div {}
+                }
+
+                .ppp.flex-between {
+                    div {}
+
+                    div {}
+                }
+
+                .ppp.flex-between {
+                    div {}
+
+                    div {}
+                }
+
+                .line {}
+
+                .ppp.flex-between.fw-5 {
+                    div {}
+
+                    div {}
+                }
+
+                .line {}
+
+                .fw-5 {}
+
+                .pay-info.flex {
+                    i.icon.icon-paypal {}
+
+                    .price {}
+                }
+            }
+
+            .part.part4 {
+                .button {
+                    width: 240px;
+                }
+
+                .print {
+                    i.icon.icon-print.mr-5 {}
+                }
+
+                .red {}
+
+                .ppp.mt-20 {}
+
+                .button.learn-how.bg-white {}
+            }
+        }
+
+        .pannel.pannel-order-placed {
+            margin-top: 24px;
+            width: 1280px;
+            // min-height: 390px;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.04);
+            padding: 16px 137px 16px 36px;
+
+            .flex.texts {
+                width: (918px+22px*2);
+                justify-content: space-between;
+
+                .l-texts {
+                    font-size: 18px;
+                    font-family: Montserrat-Light, Montserrat;
+                    font-weight: 300;
+                    color: rgba(0, 0, 0, 1);
+                    line-height: 22px;
+
+                    .title.fs-26 {
+                        font-size: 26px;
+                        font-family: Montserrat-Regular, Montserrat;
+                        font-weight: 400;
+                        color: rgba(0, 0, 0, 1);
+                        line-height: 32px;
+                    }
+
+                    .product {
+                        .c-blue.mr-5 {}
+                    }
+
+                    div {}
+                }
+
+                .r-texts.fs-22 {
+                    font-size: 22px;
+                    font-family: Montserrat-Light, Montserrat;
+                    font-weight: 300;
+                    color: rgba(0, 0, 0, 1);
+                    line-height: 26px;
+                }
+            }
+
+            .progress-dot-bar {
+                width: (914px+22px*2);
+                margin-top: 40px;
+
+                .dot {}
+
+                .bar {}
+
+                .dot {}
+
+                .bar {}
+
+                .dot {}
+            }
+
+            .table-list-wrapper {
+                margin-top: 35px;
+
+                .col1 {}
+
+                .col2 {
+                    flex: none;
+                    width: (402px+100px+16px)
+                }
+
+                .col3 {}
+
+                .col4 {}
+
+                .col5 {}
+
+                .list-header-wrapper.flex {
+                    .col1 {}
+
+                    .col2 {}
+
+                    .col3 {}
+
+                    .col4 {}
+
+                    .col5 {}
+                }
+
+                // .list-body-wrapper {
+                //     .list-item-row.flex-start {
+                //         .col1.c-black {}
+
+                //         .col2 {
+                //             .product-info-block {
+                //                 .image-container {
+                //                     img {}
+                //                 }
+
+                //                 .info-wrapper.ml-15 {
+                //                     .name {}
+
+                //                     .props-and-button-wrapper.flex {
+                //                         .props.mr-20 {
+                //                             div {}
+
+                //                             div {}
+                //                         }
+
+                //                         .button.sm.gray.item-shipped {}
+                //                     }
+                //                 }
+                //             }
+                //         }
+
+                //         .col3 {}
+
+                //         .col4.c-black {}
+
+                //         .col5 {
+                //             .price.fw-5 {}
+
+                //             .button.action-button.sm.gray.btn-bg {}
+                //         }
+                //     }
+                // }
+            }
+        }
+
+        .section-3-texts {
+            margin-top: 24px;
+            color: rgba(0, 0, 0, .8);
+
+            .p {
+                font-size: 16px;
+                font-family: Montserrat-Light, Montserrat;
+                font-weight: 300;
+                line-height: 24px;
+            }
+
+            .flex3-texts {
+                margin-top: 32px;
+
+                .links {
+                    margin-top: 10px;
+                    font-size: 16px;
+                    font-family: Montserrat-Regular, Montserrat;
+                    font-weight: 400;
+                    color: rgba(20, 37, 128, .8);
+                    line-height: 36px;
+
+                    &.sm {
+                        font-size: 14px;
+                        font-family: Montserrat-Light, Montserrat;
+                        font-weight: 300;
+                        color: rgba(20, 37, 128, 1);
+                        line-height: 24px;
+                    }
+                }
+
+                .texts {
+                    .title {
+                        font-size: 18px;
+                        font-family: Montserrat-Regular, Montserrat;
+                        font-weight: 500;
+                        color: rgba(0, 0, 0, 1);
+                        line-height: 22px;
+                    }
+
+                    .pp {
+                        width: 400px;
+                        margin-top: 9px;
+                        font-size: 14px;
+                        font-family: Montserrat-Light, Montserrat;
+                        font-weight: 300;
+                        line-height: 24px;
+                    }
+
+                    .learn-more.links.fs-16 {}
+                }
+
+                .texts {
+                    .title {}
+
+                    .pp {}
+
+                    .see-details.links.fs-16 {}
+                }
+
+                .texts {
+                    .title {}
+
+                    .pp {
+                        .links {}
+
+                        .links {}
+                    }
+                }
+            }
+        }
+    }
+
+}

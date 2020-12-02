@@ -1,0 +1,449 @@
+$PX_TO_REM: 1rem/75px;
+
+// 基于func以_结尾
+
+@function px2rem($px) {
+    @return $px * $PX_TO_REM;
+}
+
+@function rem($px) {
+    @return $px * $PX_TO_REM;
+}
+
+@function rem2($px) {
+    @return rem($px)*1.8;
+}
+
+@mixin mtfun_($counter) {
+    @while $counter<200 {
+        .mt-#{$counter/($counter*0+1)} {
+            margin-top: $counter * $PX_TO_REM;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin mt_($counter) {
+    margin-top: $counter * $PX_TO_REM;
+}
+
+@mixin mlfun_($counter) {
+    @while $counter<200 {
+        .ml-#{$counter/($counter*0+1)} {
+            margin-left: $counter * $PX_TO_REM;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin ml_($counter) {
+    margin-left: $counter * $PX_TO_REM;
+}
+
+@mixin mrfun_($counter) {
+    @while $counter<200 {
+        .mr-#{$counter/($counter*0+1)} {
+            margin-right: $counter * $PX_TO_REM;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin mr_($counter) {
+    margin-right: $counter * $PX_TO_REM;
+}
+
+@mixin mbfun_($counter) {
+    @while $counter<200 {
+        .mb-#{$counter/($counter*0+1)} {
+            margin-bottom: $counter * $PX_TO_REM;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin mb_($counter) {
+    margin-bottom: $counter * $PX_TO_REM;
+}
+
+@mixin ma_() {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin mlr_($counter) {
+    @include ml_($counter);
+    @include mr_($counter);
+}
+
+@mixin ptfun_($counter) {
+    @while $counter<200 {
+        .pt-#{$counter/($counter*0+1)} {
+            padding-top: $counter * $PX_TO_REM;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin pt_($counter) {
+    padding-top: $counter * $PX_TO_REM;
+}
+
+@mixin plfun_($counter) {
+    @while $counter<200 {
+        .pl-#{$counter/($counter*0+1)} {
+            padding-left: $counter * $PX_TO_REM;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin pl_($counter) {
+    padding-left: $counter * $PX_TO_REM;
+}
+
+@mixin prfun_($counter) {
+    @while $counter<200 {
+        .pr-#{$counter/($counter*0+1)} {
+            padding-right: $counter * $PX_TO_REM;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin plrfun_($counter) {
+    @while $counter<200 {
+        .plr-#{$counter/($counter*0+1)} {
+            padding-left: $counter * $PX_TO_REM;
+            padding-right: $counter * $PX_TO_REM;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin pr_($counter) {
+    padding-right: $counter * $PX_TO_REM;
+}
+
+@mixin pbfun_($counter) {
+    @while $counter<200 {
+        .pb-#{$counter/($counter*0+1)} {
+            padding-bottom: $counter * $PX_TO_REM;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin pb_($counter) {
+    padding-bottom: $counter * $PX_TO_REM;
+}
+
+@mixin plr_($counter) {
+    @include pl_($counter);
+    @include pr_($counter);
+}
+
+@mixin ptb_($counter) {
+    @include pt_($counter);
+    @include pb_($counter);
+}
+
+@mixin mtb_($counter) {
+    @include mt_($counter);
+    @include mb_($counter);
+}
+
+
+@mixin flexcenter_() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flexrow_() {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+@mixin flexcolumn_() {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: vertical;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+@mixin flexavg_() {
+    align-items: space-between;
+    justify-content: space-between;
+}
+
+@mixin flexaround_() {
+    align-items: space-around;
+    justify-content: space-around;
+}
+
+@mixin absolute_($b, $bottom: bottom) {
+    position: absolute;
+    #{$bottom}: $b;
+}
+
+@mixin fixed_($b, $bottom: bottom) {
+    position: absolute;
+    #{$bottom}: $b;
+}
+
+@mixin fs_($px) {
+    font-size: $px * $PX_TO_REM
+}
+
+/*----- 宽度 -----*/
+@mixin w_($px) {
+    width: $px * $PX_TO_REM
+}
+
+/*----- 高度 -----*/
+@mixin h_($px) {
+    height: $px * $PX_TO_REM
+}
+
+@mixin wh_($w, $h:$w) {
+    @include w_($w);
+    @include h_($h);
+}
+
+/*----- 行高 -----*/
+@mixin lh_($px) {
+    line-height: $px * $PX_TO_REM
+}
+
+@mixin hlh_($px) {
+    @include h_($px);
+    @include lh_($px);
+}
+
+@mixin bottom_($px) {
+    bottom: $px * $PX_TO_REM
+}
+
+@mixin right_($px) {
+    right: $px * $PX_TO_REM
+}
+
+@mixin top_($px) {
+    top: $px * $PX_TO_REM
+}
+
+@mixin left_($px) {
+    left: $px * $PX_TO_REM
+}
+
+@mixin letterspacing_($fs, $sp) {
+    letter-spacing: $fs * $sp /1000 * $PX_TO_REM
+}
+
+
+@mixin icon_left_($mr:10px) {
+    .icon {
+        margin-right: $mr * $PX_TO_REM;
+    }
+}
+
+@mixin icon_right_($ml:10px) {
+    .icon {
+        margin-left: $ml * $PX_TO_REM;
+    }
+}
+
+@mixin section-title_ {
+    line-height: 1em;
+    @include fs_(42px);
+    @include lh_(51px);
+    @include icon_left_();
+    @include mt_(80px);
+}
+
+/* progress-bar */
+// <div class="progress-bar-wrapper">
+//     <div class="progress-bar yellow">
+//         <div class="progress" style="width:30%"></div>
+//     </div>
+// </div>
+@mixin progress_($color: rgba(255, 19, 0, 1), $w: 166px, $h:8px, $br:8px) {
+    .progress-bar-wrapper {
+        .progress-bar {
+            width: rem($w);
+            height: rem($h);
+            background: rgba(191, 191, 191, 1);
+            border-radius: rem(8px);
+
+            .progress {
+                height: 100%;
+                background: $color;
+                border-radius: rem($br);
+            }
+        }
+    }
+}
+
+
+@mixin set-swiper-dots-bottom_($bottom) {
+
+    .swiper-pagination-fraction,
+    .swiper-pagination-custom,
+    .swiper-pagination-bullets {
+        bottom: rem($bottom) !important;
+
+        .swiper-pagination-bullet {
+            // @include wh(7px);
+        }
+    }
+}
+
+@mixin swiper-dots-bottom_($bottom, $selector) {
+    #{$selector} {
+        @include mb_(10px + $bottom);
+    }
+
+    @include set-swiper-dots-bottom_(0px);
+}
+
+@mixin starsize_($w, $h:$w, $l:3px) {
+    i.icon.icon-star {
+        width: rem($w);
+        height: rem($h);
+        margin-right: rem($l);
+    }
+}
+
+@for $i from 10 through 24 {
+    .fs_#{$i} {
+        @include fs_($i * 1px);
+    }
+}
+
+@mixin blue-button_($selector:'.button', $h:40px, $w:150px, $plr:auto, $br:5px) {
+    #{$selector} {
+        width: rem($w);
+        @include plr_($plr);
+        height: rem($h);
+        line-height: rem($h - 1px);
+        text-align: center;
+        background: rgba(20, 37, 128, 1);
+        border-radius: rem($br);
+        font-weight: 500;
+        color: rgba(255, 255, 255, 1);
+        @include fs_(14px);
+    }
+
+    @include clickable($selector);
+}
+
+@mixin red-button($selector:'.button', $h:40px, $w:150px, $plr:auto, $br:5px) {
+    #{$selector} {
+        width: rem($w);
+        @include plr_($plr);
+        height: rem($h);
+        line-height: rem($h - 1px);
+        text-align: center;
+        background: rgba(189, 36, 24, 1);
+        border-radius: rem($br);
+        font-weight: 500;
+        color: rgba(255, 255, 255, 1);
+        @include fs_(14px);
+    }
+
+    @include clickable($selector);
+}
+
+
+@mixin lh_fix_ {
+    line-height: 1.2;
+}
+
+@mixin title-wrapper_ {
+    height: auto;
+    @include ptb_(30px);
+
+    .title-36 {
+        line-height: 1.2;
+    }
+}
+
+
+@mixin checkbox_() {
+    @include flex-start;
+
+    input {
+        margin-top: 0.4em;
+    }
+}
+
+@mixin input-left-full_() {
+    flex: 1;
+    height: rem(42px);
+    font-size: rem(12px);
+    line-height: rem(42px);
+}
+
+@mixin flat_($child-right-selector, $mt:40px) {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+
+    #{$child-right-selector} {
+        margin-top: rem($mt);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
+@mixin flat_full_($child-right-selector, $mt:40px) {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+
+    #{$child-right-selector} {
+        margin-top: rem($mt);
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+
+}
+
+
+@mixin flat_h5_($child-right-selector, $mt:40px) {
+    flex-direction: column;
+    width: $content-width-h5;
+    align-items: center;
+
+    #{$child-right-selector} {
+        margin-top: rem($mt);
+        margin-left: auto;
+        margin-right: auto;
+        width: $content-width-h5;
+    }
+
+}
+
+@mixin lh_h5_($lh:$lh_) {
+    line-height: $lh;
+}

@@ -1,0 +1,365 @@
+@mixin mtfun($counter) {
+    @while $counter<200 {
+        .mt-#{$counter/($counter*0+1)r} {
+            margin-top: $counter;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin mt($counter) {
+    margin-top: $counter;
+}
+
+@mixin mlfun($counter) {
+    @while $counter<200 {
+        .ml-#{$counter/($counter*0+1)} {
+            margin-left: $counter;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin ml($counter) {
+    margin-left: $counter;
+}
+
+@mixin mrfun($counter) {
+    @while $counter<200 {
+        .mr-#{$counter/($counter*0+1)} {
+            margin-right: $counter;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin mr($counter) {
+    margin-right: $counter;
+}
+
+@mixin mbfun($counter) {
+    @while $counter<200 {
+        .mb-#{$counter/($counter*0+1)} {
+            margin-bottom: $counter;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin mb($counter) {
+    margin-bottom: $counter;
+}
+
+@mixin ma() {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin mlr($counter) {
+    @include ml($counter);
+    @include mr($counter);
+}
+
+@mixin ptfun($counter) {
+    @while $counter<200 {
+        .pt-#{$counter/($counter*0+1)} {
+            padding-top: $counter;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin pt($counter) {
+    padding-top: $counter;
+}
+
+@mixin plfun($counter) {
+    @while $counter<200 {
+        .pl-#{$counter/($counter*0+1)} {
+            padding-left: $counter;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin pl($counter) {
+    padding-left: $counter;
+}
+
+@mixin prfun($counter) {
+    @while $counter<200 {
+        .pr-#{$counter/($counter*0+1)} {
+            padding-right: $counter;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin plrfun($counter) {
+    @while $counter<200 {
+        .plr-#{$counter/($counter*0+1)} {
+            padding-left: $counter;
+            padding-right: $counter;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin pr($counter) {
+    padding-right: $counter;
+}
+
+@mixin pbfun($counter) {
+    @while $counter<200 {
+        .pb-#{$counter/($counter*0+1)} {
+            padding-bottom: $counter;
+        }
+
+        $counter:$counter+5;
+    }
+}
+
+@mixin pb($counter) {
+    padding-bottom: $counter;
+}
+
+@mixin plr($counter) {
+    @include pl($counter);
+    @include pr($counter);
+}
+
+@mixin ptb($counter) {
+    @include pt($counter);
+    @include pb($counter);
+}
+
+@mixin mtb($counter) {
+    @include mt($counter);
+    @include mb($counter);
+}
+
+
+@mixin flexcenter() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flexrow() {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+@mixin flexcolumn() {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: vertical;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+@mixin flexavg() {
+    align-items: space-between;
+    justify-content: space-between;
+}
+
+@mixin flexaround() {
+    align-items: space-around;
+    justify-content: space-around;
+}
+
+@mixin absolute($b, $bottom: bottom) {
+    position: absolute;
+    #{$bottom}: $b;
+}
+
+@mixin fixed($b, $bottom: bottom) {
+    position: absolute;
+    #{$bottom}: $b;
+}
+
+@mixin fs($px) {
+    font-size: $px;
+}
+
+/*----- 宽度 -----*/
+@mixin w($px) {
+    width: $px;
+}
+
+/*----- 高度 -----*/
+@mixin h($px) {
+    height: $px;
+}
+
+@mixin wh($w, $h:$w) {
+    @include w($w);
+    @include h($h);
+}
+
+/*----- 行高 -----*/
+@mixin lh($px) {
+    line-height: $px;
+}
+
+@mixin hlh($px) {
+    @include h($px);
+    @include lh($px);
+}
+
+@mixin bottom($px) {
+    bottom: $px;
+}
+
+@mixin right($px) {
+    right: $px;
+}
+
+@mixin top($px) {
+    top: $px;
+}
+
+@mixin left($px) {
+    left: $px;
+}
+
+@mixin letterspacing($fs, $sp) {
+    letter-spacing: $fs * $sp /1000;
+}
+
+@mixin icon_left($mr:10px) {
+    .icon {
+        margin-right: $mr;
+    }
+}
+
+@mixin icon_right($ml:10px) {
+    .icon {
+        margin-left: $ml;
+    }
+}
+
+@mixin section-title {
+    @include flex-center;
+    font-family: Impact;
+    font-weight: 400;
+    color: rgba(189, 36, 24, 1);
+    font-size: 36px;
+    line-height: 1em;
+    @include icon_left(13px);
+    @include mt(80px);
+}
+
+/* progress-bar */
+// <div class="progress-bar-wrapper">
+//     <div class="progress-bar yellow">
+//         <div class="progress" style="width:30%"></div>
+//     </div>
+// </div>
+@mixin progress($color: rgba(255, 182, 8, 1), $w: 194px, $h:5px, $br:3px) {
+    .progress-bar-wrapper {
+        .progress-bar {
+            &.blue .progress {
+                background-color: $bar-blue;
+            }
+
+            &.red .progress {
+                background-color: $bar-red;
+            }
+
+            &.yellow .progress {
+                background-color: $bar-yellow;
+            }
+
+            width: $w;
+            height: $h;
+            background: rgba(206, 206, 206, 1);
+            border-radius: 3px;
+
+            .progress {
+                height: 100%;
+                background: $color;
+                border-radius: $br;
+            }
+        }
+    }
+}
+
+@mixin set-swiper-dots-bottom($bottom) {
+    &.swiper-container-horizontal>.swiper-pagination-bullets {
+        bottom: $bottom;
+
+        .swiper-pagination-bullet {
+            // @include wh(7px);
+        }
+    }
+}
+
+@mixin swiper-dots-bottom($bottom, $selector) {
+    #{$selector} {
+        @include mb(10px + $bottom);
+    }
+
+    @include set-swiper-dots-bottom(0px);
+}
+
+@mixin starsize($w, $h:$w, $l:3px) {
+    i.icon.icon-star {
+        width: $w;
+        height: $h;
+        margin-right: $l;
+    }
+}
+
+@for $i from 10 through 24 {
+    .fs-#{$i} {
+        @include fs($i*1px);
+    }
+}
+
+@mixin blue-button($selector:'.button', $h:40px, $w:150px, $plr:auto, $br:5px) {
+    #{$selector} {
+        width: $w;
+        @include plr($plr);
+        height: $h;
+        line-height: $h - 1px;
+        text-align: center;
+        background: rgba(20, 37, 128, 1);
+        border-radius: $br;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 1);
+        @include fs(14px);
+    }
+    @include clickable($selector);
+}
+
+@mixin red-button($selector:'.button', $h:40px, $w:150px, $plr:auto, $br:5px) {
+    #{$selector} {
+        width: $w;
+        @include plr($plr);
+        height: $h;
+        line-height: $h - 1px;
+        text-align: center;
+         background: rgba(189, 36, 24, 1);
+        border-radius: $br;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 1);
+        @include fs(14px);
+    }
+    @include clickable($selector);
+}

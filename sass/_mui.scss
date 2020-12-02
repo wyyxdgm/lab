@@ -1,0 +1,358 @@
+@import "mixins";
+@import "func";
+
+.flex {
+    @include flex;
+}
+
+.flex-start {
+    @include flex-start;
+}
+
+.flex-column {
+    @include flex-column;
+}
+
+.flex-center {
+    @include flex-center;
+}
+
+.flex-between {
+    @include flex-between;
+}
+
+.flex-around {
+    @include flex-around;
+}
+
+
+a,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    outline: none;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    line-height: 1.4;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+.relative {
+    position: relative;
+}
+
+.bg-contain {
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.height-400 {
+    height: 400px;
+}
+
+.height-600 {
+    height: 600px;
+}
+
+.height-700 {
+    height: 700px;
+}
+
+.height-800 {
+    height: 800px;
+}
+
+.height-900 {
+    height: 900px;
+}
+
+.height-1000 {
+    height: 1000px;
+}
+
+/*no-event*/
+.no-event {
+    pointer-events: none;
+}
+
+/*margin*/
+
+.mt-1 {
+    margin-top: 1px !important;
+}
+
+@include mtfun(0px);
+
+@include mlfun(0px);
+
+@include mrfun(0px);
+
+@include mbfun(0px);
+
+@media (max-width: 767px) {
+
+    @include mtfun_(0px);
+
+    @include mlfun_(0px);
+
+    @include mrfun_(0px);
+
+    @include mbfun_(0px);
+}
+
+/*padding*/
+.pt-1 {
+    padding-top: 1px !important;
+}
+
+@include ptfun(0px);
+
+@include plfun(0px);
+
+@include prfun(0px);
+
+@include plrfun(0px);
+
+@include pbfun(0px);
+
+@media (max-width: 767px) {
+
+    @include ptfun_(0px);
+
+    @include plfun_(0px);
+
+    @include prfun_(0px);
+
+    @include plrfun_(0px);
+
+    @include pbfun_(0px);
+}
+
+.ma {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*flex*/
+.flex-row {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.flex-column {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: vertical;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+.flex-end {
+    align-self: flex-end;
+}
+
+.flex-center-bottom {
+    justify-content: flex-end;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-avg {
+    align-items: space-between;
+    justify-content: space-between;
+}
+
+.flex-center-h {
+    justify-content: center;
+}
+
+.flex-center-v {
+    align-items: center;
+}
+
+.flex-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.flex-1 {
+    flex: 1
+}
+
+.flex-2 {
+    flex: 2
+}
+
+.flex-3 {
+    flex: 3
+}
+
+/*text*/
+.text-bold {
+    font-weight: bold;
+}
+
+.text-mid {
+    font-weight: 600;
+}
+
+/*text-align*/
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/*display*/
+.inline-block {
+    display: inline-block;
+}
+
+.block {
+    display: block;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.clear-fix,
+.clearfix {
+    clear: both;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.aspectFill {
+    width: 100%;
+    height: 100%;
+}
+
+.scroll-x {
+    overflow-x: scroll;
+}
+
+.scroll-y {
+    overflow-y: scroll;
+}
+
+.hidden {
+    display: none;
+}
+
+.position-fixed {
+    position: fixed;
+}
+
+@for $i from 2 through 7 {
+    .fw-#{$i} {
+        @include fw($i);
+    }
+}
+
+.c-blue {
+    color: $bar-blue;
+}
+
+.c-black {
+    color: $text-black;
+}
+
+.c-gray {
+    color: $text-gray;
+}
+
+.c-gray2 {
+    color: $text-gray2;
+}
+
+.c-gray3 {
+    color: $text-gray3;
+}
+
+.c-red {
+    color: $main-red;
+}
+
+.c-yellow {
+    color: $text-yellow;
+}
+
+.c-green {
+    color: $text-green;
+}
+
+.strong {
+    font-weight: bold;
+}
+
+
+.gray-line {
+    height: 1px;
+    background: rgba(235, 235, 235, 1);
+}
+
+.black-line {
+    height: 1px;
+    background: rgba(0, 0, 0, 1);
+}
+
+.bg-white {
+    background: white;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.bg-cover {
+    @include bgcover();
+}

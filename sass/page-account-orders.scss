@@ -1,0 +1,249 @@
+.table-list-wrapper {
+    margin-top: 14px;
+
+    .col1 {
+        flex: 1;
+    }
+
+    .col2 {
+        flex: 4;
+    }
+
+    .col3 {
+        flex: 1;
+    }
+
+    .col4 {
+        flex: 1;
+    }
+
+    .col5 {
+        flex: 1;
+    }
+
+    .list-header-wrapper {
+        height: 41px;
+        border-bottom: 1px solid rgba(216, 216, 216, .4);
+        color: rgba(0, 0, 0, 0.45);
+        padding: 0 20px 0 12px;
+
+        .col1 {}
+
+        .col2 {}
+
+        .col3 {}
+
+        .col4 {}
+
+        .col5 {}
+
+    }
+
+    .list-body-wrapper {
+        .list-item-row {
+            padding: 12px 20px 12px 12px;
+            border-bottom: 1px solid rgba(216, 216, 216, .4);
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            position: relative;
+
+            .col1 {}
+
+            .col2 {
+                .product-info-block {
+                    @include flex-start;
+
+                    .image-container {
+                        @include imagecontaincenter;
+                        width: 100px;
+                        height: 100px;
+
+                        img {}
+                    }
+
+                    .info-wrapper {
+                        .name {
+                            width: 334px;
+                            font-size: 14px;
+                            font-family: Montserrat-Regular, Montserrat;
+                            font-weight: 400;
+                            color: rgba(20, 37, 128, 1);
+                            line-height: 18px;
+                        }
+
+                        .props-and-button-wrapper {
+                            margin-top: 6px;
+
+                            .props {
+                                font-size: 12px;
+                                font-family: Montserrat-Regular, Montserrat;
+                                font-weight: 400;
+                                color: rgba(0, 0, 0, .45);
+                            }
+
+                            .button.item-shipped {}
+                        }
+                    }
+                }
+            }
+
+            .col3 {}
+
+            .col4 {}
+
+            .col5 {
+                .price {
+                    font-size: 14px;
+                    font-family: Montserrat-Regular, Montserrat;
+                    color: rgba(1, 1, 1, 1);
+                    line-height: 18px;
+                }
+
+                .button.gray.action-button.btn-bg {
+                    position: absolute;
+                    right: 40px;
+                    bottom: 37px;
+                    background: rgba(147, 147, 147, .5);
+
+                    &:hover {
+                        background: rgba(147, 147, 147, .6);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.page.page-account-orders {
+    background: rgba(250, 250, 250, 1);
+
+    .header-title-wrapper {
+        height: 88px;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.04);
+
+        .content-width {
+            height: 88px;
+
+            .title {
+                font-size: 26px;
+                font-family: Montserrat-Light, Montserrat;
+                font-weight: 300;
+                color: rgba(20, 37, 128, 1);
+            }
+
+        }
+    }
+
+    .page-t {
+        height: 92px;
+        @include flex;
+
+        .title {
+            @include mtb(24px);
+        }
+    }
+
+    .lr-container {
+        .l-wrapper {
+            .selector-wrapper {
+                width: 360px;
+                height: 52px;
+                background: rgba(255, 255, 255, .5);
+                box-shadow: 0px 3px 6px 3px rgba(205, 205, 205, 0.43);
+                border-radius: 6px;
+                // opacity: 0.5;
+                border: 1px solid rgba(204, 204, 204, 0.17);
+            }
+
+            .button-groups {
+                margin-top: 24px;
+
+                .button.gray.btn-bg {
+                    margin-right: 10px;
+
+                    background: rgba(68, 68, 68, .2);
+
+                    &.active,
+                    &:hover {
+                        background: rgba(68, 68, 68, .5);
+                    }
+                }
+
+                .button.all {}
+
+                .button.open {}
+
+                .button.returned {}
+
+                .button.canceled {}
+
+                .button.eligible-for-return {}
+            }
+
+            .pannel.orders {
+                font-size: 14px;
+                font-family: Montserrat-Light, Montserrat;
+                font-weight: 300;
+                color: rgba(1, 1, 1, 1);
+
+                width: 936px;
+                // height: 417px;
+                background: rgba(255, 255, 255, 1);
+                box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.04);
+
+            }
+        }
+
+        .r-wrapper {
+            margin-left: 23px;
+
+            .input-container {
+                @include flex;
+                width: 320px;
+                height: 52px;
+                background: rgba(255, 255, 255, .5);
+                box-shadow: 0px 3px 6px 3px rgba(205, 205, 205, 0.43);
+                border-radius: 6px;
+                // opacity: 0.5;
+                border: 1px solid rgba(204, 204, 204, 0.17);
+
+                i.icon.icon-search {
+                    margin-left: 30px;
+                }
+
+                input {
+                    @include clear-input;
+                    background: transparent;
+                    flex: 1;
+                    padding-left: 10px;
+                    height: 52px;
+                    line-height: 51px;
+                    font-size: 16px;
+                    font-family: Montserrat-Light, Montserrat;
+                    // color: rgba(205, 205, 205, 1);
+                }
+            }
+
+            @include clickable('.add-offline');
+
+            .add-offline {
+                margin-top: 24px;
+                @include flex;
+                height: 18px;
+                font-size: 14px;
+                font-family: Montserrat-Regular, Montserrat;
+                font-weight: 400;
+                color: rgba(0, 0, 0, 1);
+                line-height: 18px;
+
+                i.icon.icon-add {
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+}

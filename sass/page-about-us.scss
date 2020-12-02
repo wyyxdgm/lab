@@ -1,0 +1,638 @@
+.page-about-us {
+    background: rgba(255, 255, 255, 1);
+    padding-bottom: 60px;
+
+    .section {
+        @include bgcover;
+
+        &>div {
+            width: $content-width;
+        }
+    }
+
+    .banner-image-container {
+        @include flex-center;
+        @include bgcover;
+        width: 100%;
+        @include h(372px);
+        background-image: url('../images/about-us/banner.png');
+
+        .p-wrapper {
+            text-align: center;
+            width: 521px;
+            color: white;
+            @include ma;
+            margin-bottom: 10px;
+
+            line-height: 60px;
+
+            .p1 {
+                line-height: 60px;
+            }
+
+            .p2 {
+                line-height: 60px;
+            }
+
+            .p3 {
+                line-height: 24px;
+                color: rgba(191, 191, 191, 1);
+            }
+        }
+    }
+
+    .section.section-1 {
+        text-align: center;
+        padding-bottom: 122px;
+
+        &>div {
+            @include ma();
+        }
+
+        padding-top: 100px;
+        font-size: 14px;
+        font-family: Montserrat;
+
+        .p1,
+        .p2 {
+            line-height: 50px;
+        }
+
+        .p1 {}
+
+        .p2 {}
+
+        .video-image-container {
+            // background-image: url('../images/about-us/v1.png');
+            @include bgcover;
+            margin-top: 20px;
+            @include flex-center;
+            @include clickable('.icon-video-play');
+            @include w(562px);
+            @include h(326px);
+
+            i.icon.icon-video-play {}
+        }
+
+
+        .p3,
+        .p4 {
+            width: 503px;
+        }
+
+        .p3 {
+            margin-top: 60px;
+            @include fs(24px);
+            @include lh(40px)
+        }
+
+        .p4 {
+            @include fs(14px);
+            @include lh(25px);
+            padding-bottom: 25px;
+        }
+
+        .video-image-container.video-image-container2 {
+
+            // background-image: url('../images/about-us/v2.png');
+            i.icon.icon-video-play {}
+        }
+    }
+
+    .section.section-2 {
+        background: rgba(250, 250, 250, 1);
+        padding-bottom: 60px;
+        padding-top: 60px;
+        text-align: center;
+        @include flex-center;
+
+        .content-wrapper {
+            .cccc {
+                @include flex-center;
+
+                .image-container {
+                    @include w(287px);
+                    @include h(230px);
+                    @include imagecontaincenter;
+
+                    img {}
+                }
+
+                .p-wrapper {
+                    text-align: center;
+                    margin-left: 143px;
+                    width: 579px;
+                    // height: 108px;
+                    font-weight: 300;
+
+                    .p-red {
+                        font-size: 28px;
+                        line-height: 40px;
+                        margin-bottom: 1px;
+                    }
+
+                    .p3s {
+                        @include fs(14px);
+                        color: rgba(92, 92, 92, 1);
+                        line-height: 28px;
+                    }
+                }
+            }
+        }
+    }
+
+    .section.section-3 {
+        margin-top: 150px;
+        text-align: center;
+        @include h(450px);
+        background-image: url("../images/about-us/s3-bg.png");
+        padding-top: 80px;
+
+        .content-center {
+            @include ma();
+            @include w(722px);
+            @include h(275px);
+            background-color: rgba(255, 255, 255, 0.80);
+            padding: 46px 57px 60px;
+            line-height: 25px;
+            font-family: Montserrat;
+            font-weight: 300;
+            color: rgba(92, 92, 92, 1);
+
+            @include fs(14px);
+
+            .title {
+                @include fs(24px);
+                line-height: 40px;
+            }
+
+            .pns {}
+        }
+    }
+
+    .section.section-4 {
+        text-align: center;
+
+        .content-wrapper {
+            @include flex-between;
+            @include ptb(100px);
+            width: (478px*2+140px);
+            @include ma();
+
+            .content-wrapper-c {
+                @include bgcover;
+                @include w(478px);
+                @include h(301px);
+                // @include mlr(70px);
+                padding: 40px;
+                @include flex-column;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+
+                .title {
+                    color: rgba(20, 37, 128, 1);
+                    line-height: 40px;
+                    font-weight: 500;
+                    font-size: 24px;
+                    margin-bottom: 10px;
+                }
+
+                .pns {
+                    line-height: 25px;
+                }
+            }
+
+            .content-wrapper-c.content-wrapper-c1 {
+                background-image: url("../images/about-us/s4-l.png");
+
+                .title {}
+
+                .pns {}
+            }
+
+            .content-wrapper-c.content-wrapper-c2 {
+                background-image: url("../images/about-us/s4-r.png");
+
+                .title {}
+
+                .pns {}
+            }
+        }
+    }
+
+    .section.section-5 {
+        height: 340px;
+        background: rgba(250, 250, 250, 1);
+
+        .content-wrapper {
+
+            @include w(530px);
+            @include h(133px);
+            font-family: Montserrat;
+
+
+            @include fs(24px);
+            @include lh(45px);
+            font-family: Montserrat;
+            font-weight: 400;
+            text-align: center;
+            @include ma();
+            @include ptb(62px);
+
+            .title {
+                color: $text-black;
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+
+            .nps {
+                @include lh(25px);
+                @include fs(14px);
+                color: rgba(92, 92, 92, 1);
+                @include pb(36px-4px);
+            }
+
+            .button.red.btn-bg {
+                width: 250px;
+                height: 45px;
+                line-height: 45px;
+            }
+        }
+    }
+
+    .section.section-7,
+    .section.section-about-links {
+        width: 100%;
+        height: 500px;
+        border: 1px solid rgba(235, 235, 235, 1);
+        border-radius: 1px;
+        @include ptb(50px);
+
+        .content-wrapper.grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            width: $content-width;
+            grid-column-gap: 140px;
+            grid-row-gap: 50px;
+            @include ma;
+
+            .grid-item {
+
+                font-family: Montserrat;
+                font-weight: 300;
+                color: rgba(92, 92, 92, 1);
+
+                .title {
+                    @include fs(16px);
+                    @include lh(40px);
+                    color: $text-black;
+                    font-weight: 500;
+                }
+
+                .line {
+                    width: 210px;
+                    height: 1px;
+                    background: rgba(189, 36, 24, 1);
+                    border-radius: 1px;
+                }
+
+                ul.ppp-wrapper {
+                    @include ptb(6px);
+
+                    li {
+                        @include fs(12px);
+                        line-height: 25px;
+                    }
+
+                    li {}
+                }
+            }
+        }
+    }
+}
+
+.section.section-about-links {
+    width: 100%;
+    height: 500px;
+    border: 1px solid rgba(235, 235, 235, 1);
+    border-radius: 1px;
+    @include ptb(50px);
+
+    .content-wrapper.grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        width: $content-width;
+        grid-column-gap: 140px;
+        grid-row-gap: 50px;
+        @include ma;
+
+        .grid-item {
+
+            font-family: Montserrat;
+            font-weight: 300;
+            color: rgba(92, 92, 92, 1);
+
+            .title {
+                @include fs(16px);
+                @include lh(40px);
+                color: $text-black;
+                font-weight: 500;
+            }
+
+            .line {
+                width: 210px;
+                height: 1px;
+                background: rgba(189, 36, 24, 1);
+                border-radius: 1px;
+            }
+
+            ul.ppp-wrapper {
+                @include ptb(6px);
+
+                li {
+                    @include fs(12px);
+                    line-height: 25px;
+                }
+
+                li {}
+            }
+        }
+    }
+}
+
+
+
+.page-about-us .section-6,
+/* page-about-us */
+.section.section-connect-with-us {
+    /* 共用 */
+
+    .section-title-with-line {
+        @include ma;
+
+        .title-text {}
+
+        .title-underline {
+            width: 83px;
+            height: 4px;
+            background: rgba(189, 36, 24, 1);
+            border-radius: 2px;
+        }
+    }
+
+    .icons-group {
+        margin-top: 85px;
+        width: (771px+81px+88px);
+        @include ma();
+        @include flex-between;
+
+        &>div {
+            width: 80px;
+            height: 80px;
+
+            img {
+                width: 80px;
+                height: 80px;
+                object-fit: contain;
+            }
+
+            &:hover {
+                color: rgba(189, 36, 24, 1);
+
+                i.icon.icon-facebook {}
+
+                i.icon.icon-youtube {}
+
+                i.icon.icon-twitter {}
+
+                i.icon.icon-whatsup {}
+
+                i.icon.icon-pinterest {}
+            }
+        }
+
+        i.icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        .facebook {
+            i.icon.icon-facebook {}
+
+            .name {}
+        }
+
+        .facebook {
+            i.icon.icon-facebook {}
+
+            .name {}
+        }
+
+        .youtube {
+            i.icon.icon-youtube {}
+
+            .name {}
+        }
+
+        .twitter {
+            i.icon.icon-twitter {}
+
+            .name {}
+        }
+
+        .whatsup {
+            i.icon.icon-whatsup {}
+
+            .name {}
+        }
+        // 去掉hover效果，由原先js控制
+        // .whatsup {
+        //     // background: #ddd;
+
+        //     #wechat_icon_div,
+        //     .wechat_icon_div {
+        //         display: block !important;
+        //     }
+
+        //     #wechat_qrcode_div,
+        //     .wechat_qrcode_div {
+        //         display: none !important;
+        //     }
+
+        //     &:hover {
+
+        //         #wechat_icon_div,
+        //         .wechat_icon_div {
+        //             display: none !important;
+        //         }
+
+        //         #wechat_qrcode_div,
+        //         .wechat_qrcode_div {
+        //             display: block !important;
+        //         }
+        //     }
+        // }
+
+        .pinterest {
+            i.icon.icon-pinterest {}
+
+            .name {}
+        }
+
+        &>div {
+            @include flex-column;
+            text-align: center;
+            align-items: center;
+
+            .name {
+                margin-top: 28px;
+                font-size: 18px;
+                color: rgba(92, 92, 92, 1);
+            }
+        }
+
+        &>div:hover {
+            color: rgba(189, 36, 24, 1);
+
+            i.icon.icon-facebook {}
+
+            i.icon.icon-youtube {}
+
+            i.icon.icon-twitter {}
+
+            i.icon.icon-whatsup {}
+
+            i.icon.icon-pinterest {}
+        }
+    }
+}
+
+@media (max-width: 767px) {
+
+    .page-about-us .section-6,
+    /* page-about-us */
+    .section.section-connect-with-us {
+        height: auto !important;
+
+        /* 共用 */
+        .section-title-with-line {
+            @include ma;
+
+            .title-text {}
+
+            .title-underline {
+                width: 83px;
+                height: 4px;
+                background: rgba(189, 36, 24, 1);
+                border-radius: 2px;
+            }
+        }
+
+        .icons-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: rem(20px);
+            grid-row-gap: rem(30px);
+            margin-top: rem(65px);
+            padding-bottom: rem(30px);
+            width: $content-width-h5;
+            @include ma();
+
+            &>div {
+                width: rem(150px);
+                height: rem(150px);
+                justify-content: center;
+                margin: auto;
+
+                img {
+                    width: rem(150px);
+                    height: rem(150px);
+                    object-fit: contain;
+                }
+
+                &:hover {
+                    color: rgba(189, 36, 24, 1);
+
+                    i.icon.icon-facebook {}
+
+                    i.icon.icon-youtube {}
+
+                    i.icon.icon-twitter {}
+
+                    i.icon.icon-whatsup {}
+
+                    i.icon.icon-pinterest {}
+                }
+            }
+
+            i.icon {
+                width: rem(32px);
+                height: rem(32px);
+            }
+
+            .facebook {
+                i.icon.icon-facebook {}
+
+                .name {}
+            }
+
+            .facebook {
+                i.icon.icon-facebook {}
+
+                .name {}
+            }
+
+            .youtube {
+                i.icon.icon-youtube {}
+
+                .name {}
+            }
+
+            .twitter {
+                i.icon.icon-twitter {}
+
+                .name {}
+            }
+
+            .whatsup {
+                i.icon.icon-whatsup {}
+
+                .name {}
+            }
+
+            .pinterest {
+                i.icon.icon-pinterest {}
+
+                .name {}
+            }
+
+            &>div {
+                @include flex-column;
+                text-align: center;
+                align-items: center;
+
+                .name {
+                    margin-top: rem(28px);
+                    font-size: rem(18px);
+                    color: rgba(92, 92, 92, 1);
+                }
+            }
+
+            &>div:hover {
+                color: rgba(189, 36, 24, 1);
+
+                i.icon.icon-facebook {}
+
+                i.icon.icon-youtube {}
+
+                i.icon.icon-twitter {}
+
+                i.icon.icon-whatsup {}
+
+                i.icon.icon-pinterest {}
+            }
+        }
+    }
+
+}

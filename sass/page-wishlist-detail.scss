@@ -1,0 +1,296 @@
+.page-wishlist-detail {
+    background: rgba(250, 250, 250, 1);
+
+    .content-width {
+        width: $content-width2;
+        @include ma();
+    }
+
+    .pannel {
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.04);
+    }
+
+    .header-title-wrapper {
+        height: 88px;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.04);
+
+        .content-width {
+            height: 88px;
+
+            .title {
+                font-size: 26px;
+                font-family: Montserrat-Light, Montserrat;
+                font-weight: 300;
+                color: rgba(20, 37, 128, 1);
+            }
+
+        }
+    }
+
+    .lr-container {
+        @include flex-start;
+        width: $content-width;
+        @include ma;
+        margin-top: 24px;
+
+        .l-container {
+            width: 936px;
+
+            .header-sort-wrapper {
+                height: 100px;
+                @include flex-between;
+
+                .title-wrapper {
+                    .title-36 {}
+                }
+
+                .sort-by-wrapper {
+                    .sort-by {
+                        font-size: 18px;
+                        font-family: Montserrat-Light, Montserrat;
+                        font-weight: 300;
+                        color: rgba(0, 0, 0, 1);
+                        line-height: 1.5;
+                    }
+
+                    .sort-by-selector-wrapper.selector-wrapper {
+                        width: 250px;
+                        height: 52px;
+                        background: rgba(255, 255, 255, 1);
+                        box-shadow: 0px 3px 6px 3px rgba(205, 205, 205, 0.43);
+                        border-radius: 6px;
+                        // opacity: 0.5;
+                        border: 1px solid rgba(204, 204, 204, 0.17);
+                    }
+                }
+            }
+
+            .pannel-list {
+                margin-bottom: 82px;
+
+                .pannel {
+                    margin-bottom: 24px;
+                    position: relative;
+                    @include flex-start;
+                    width: 936px;
+                    min-height: 144px;
+                    background: rgba(255, 255, 255, 1);
+                    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.04);
+
+                    .l-1 {
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        width: 40px;
+                        min-height: 144px;
+                        height: 100%;
+                        background: rgba(232, 235, 246, 1);
+                        box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.04);
+                        opacity: 0.4;
+                        padding-top: 12px;
+                        text-align: center;
+
+                        i.icon.icon-grid {
+                            @include ma();
+                            display: none;
+                        }
+
+                        .num-index {
+                            position: absolute;
+                            bottom: 16px;
+                            text-align: center;
+                            width: 40px;
+                            font-size: 15px;
+                            font-family: Montserrat-Light, Montserrat;
+                            font-weight: 300;
+                            color: rgba(0, 0, 0, 1);
+                            line-height: 1.5;
+                        }
+
+                        &.has-grid {
+                            background: rgba(223, 223, 223, 1);
+
+                            i.icon.icon-grid {
+                                display: inline-block;
+                            }
+                        }
+
+                    }
+
+                    .r-1 {
+                        position: relative;
+                        margin-left: 40px;
+                        padding: 22px 16px 20px 25px;
+
+                        .image-container {
+                            width: 100px;
+                            height: 100px;
+                            @include imagecontaincenter;
+
+                            img {}
+                        }
+
+                        .info-body {
+                            position: relative;
+                            width: 515px;
+                            margin-left: 15px;
+                            line-height: 1.5;
+
+                            .desc {
+                                max-width: 334px;
+                                font-size: 15px;
+                                font-family: Montserrat-Light, Montserrat;
+                                font-weight: 300;
+                                color: rgba(0, 0, 0, 1);
+                                line-height: 1.5;
+                            }
+
+                            .star-wrapper-box.flex {
+                                .star-wrapper.sm {
+                                    i.icon.icon-star {}
+
+                                    i.icon.icon-star {}
+
+                                    i.icon.icon-star {}
+
+                                    i.icon.icon-star {}
+
+                                    i.icon.icon-star {}
+                                }
+
+                                .num {
+                                    margin-left: 3px;
+                                    font-size: 14px;
+                                    font-family: Montserrat-Light, Montserrat;
+                                    font-weight: 300;
+                                    color: rgba(1, 1, 1, .65);
+                                    line-height: 1.5;
+                                }
+                            }
+
+                            .price {
+                                font-size: 16px;
+                                font-family: Montserrat-SemiBold, Montserrat;
+                                font-weight: 600;
+                                color: rgba(20, 37, 128, 1);
+                                line-height: 1.5;
+                                margin-bottom: 2px;
+                                margin-top: 2px;
+                            }
+
+                            .qty {
+                                font-size: 12px;
+                                font-family: Montserrat-Regular, Montserrat;
+                                font-weight: 400;
+                                color: rgba(0, 0, 0, .45);
+                                line-height: 1.5;
+                            }
+
+                            .textarea-container {
+                                width: 390px;
+                                height: 52px;
+                                background: rgba(255, 255, 255, 1);
+                                border-radius: 6px;
+                                border: 1px solid rgba(0, 0, 0, 0.17);
+                                position: absolute;
+                                right: 0;
+                                line-height: 1.5;
+                                overflow: hidden;
+                                bottom: 0;
+
+                                textarea {
+                                    font-weight: 400;
+                                    outline: none;
+                                    resize: none;
+                                    padding: 10px;
+                                    min-height: 52px;
+                                    width: 100%;
+                                    height: 100%;
+                                    border: none;
+                                }
+                            }
+                        }
+
+                        .button-group-container {
+                            flex: 1;
+                            @include flex;
+                            justify-content: flex-end;
+
+                            .button.gray.btn-bg {
+                                background: rgba(147, 147, 147, .5);
+                            }
+
+                            .md {
+                                @include flex;
+
+                                .button {
+                                    min-width: 64px;
+                                }
+
+
+                                .button {
+                                    &.move {}
+
+                                    &.delete {
+                                        margin-left: 20px;
+                                    }
+                                }
+
+                            }
+
+                            .button.in-cart {
+                                min-width: 114px;
+                                position: absolute;
+                                right: 16px;
+                                bottom: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .r-container {
+            margin-left: 23px;
+
+            .action-group {
+                height: 100px;
+                justify-content: flex-end;
+
+                .print-wrapper {
+                    @include flex;
+
+                    i.icon.icon-print {
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            .pannel.pannel-add-all-to-cart {
+                padding: 15px 24px;
+                line-height: 1.5;
+
+                .items {
+                    font-size: 18px;
+                    font-family: Montserrat-Light, Montserrat;
+                    font-weight: 300;
+                    color: rgba(0, 0, 0, 1);
+                }
+
+                .total-value {
+                    font-size: 16px;
+                    font-family: Montserrat-Regular, Montserrat;
+                    font-weight: 400;
+                    color: rgba(0, 0, 0, 1);
+                }
+
+                .button.add-all {
+                    min-width: 240px;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}

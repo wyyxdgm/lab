@@ -1,0 +1,947 @@
+@media (max-width: 767px) {
+
+    /**
+ * page-account-profile
+ */
+    .empty-wrapper {
+        @include ma();
+        padding: rem(20px) rem(20px) rem(30px);
+        text-align: center;
+
+        // @include flex-center;
+        &.activity-empty-wrapper {
+            .empty-text {
+                margin: rem(40px) 0 rem(60px);
+            }
+        }
+
+        &.car-empty-wrapper {}
+
+        &.star-empty-wrapper {}
+
+        &.activity-empty-wrapper {}
+
+        &.list-empty-wrapper {}
+
+        &.chat-empty-wrapper {}
+
+        &.list2-empty-wrapper {}
+
+        .image-container {
+            @include ma();
+            width: rem(144px);
+            height: rem(144px);
+            @include imagecontaincenter;
+            // margin-bottom: rem(10px);
+
+            img.empty-image {}
+        }
+
+        .empty-text {
+            @include ma();
+            font-size: rem(26px);
+            font-family: Montserrat-Light, Montserrat;
+            font-weight: 300;
+            color: rgba(0, 0, 0, .45);
+            line-height: 1.5;
+        }
+    }
+
+    @include clickable('.action-text');
+
+    .action-text {
+        font-size: rem(14px);
+        font-family: Montserrat-Light, Montserrat;
+        font-weight: 300;
+        color: rgba(20, 37, 128, 1);
+        line-height: 2.1;
+        text-decoration: underline;
+    }
+
+    .vl {
+        user-select: none;
+        @include mlr_(10px);
+    }
+
+    .page-account-profile {
+        padding-bottom: rem(50px);
+
+        .no-login-contents {
+            padding-bottom: rem(128px);
+            padding-top: rem(146px);
+            @include ma();
+            width: $content-width-h5; // from width-2
+
+            .title {
+                font-size: rem(36px);
+                font-family: Montserrat-Light, Montserrat;
+                font-weight: 300;
+                color: rgba(0, 0, 0, 1);
+                line-height: 1.2;
+            }
+
+            .pannel {
+                width: $content-width-h5;
+                height: rem(138px);
+                background: rgba(255, 255, 255, 1);
+                box-shadow: rem(0px) rem(4px) rem(8px) rem(0px) rgba(0, 0, 0, 0.04);
+                padding: rem(16px);
+                text-align: center;
+
+                .txt {
+                    font-size: rem(26px);
+                    font-family: Montserrat-Regular, Montserrat;
+                    font-weight: 400;
+                    color: rgba(0, 0, 0, 1);
+                    line-height: 1.5;
+                }
+
+                .button.sm.red.login-in {
+                    margin-top: rem(24px);
+                    width: auto;
+                    min-width: rem(176px);
+                }
+            }
+        }
+
+        line-height: 1.5;
+        color: $text-black;
+        background: rgba(250, 250, 250, 1);
+
+        .banner-image-container {
+            width: 100%;
+            @include h_(360px);
+            color: rgba(216, 216, 216, 1);
+            @include bgcover();
+        }
+
+        .content-width-wrapper {
+            margin-top: rem(20px);
+            @include ma();
+            width: $content-width-h5; // from width-2
+
+            &>.title {
+                color: $black;
+                font-size: rem(36px);
+                font-family: Montserrat-Light, Montserrat;
+                font-weight: 300;
+                // color: rgba(250, 250, 250, 1);
+                margin-bottom: rem(24px);
+            }
+
+            .button-wrapper {
+                margin-top: rem(30px);
+                @include flex-center;
+
+                button.see-all {
+                    width: auto;
+                    min-width: rem(88px);
+                    background: rgba(147, 147, 147, .5);
+                    @include ma();
+                }
+            }
+
+            .top-nav-banner {
+                padding: rem(24px) rem(16px);
+                width: $content-width-h5;
+                height: auto;
+                background: rgba(255, 255, 255, 1);
+                box-shadow: rem(0px) rem(4px) rem(8px) rem(0px) rgba(0, 0, 0, 0.04);
+
+                .title {
+                    color: rgba(0, 0, 0, 1);
+                    font-size: rem(26px);
+                    font-family: Montserrat-Regular, Montserrat;
+                    font-weight: 400;
+                }
+
+                .button-group-wrapper {
+                    margin-top: rem(24px);
+
+                    .button.my-account {
+                        width: auto;
+                        min-width: rem(176px);
+                    }
+
+                    .button {
+                        color: rgba(147, 147, 147, 1);
+
+                        &.active,
+                        &:hover {
+                            color: white;
+                            background: $main-red;
+                            border: none;
+                        }
+                    }
+
+                    .button.my-info {
+                        margin-left: rem(15px);
+                        width: auto;
+                        min-width: rem(118px);
+                    }
+                }
+            }
+
+            .account-column-wrapper {
+                margin-top: rem(24px);
+                @include flex;
+                flex-direction: column;
+                align-items: flex-center;
+                justify-content: space-between;
+
+                .pannel {
+                    background: rgba(255, 255, 255, 1);
+                    box-shadow: rem(0px) rem(4px) rem(8px) rem(0px) rgba(0, 0, 0, 0.04);
+                    margin-bottom: rem(24px);
+
+                    &>.title-wrapper {
+                        height: rem(63px);
+                        // line-height: rem(60px);
+                        @include flex-between;
+                        padding: 0 rem(16px);
+                        border-bottom: rem(1px) solid rgba(216, 216, 216, 1);
+
+                        .title {
+                            font-size: rem(26px);
+                            font-family: Montserrat-Light, Montserrat;
+                            font-weight: 300;
+                            color: rgba(0, 0, 0, .65);
+                        }
+
+                        .title-end {}
+                    }
+
+                    &>.pannel-body {
+                        padding: rem(16px) rem(16px);
+                    }
+                }
+
+                .column-1 {
+                    width: $content-width-h5;
+                    ;
+
+                    .pannel.my-orders {
+                        width: $content-width-h5;
+                        ;
+
+                        .pannel-body {
+                            padding: rem(16px) rem(16px);
+
+                            .list-wrapper {
+                                .list-item {
+                                    margin-bottom: rem(8px);
+                                    padding-bottom: rem(8px);
+                                    border-bottom: rem(1px) solid rgba(216, 216, 216, .4);
+
+                                    &:last-child {
+                                        border-bottom: none;
+                                    }
+
+                                    .image-container {
+                                        width: rem(155px);
+                                        min-width: rem(155px);
+                                        height: rem(155px);
+                                        @include imagecontaincenter;
+
+                                        img {}
+                                    }
+
+                                    .info-wrapper {
+                                        margin-left: rem(8px);
+                                        width: auto;
+                                        flex: 1;
+
+                                        .title.c-blue.fw-5 {
+                                            font-size: rem(14px);
+                                            font-family: Montserrat-Regular, Montserrat;
+                                            font-weight: 400;
+                                            color: rgba(20, 37, 128, 1);
+                                            line-height: 1.5;
+                                        }
+
+                                        .info-2-wrapper {
+
+                                            margin-top: rem(2px);
+
+                                            .desc.c-gray3 {}
+
+                                            .price.c-black.fw-5 {}
+                                        }
+                                    }
+                                }
+                            }
+
+                            .button-wrapper {
+                                margin-top: rem(30px);
+                                @include flex-center;
+
+                                .button.gray.btn-bg.see-all {
+                                    width: 120px;
+                                }
+                            }
+                        }
+                    }
+
+                    .pannel.my-wish-list {
+                        .title-wrapper {
+                            .title {}
+                        }
+
+                        .pannel-body {
+                            .list-wrapper {
+                                .list-item {
+                                    font-size: rem(14px);
+                                    padding-bottom: rem(8px);
+                                    margin-bottom: rem(7px);
+                                    border-bottom: rem(1px) solid rgba(216, 216, 216, .4);
+
+                                    &:last-child {
+                                        border-bottom: none;
+                                    }
+
+                                    .image-container {
+                                        width: rem(155px);
+                                        min-width: rem(155px);
+                                        height: rem(155px);
+                                        @include imagecontaincenter;
+
+                                        img {}
+                                    }
+
+                                    .name {
+                                        margin-left: rem(18px);
+                                        font-weight: 400;
+                                    }
+
+                                    .items-wrapper {
+                                        font-size: rem(14px);
+                                        font-family: Montserrat-Light, Montserrat;
+                                        font-weight: 300;
+                                        margin-right: rem(40px - 16px);
+
+                                        .items {}
+
+                                        .private.flex {
+                                            margin-top: rem(8px);
+
+                                            i.icon-lock.mr-10 {}
+                                        }
+                                    }
+                                }
+                            }
+
+                            .button-wrapper {
+                                .button.gray.btn-bg.see-all {
+                                    width: 120px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .column-2 {
+                    width: $content-width-h5;
+                    ;
+
+                    .pannel {
+                        &>.title-wrapper {
+                            &>.title {}
+                        }
+
+                        .pannel-body {
+                            &>.title {
+                                margin-top: rem(5px);
+                                font-size: rem(18px);
+                                font-family: Montserrat-Regular, Montserrat;
+                                font-weight: 500;
+                                color: rgba(0, 0, 0, .8);
+                            }
+
+                            &>.title-2 {
+                                margin-top: rem(8px);
+                                font-size: rem(16px);
+                                font-family: Montserrat-Light, Montserrat;
+                                font-weight: 300;
+                                color: rgba(0, 0, 0, .8);
+
+                                span {
+                                    color: rgba(0, 0, 0, 1);
+                                    margin-left: rem(5px);
+                                }
+                            }
+
+                            .shop-info-list {}
+
+                            .shop-info {
+                                position: relative;
+
+                                margin-bottom: rem(22px - 16px);
+
+                                padding-right: rem(33px - 16px);
+
+                                .image-container {
+                                    width: rem(155px);
+                                    min-width: rem(155px);
+                                    height: rem(155px);
+                                    @include imagecontaincenter;
+
+                                    img {}
+                                }
+
+                                .info-wrapper {
+                                    padding-bottom: rem(50px+30px);
+                                    margin-left: rem(18px);
+                                    padding-top: rem(8px);
+
+                                    .name {
+                                        height: auto;
+                                        font-size: rem(14px);
+                                        font-family: Montserrat-Regular, Montserrat;
+                                        // font-weight: 400;
+                                        color: rgba(20, 37, 128, 1);
+                                        line-height: 1.5;
+                                    }
+
+                                    .star-wrapper {
+                                        margin-top: rem(18px);
+                                    }
+
+                                }
+
+                                .rb-wrapper {
+                                    text-align: right;
+                                    position: absolute;
+                                    right: rem(33px);
+                                    @include flex;
+                                    bottom: rem(11px + 22px - 16px);
+
+                                    .price {
+                                        margin-right: rem(10px);
+                                        font-size: rem(16px);
+                                        font-family: Montserrat-SemiBold, Montserrat;
+                                        font-weight: 600;
+                                        color: rgba(1, 1, 1, 1);
+                                        line-height: 1.5;
+                                    }
+
+                                    .button.gray.in-chart {
+                                        margin-top: rem(3px);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .pannel.my-recently-viewed {
+                        .pannel-body {
+                            .title {}
+
+
+
+                            .shop-info {
+                                .image-container {}
+
+                                .name {}
+
+                                .star-wrapper {}
+
+                                .rb-wrapper {
+                                    .price {}
+
+                                    .button.gray.in-chart {}
+                                }
+                            }
+                        }
+
+                        .pannel-body {}
+                    }
+
+                    .pannel.recommendation {
+                        .title-wrapper {
+                            .title {}
+                        }
+
+                        .pannel-body {
+                            padding-bottom: (16px rem(-11px));
+
+                            .pictrue-grid.grid-2 {
+                                display: grid;
+                                grid-template-columns: repeat(2, 1fr);
+                                grid-gap: rem(13px);
+
+                                .grid-item {
+                                    @include ptb_(11px);
+
+                                    .image-container {
+                                        @include w_(278px);
+                                        @include h_(144px);
+                                        @include imagecontaincenter;
+
+                                        img {}
+                                    }
+
+                                    .desc {
+
+                                        margin-top: rem(12px);
+                                        font-size: rem(14px);
+                                        font-family: Montserrat-Regular, Montserrat;
+                                        font-weight: 500;
+                                        color: rgba(0, 0, 0, 1);
+                                        line-height: 1.5;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .column-3 {
+                    width: $content-width-h5;
+
+                    .button-group-wrapper {
+                        @include flex;
+
+                        justify-content: flex-start;
+
+                        .button:not(:first-child) {
+                            margin-left: rem(30px);
+                        }
+
+                        padding-bottom: rem(4px);
+                    }
+
+                    .button {
+                        width: rem(88px);
+                        padding: rem(0px);
+                    }
+
+                    .pannel.events,
+                    .pannel.saved-articles {
+                        .title-wrapper {
+                            .title {}
+                        }
+
+                        .pannel-body {
+                            .button-group-wrapper {
+
+                                .button {
+                                    min-width: rem(150px);
+                                }
+
+                                .lastest.red.btn-bg {}
+
+                                .my-events.gray {}
+
+                                .past.gray {}
+                            }
+
+                            .list-wrapper {
+                                .list-item {
+                                    @include ptb_(16px);
+                                    @include border-bottom(rgba(216, 216, 216, .4));
+
+                                    &:last-child {
+                                        border-bottom: none;
+                                    }
+
+                                    .image-container {
+                                        @include w_(155px);
+                                        @include h_(155px);
+                                        @include imagecontaincenter;
+
+                                        img {}
+                                    }
+
+                                    .info-wrapper {
+                                        width: auto;
+                                        margin-left: rem(18px);
+                                        padding-right: rem(10px);
+
+                                        .name {
+                                            font-size: rem(14px);
+                                            font-family: Montserrat-Regular, Montserrat;
+                                            font-weight: 400;
+                                            color: rgba(20, 37, 128, 1);
+                                            line-height: $lh_;
+                                        }
+
+                                        .desc {
+                                            font-size: rem(14px);
+                                            font-family: Montserrat-Light, Montserrat;
+                                            font-weight: 300;
+                                            color: rgba(0, 0, 0, 1);
+                                            line-height: $lh_;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .button-wrapper {
+                                .button.gray.btn-bg.see-all {
+                                    width: 120px;
+                                }
+                            }
+                        }
+                    }
+
+                    .pannel.discussions {
+                        .title-wrapper {
+                            .title {}
+                        }
+
+                        .pannel-body {
+                            .button-group-wrapper {
+                                justify-content: flex-start;
+
+                                .button:not(:first-child) {
+                                    margin-left: rem(30px);
+                                }
+
+                                .button {
+                                    min-width: rem(150px);
+                                }
+
+                                .reviews.red.btn-bg {}
+
+                                .comments.gray {
+                                    width: rem(96px);
+                                }
+
+                                .qa {}
+                            }
+                        }
+                    }
+
+                    .pannel.saved-articles {
+                        .title-wrapper {
+                            .title {}
+                        }
+
+                        .pannel-body {
+                            .list-wrapper {
+                                .list-item {
+                                    border-bottom: none;
+                                    @include ptb_(8px);
+
+                                    .image-container {
+                                        width: rem(72px);
+                                        height: rem(72px);
+
+                                        img {}
+                                    }
+
+                                    .info-wrapper {
+                                        .name {}
+
+                                        .desc {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .myinfo-culumn-wrapper {
+                margin-top: rem(24px);
+                @include flat_('.myinfo-column-2');
+
+                .myinfo-column-1 {
+                    width: $content-width-h5;
+
+                    .pannel.menu-pannel {
+                        background: rgba(255, 255, 255, 1);
+                        box-shadow: rem(0px) rem(4px) rem(8px) rem(0px) rgba(0, 0, 0, 0.04);
+
+                        .list-wrapper {
+                            .list-item {
+                                width: auto;
+                                padding-left: rem(24px);
+                                height: rem(60px);
+                                line-height: rem(60px);
+                                border-bottom: rem(1px) solid rgba(216, 216, 216, 1);
+                                color: rgba(1, 1, 1, 1);
+
+                                &:last-child {
+                                    border-bottom: none;
+                                }
+
+                                &.active,
+                                &:hover {
+                                    color: $text-blue;
+
+                                }
+
+                                // padding: rem(15px) rem(24px) rem(14px);
+                            }
+                        }
+                    }
+                }
+
+                .myinfo-column-2 {
+                    width: $content-width-h5;
+
+                    // common pannel
+                    .pannel {
+                        margin-bottom: rem(24px);
+                        padding: rem(20px);
+                        width: $content-width-h5;
+                        height: auto;
+                        background: rgba(255, 255, 255, 1);
+                        box-shadow: rem(0px) rem(4px) rem(8px) rem(0px) rgba(0, 0, 0, 0.04);
+
+                        .title {
+                            font-size: rem(22px);
+                            font-family: Montserrat-Light, Montserrat;
+                            font-weight: 300;
+                            color: rgba(189, 36, 24, 1);
+                            line-height: $lh_;
+                        }
+
+                        .sm-title {
+                            margin-top: rem(1px);
+                            font-size: rem(12px);
+                            font-family: Montserrat-Light, Montserrat;
+                            font-weight: 300;
+                            color: rgba(1, 1, 1, .45);
+                            line-height: 2;
+                        }
+
+                        .sm-title2 {
+                            font-size: rem(12px);
+                            font-family: Montserrat-Light, Montserrat;
+                            font-weight: 300;
+                            color: rgba(1, 1, 1, 1);
+                            line-height: 2;
+                        }
+
+                        .pannel-body {}
+                    }
+
+                    .pannel.account-details {
+                        .title {}
+
+                        .sm-title {}
+
+                        >.form-wrapper {
+                            @include plr_(0px);
+                        }
+
+                        .pannel-body {
+                            .forms-group-2 {
+                                justify-content: space-between;
+                                padding-right: rem(45px - 20px);
+
+                                .form-wrapper {
+
+                                    &.form-wrapper1 {
+                                        width: rem(393px);
+                                    }
+
+                                    .form-title {}
+
+                                    .flex.flex-3part {
+                                        .form-item {
+                                            .input-container {
+                                                width: rem(144px);
+
+                                                input {}
+                                            }
+                                        }
+
+                                        .form-item {
+                                            .button.my-events {}
+                                        }
+                                    }
+
+                                    .form-item {
+                                        .flex {
+                                            .input-value-wrapper {}
+
+                                            .edit {}
+                                        }
+
+
+                                    }
+
+                                    .form-item {
+                                        .flex {
+                                            .input-value-wrapper {}
+
+                                            .edit {}
+                                        }
+
+
+                                    }
+
+                                    .form-item {
+                                        .input-container {
+                                            input {}
+                                        }
+                                    }
+                                }
+
+                                .form-wrapper {
+                                    .form-title {}
+
+                                    .form-item.label-left {
+                                        .form-label {}
+
+                                        .selector-wrapper {
+                                            width: rem(196px);
+                                            height: rem(32px);
+                                            color: $text-blue;
+                                            line-height: rem(32px);
+
+                                            input {
+                                                width: rem(196px);
+                                                height: rem(32px);
+                                                color: $text-blue;
+                                                line-height: rem(32px);
+                                            }
+                                        }
+
+
+                                    }
+
+                                    .form-item.label-left {
+                                        .form-label {}
+
+                                        .selector-wrapper {
+                                            input {}
+                                        }
+
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .pannel.billing-shipping {
+                        .title-wrapper {
+                            .flex-between {
+                                .title {}
+
+                                @include clickable('.action-add-address');
+
+                                .action-add-address {
+                                    font-size: rem(14px);
+                                    font-family: Montserrat-Bold, Montserrat;
+                                    font-weight: bold;
+                                    color: rgba(20, 37, 128, 1);
+                                    line-height: 2;
+                                }
+                            }
+                        }
+
+                        .sm-title {}
+
+                        .pannel-body {
+                            .list-wrapper {
+                                .list-item {
+                                    @include ptb_(12px);
+                                    border-bottom: rem(1px) solid rgba(216, 216, 216, 1);
+
+                                    .data-wrapper {
+                                        .name {
+                                            white-space: nowrap;
+                                        }
+
+                                        .infos {
+                                            line-height: 1.2;
+                                        }
+                                    }
+
+                                    .action-wrapper {
+                                        @include flex-column;
+
+                                        .edit {}
+
+                                        .vl.ml-10.mr-10 {
+                                            user-select: none;
+                                            display: none;
+                                        }
+
+                                        .remove {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .pannel.update-email-subscription {
+                        .title-wrapper {
+                            .title-wrapper {
+                                .title {}
+                            }
+                        }
+
+                        .sm-title {}
+
+                        .pannel-body {
+                            .form-wrapper {
+                                .form-title {}
+
+                                .flex.flex-2part {
+                                    .form-item {
+                                        .input-container {
+                                            width: rem(296px);
+
+                                            input {}
+                                        }
+
+
+                                    }
+
+                                    .form-item {
+                                        .button.go {
+                                            width: rem(88px);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .pannel.rewards-card {
+                        .title-wrapper {
+                            .title-wrapper {
+                                .title {}
+                            }
+                        }
+
+                        .sm-title {}
+
+                        .sm-title2 {}
+
+                        .pannel-body {
+                            .form-wrapper {
+
+
+                                .flex.flex-2part {
+                                    .form-item {
+                                        .input-container {
+                                            input {}
+                                        }
+
+
+                                    }
+
+                                    .form-item {
+                                        .input-container {
+                                            input {}
+                                        }
+
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

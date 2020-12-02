@@ -1,0 +1,278 @@
+.page-account-wishlist {
+    background: rgba(250, 250, 250, 1);
+
+    .content-width {
+        width: $content-width2;
+        @include ma();
+    }
+
+    .header-title-wrapper {
+        height: 88px;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.04);
+
+        .content-width {
+            height: 88px;
+
+            .title {
+                font-size: 26px;
+                font-family: Montserrat-Light, Montserrat;
+                font-weight: 300;
+                color: rgba(20, 37, 128, 1);
+            }
+
+            .button.new-wishlist {
+                width: 144px;
+            }
+        }
+    }
+
+    .pannel-list {
+        margin-bottom: 82px;
+
+        .pannel.content-width {
+            position: relative;
+            @include flex-start;
+            margin-top: 24px;
+            width: 1280px;
+            min-height: 310px;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.04);
+
+            .l-1 {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 40px;
+                min-height: 310px;
+                height: 100%;
+                background: rgba(206, 212, 240, 1);
+                box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.04);
+                opacity: 0.4;
+                padding-top: 12px;
+                text-align: center;
+
+                i.icon.icon-grid {
+                    @include ma();
+                    display: none;
+                }
+
+                &.has-grid {
+                    background: rgba(223, 223, 223, 1);
+
+                    i.icon.icon-grid {
+                        display: inline-block;
+                    }
+                }
+
+            }
+
+            .r-1 {
+                margin-left: 40px;
+                padding: 15px 21px 15px 0px;
+
+                .c1-1 {
+                    height: 290px;
+                    border-right: 1px solid rgba(216, 216, 216, 1);
+
+                    .title-wraper {
+                        padding-left: 32px;
+                        margin-top: 2px;
+                        @include flex;
+                        align-items: flex-end;
+
+                        .title {
+                            font-size: 26px;
+                            font-family: Montserrat-Regular, Montserrat;
+                            font-weight: 400;
+                            color: rgba(20, 37, 128, 1);
+                        }
+
+                        .title-sm {
+                            margin-left: 16px;
+                            font-size: 18px;
+                            font-family: Montserrat-Regular, Montserrat;
+                            font-weight: 400;
+                        }
+                    }
+
+                    .wishlist-swiper-container-wrapper {
+                        margin-top: -42px;
+                        overflow: hidden;
+                        position: relative;
+
+                        .left-wraper-cover {
+                            position: absolute;
+                            width: 30px;
+                            height: 320px;
+                            left: 0;
+                            bottom: 24px;
+                            z-index: 5;
+                            background: white;
+                            // border: 1px solid #ddd;
+                        }
+
+                        .swiper-button-prev:after,
+                        .swiper-button-next:after {
+                            color: #353535;
+                        }
+
+                        .swiper-button-next,
+                        .swiper-container-rtl .swiper-button-prev {
+                            right: -29px;
+                        }
+
+                        .swiper-button-prev,
+                        .swiper-container-rtl .swiper-button-next {
+                            left: -35px;
+                        }
+
+                        .swiper-button-prev.swiper-button-disabled,
+                        .swiper-button-next.swiper-button-disabled {
+                            display: none;
+                        }
+                    }
+
+                    .wishlist-swiper-container {
+                        overflow: visible;
+                        width: 926px;
+                        @include ma();
+                        height: 350px;
+                        background: transparent;
+                    }
+
+                    // .swiper-wrapper {
+                    //     @include flex;
+                    // }
+
+                    .swiper-item {
+                        margin-top: 42px;
+                        @include ma();
+                        z-index: 1;
+                        width: 100px + 48px / 2;
+                        padding-top: 19px;
+                        padding-bottom: 23px;
+                        padding-left: 30px;
+                        padding-right: 30px;
+                        // height: 350px;
+
+                        .image-container {
+                            @include ma();
+                            @include w(100px);
+                            @include h(100px);
+                            @include imagecontaincenter;
+
+                            img {}
+                        }
+
+                        .desc {
+                            @include ma();
+                            margin-top: 10px;
+                            width: 108px;
+                            // padding-left: 4px;
+                            font-size: 14px;
+                            font-family: Montserrat-Light, Montserrat;
+                            font-weight: 300;
+                            color: rgba(0, 0, 0, 1);
+                            line-height: 17px;
+                        }
+
+                        .star-wrapper-box {
+                            width: 100px;
+                            @include ma();
+                            @include mtb(2px);
+
+                            .star-wrapper {
+                                margin-left: -3px;
+                            }
+
+                            .num {
+                                margin-left: 4px;
+                                font-size: 14px;
+                                font-family: Montserrat-Light, Montserrat;
+                                font-weight: 300;
+                                color: rgba(1, 1, 1, 1);
+                            }
+                        }
+
+                        .price {
+                            width: 100px;
+                            @include ma();
+                            font-weight: 500;
+                            font-size: 16px;
+                            font-family: Montserrat-SemiBold, Montserrat;
+                            font-weight: 500;
+                            color: rgba(1, 1, 1, 1);
+                            line-height: 19px;
+                        }
+
+                        .button.add-to-cart {
+                            @include ma();
+                            margin-top: 12px;
+                            display: none;
+                            width: 132px;
+                            height: 50px;
+                            background: rgba(189, 36, 24, 1);
+                            border-radius: 6px;
+                            opacity: 0.6;
+                        }
+
+                        &:hover,
+                        &.active {
+                            margin-top: 0px;
+                            z-index: 8;
+                            width: 187px;
+                            height: 336px;
+                            background: rgba(255, 255, 255, 1);
+                            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+                            border-radius: 3px;
+
+                            padding-left: 30px;
+                            padding-right: 30px;
+
+                            .button.add-to-cart {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+
+                .c1-2 {
+                    height: 310px - 30px;
+                    @include flex-column;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    width: 213px;
+
+                    .button {
+                        @include ma();
+                        width: 172px;
+                        @include ma();
+                    }
+
+                    .top-btn-wrapper {
+                        height: 52px;
+                        margin-top: 32px - 15px;
+
+                        .button.gray.delete {}
+                    }
+
+                    .items {
+                        margin: 21px 0 28px;
+                    }
+
+                    .view-all-wrapper {
+                        height: 52px;
+
+                        .button.red.btn-bg.view-all {}
+                    }
+
+                    .total-price {
+                        font-weight: 500;
+                        margin-top: 66px;
+                    }
+                }
+            }
+        }
+    }
+}

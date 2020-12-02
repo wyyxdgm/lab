@@ -1,0 +1,905 @@
+/**
+ * page-account-profile
+ */
+.empty-wrapper {
+    @include ma();
+    padding: 20px 20px 30px;
+    text-align: center;
+
+    // @include flex-center;
+    &.activity-empty-wrapper {
+        .empty-text {
+            margin: 40px 0 60px;
+        }
+    }
+
+    &.car-empty-wrapper {}
+
+    &.star-empty-wrapper {}
+
+    &.activity-empty-wrapper {}
+
+    &.list-empty-wrapper {}
+
+    &.chat-empty-wrapper {}
+
+    &.list2-empty-wrapper {}
+
+    .image-container {
+        @include ma();
+        width: 144px;
+        height: 144px;
+        @include imagecontaincenter;
+        // margin-bottom: 10px;
+
+        img.empty-image {}
+    }
+
+    .empty-text {
+        @include ma();
+        font-size: 26px;
+        font-family: Montserrat-Light, Montserrat;
+        font-weight: 300;
+        color: rgba(0, 0, 0, .45);
+        line-height: 31px;
+    }
+}
+
+@include clickable('.action-text');
+
+.action-text {
+    font-size: 14px;
+    font-family: Montserrat-Light, Montserrat;
+    font-weight: 300;
+    color: rgba(20, 37, 128, 1);
+    line-height: 32px;
+    text-decoration: underline;
+}
+
+.vl {
+    user-select: none;
+    @include mlr(10px);
+}
+
+.page-account-profile {
+    padding-bottom: 50px;
+
+    .no-login-contents {
+        padding-bottom: 128px;
+        padding-top: 146px;
+        @include ma();
+        width: $content-width2;
+
+        .title {
+            font-size: 36px;
+            font-family: Montserrat-Light, Montserrat;
+            font-weight: 300;
+            color: rgba(0, 0, 0, 1);
+            line-height: 30px;
+        }
+
+        .pannel {
+            width: 1280px;
+            height: 138px;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.04);
+            padding: 16px;
+            text-align: center;
+
+            .txt {
+                font-size: 26px;
+                font-family: Montserrat-Regular, Montserrat;
+                font-weight: 400;
+                color: rgba(0, 0, 0, 1);
+                line-height: 32px;
+            }
+
+            .button.sm.red.login-in {
+                margin-top: 24px;
+                width: 176px;
+            }
+        }
+    }
+
+    line-height: 1em;
+    color: $text-black;
+    background: rgba(250, 250, 250, 1);
+
+    .banner-image-container {
+        width: 100%;
+        @include h(360px);
+        color: rgba(216, 216, 216, 1);
+        @include bgcover();
+    }
+
+    .content-width-wrapper {
+        margin-top: -162px;
+        @include ma();
+        width: $content-width2;
+
+        &>.title {
+            font-size: 36px;
+            font-family: Montserrat-Light, Montserrat;
+            font-weight: 300;
+            color: rgba(250, 250, 250, 1);
+            margin-bottom: 24px;
+        }
+
+        .button-wrapper {
+            margin-top: 30px;
+            @include flex-center;
+
+            button.see-all {
+                width: 88px;
+                background: rgba(147, 147, 147, .5);
+                @include ma();
+            }
+        }
+
+        .top-nav-banner {
+            padding: 24px 16px;
+            width: 1280px;
+            height: 138px;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.04);
+
+            .title {
+                color: rgba(0, 0, 0, 1);
+                font-size: 26px;
+                font-family: Montserrat-Regular, Montserrat;
+                font-weight: 400;
+            }
+
+            .button-group-wrapper {
+                margin-top: 24px;
+
+                .button.my-account {
+                    width: 176px;
+                }
+
+                .button {
+                    color: rgba(147, 147, 147, 1);
+
+                    &.active,
+                    &:hover {
+                        color: white;
+                        background: $main-red;
+                        border: none;
+                    }
+                }
+
+                .button.my-info {
+                    margin-left: 15px;
+                    width: 118px;
+                }
+            }
+        }
+
+        .account-column-wrapper {
+            margin-top: 24px;
+            @include flex;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            .pannel {
+                background: rgba(255, 255, 255, 1);
+                box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.04);
+                margin-bottom: 24px;
+
+                &>.title-wrapper {
+                    height: 63px;
+                    // line-height: 60px;
+                    @include flex-between;
+                    padding: 0 16px;
+                    border-bottom: 1px solid rgba(216, 216, 216, 1);
+
+                    .title {
+                        font-size: 26px;
+                        font-family: Montserrat-Light, Montserrat;
+                        font-weight: 300;
+                        color: rgba(0, 0, 0, .65);
+                    }
+
+                    .title-end {}
+                }
+
+                &>.pannel-body {
+                    padding: 16px 16px;
+                }
+            }
+
+            .column-1 {
+                width: 320px;
+
+                .pannel.my-orders {
+                    width: 320px;
+
+                    .pannel-body {
+                        padding: 16px 16px;
+
+                        .list-wrapper {
+                            .list-item {
+                                margin-bottom: 8px;
+                                padding-bottom: 8px;
+                                border-bottom: 1px solid rgba(216, 216, 216, .4);
+
+                                &:last-child {
+                                    border-bottom: none;
+                                }
+
+                                .image-container {
+                                    width: 55px;
+                                    height: 55px;
+                                    @include imagecontaincenter;
+
+                                    img {}
+                                }
+
+                                .info-wrapper {
+                                    margin-left: 8px;
+                                    width: 201px;
+
+                                    .title.c-blue.fw-5 {
+                                        font-size: 12px;
+                                        font-family: Montserrat-Regular, Montserrat;
+                                        font-weight: 400;
+                                        color: rgba(20, 37, 128, 1);
+                                        line-height: 18px;
+                                    }
+
+                                    .info-2-wrapper {
+
+                                        margin-top: 2px;
+
+                                        .desc.c-gray3 {}
+
+                                        .price.c-black.fw-5 {}
+                                    }
+                                }
+                            }
+                        }
+
+                        .button-wrapper {
+                            margin-top: 30px;
+                            @include flex-center;
+
+                            .button.gray.btn-bg.see-all {}
+                        }
+                    }
+                }
+
+                .pannel.my-wish-list {
+                    .title-wrapper {
+                        .title {}
+                    }
+
+                    .pannel-body {
+                        .list-wrapper {
+                            .list-item {
+                                font-size: 12px;
+                                padding-bottom: 8px;
+                                margin-bottom: 7px;
+                                border-bottom: 1px solid rgba(216, 216, 216, .4);
+
+                                &:last-child {
+                                    border-bottom: none;
+                                }
+
+                                .image-container {
+                                    width: 55px;
+                                    height: 55px;
+                                    @include imagecontaincenter;
+
+                                    img {}
+                                }
+
+                                .name {
+                                    margin-left: 8px;
+                                    font-weight: 400;
+                                }
+
+                                .items-wrapper {
+                                    font-size: 12px;
+                                    font-family: Montserrat-Light, Montserrat;
+                                    font-weight: 300;
+                                    margin-right: (40px - 16px);
+
+                                    .items {}
+
+                                    .private.flex {
+                                        margin-top: 8px;
+
+                                        i.icon-lock.mr-10 {}
+                                    }
+                                }
+                            }
+                        }
+
+                        .button-wrapper {
+                            .button.gray.btn-bg.see-all {}
+                        }
+                    }
+                }
+            }
+
+            .column-2 {
+                width: 592px;
+
+                .pannel {
+                    &>.title-wrapper {
+                        &>.title {}
+                    }
+
+                    .pannel-body {
+                        &>.title {
+                            margin-top: 5px;
+                            font-size: 18px;
+                            font-family: Montserrat-Regular, Montserrat;
+                            font-weight: 500;
+                            color: rgba(0, 0, 0, .8);
+                        }
+
+                        &>.title-2 {
+                            margin-top: 8px;
+                            font-size: 16px;
+                            font-family: Montserrat-Light, Montserrat;
+                            font-weight: 300;
+                            color: rgba(0, 0, 0, .8);
+
+                            span {
+                                color: rgba(0, 0, 0, 1);
+                                margin-left: 5px;
+                            }
+                        }
+
+                        .shop-info-list {}
+
+                        .shop-info {
+                            position: relative;
+
+                            margin-bottom: (22px - 16px);
+
+                            padding-right: (33px - 16px);
+
+                            .image-container {
+                                width: 150px;
+                                height: 150px;
+                                @include imagecontaincenter;
+
+                                img {}
+                            }
+
+                            .info-wrapper {
+                                margin-left: 12px;
+                                padding-top: 8px;
+
+                                .name {
+                                    // height: 18px;
+                                    font-size: 14px;
+                                    font-family: Montserrat-Regular, Montserrat;
+                                    // font-weight: 400;
+                                    color: rgba(20, 37, 128, 1);
+                                    line-height: 18px;
+                                }
+
+                                .star-wrapper {
+                                    margin-top: 8px;
+                                }
+
+                            }
+
+                            .rb-wrapper {
+                                text-align: right;
+                                position: absolute;
+                                right: 33px;
+                                bottom: (11px + (22px - 16px));
+
+                                .price {
+                                    margin-right: 10px;
+                                    font-size: 16px;
+                                    font-family: Montserrat-SemiBold, Montserrat;
+                                    font-weight: 600;
+                                    color: rgba(1, 1, 1, 1);
+                                    line-height: 32px;
+                                }
+
+                                .button.gray.in-chart {
+                                    margin-top: 3px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .pannel.my-recently-viewed {
+                    .pannel-body {
+                        .title {}
+
+
+
+                        .shop-info {
+                            .image-container {}
+
+                            .name {}
+
+                            .star-wrapper {}
+
+                            .rb-wrapper {
+                                .price {}
+
+                                .button.gray.in-chart {}
+                            }
+                        }
+                    }
+
+                    .pannel-body {}
+                }
+
+                .pannel.recommendation {
+                    .title-wrapper {
+                        .title {}
+                    }
+
+                    .pannel-body {
+                        padding-bottom: (16px -11px);
+
+                        .pictrue-grid.grid-2 {
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+                            grid-gap: 13px;
+
+                            .grid-item {
+                                @include ptb(11px);
+
+                                .image-container {
+                                    @include w(278px);
+                                    @include h(144px);
+                                    @include imagecontaincenter;
+
+                                    img {}
+                                }
+
+                                .desc {
+
+                                    margin-top: 12px;
+                                    font-size: 14px;
+                                    font-family: Montserrat-Regular, Montserrat;
+                                    font-weight: 500;
+                                    color: rgba(0, 0, 0, 1);
+                                    line-height: 15px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .column-3 {
+                .button-group-wrapper {
+                    @include flex;
+                    justify-content: space-between;
+                    padding-bottom: 4px;
+                }
+
+                .button {
+                    width: 88px;
+                    padding: 0px;
+                }
+
+                .pannel.events,
+                .pannel.saved-articles {
+                    .title-wrapper {
+                        .title {}
+                    }
+
+                    .pannel-body {
+                        .button-group-wrapper {
+
+
+                            .lastest.red.btn-bg {}
+
+                            .my-events.gray {}
+
+                            .past.gray {}
+                        }
+
+                        .list-wrapper {
+                            .list-item {
+                                @include ptb(6px);
+                                @include border-bottom(rgba(216, 216, 216, .4));
+
+                                &:last-child {
+                                    border-bottom: none;
+                                }
+
+                                .image-container {
+                                    @include w(96px);
+                                    @include h(128px);
+                                    @include imagecontaincenter;
+
+                                    img {}
+                                }
+
+                                .info-wrapper {
+                                    width: 184px;
+                                    margin-left: 8px;
+
+                                    .name {
+                                        font-size: 12px;
+                                        font-family: Montserrat-Regular, Montserrat;
+                                        font-weight: 400;
+                                        color: rgba(20, 37, 128, 1);
+                                        line-height: 18px;
+                                    }
+
+                                    .desc {
+                                        font-size: 12px;
+                                        font-family: Montserrat-Light, Montserrat;
+                                        font-weight: 300;
+                                        color: rgba(0, 0, 0, 1);
+                                        line-height: 18px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .button-wrapper {
+                            .button.gray.btn-bg.see-all {}
+                        }
+                    }
+                }
+
+                .pannel.discussions {
+                    .title-wrapper {
+                        .title {}
+                    }
+
+                    .pannel-body {
+                        .button-group-wrapper {
+                            .reviews.red.btn-bg {}
+
+                            .comments.gray {
+                                width: 96px;
+                            }
+
+                            .qa {}
+                        }
+                    }
+                }
+
+                .pannel.saved-articles {
+                    .title-wrapper {
+                        .title {}
+                    }
+
+                    .pannel-body {
+                        .list-wrapper {
+                            .list-item {
+                                border-bottom: none;
+                                @include ptb(8px);
+
+                                .image-container {
+                                    width: 72px;
+                                    height: 72px;
+
+                                    img {}
+                                }
+
+                                .info-wrapper {
+                                    .name {}
+
+                                    .desc {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .myinfo-culumn-wrapper {
+            margin-top: 24px;
+
+            .myinfo-column-1 {
+                width: 320px;
+
+                .pannel.menu-pannel {
+                    background: rgba(255, 255, 255, 1);
+                    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.04);
+
+                    .list-wrapper {
+                        .list-item {
+                            width: 320px;
+                            padding-left: 24px;
+                            height: 60px;
+                            line-height: 60px;
+                            border-bottom: 1px solid rgba(216, 216, 216, 1);
+                            color: rgba(1, 1, 1, 1);
+
+                            &:last-child {
+                                border-bottom: none;
+                            }
+
+                            &.active,
+                            &:hover {
+                                color: $text-blue;
+
+                            }
+
+                            // padding: 15px 24px 14px;
+                        }
+                    }
+                }
+            }
+
+            .myinfo-column-2 {
+                margin-left: 24px;
+                width: 936px;
+
+                // common pannel
+                .pannel {
+                    margin-bottom: 24px;
+                    padding: 20px;
+                    width: 936px;
+                    height: auto;
+                    background: rgba(255, 255, 255, 1);
+                    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.04);
+
+                    .title {
+                        font-size: 22px;
+                        font-family: Montserrat-Light, Montserrat;
+                        font-weight: 300;
+                        color: rgba(189, 36, 24, 1);
+                        line-height: 32px;
+                    }
+
+                    .sm-title {
+                        margin-top: 1px;
+                        font-size: 12px;
+                        font-family: Montserrat-Light, Montserrat;
+                        font-weight: 300;
+                        color: rgba(1, 1, 1, .45);
+                        line-height: 32px;
+                    }
+
+                    .sm-title2 {
+                        font-size: 12px;
+                        font-family: Montserrat-Light, Montserrat;
+                        font-weight: 300;
+                        color: rgba(1, 1, 1, 1);
+                        line-height: 32px;
+                    }
+
+                    .pannel-body {}
+                }
+
+                .pannel.account-details {
+                    .title {}
+
+                    .sm-title {}
+
+                    .pannel-body {
+                        .forms-group-2 {
+                            justify-content: space-between;
+                            padding-right: (45px - 20px);
+
+                            .form-wrapper {
+                                &.form-wrapper1 {
+                                    width: 393px;
+                                }
+
+                                .form-title {}
+
+                                .flex.flex-3part {
+                                    .form-item {
+                                        .input-container {
+                                            width: 144px;
+
+                                            input {}
+                                        }
+                                    }
+
+                                    .form-item {
+                                        .button.my-events {}
+                                    }
+                                }
+
+                                .form-item {
+                                    .flex {
+                                        .input-value-wrapper {}
+
+                                        .edit {}
+                                    }
+
+
+                                }
+
+                                .form-item {
+                                    .flex {
+                                        .input-value-wrapper {}
+
+                                        .edit {}
+                                    }
+
+
+                                }
+
+                                .form-item {
+                                    .input-container {
+                                        input {}
+                                    }
+                                }
+                            }
+
+                            .form-wrapper {
+                                .form-title {}
+
+                                .form-item.label-left {
+                                    .form-label {}
+
+                                    .selector-wrapper {
+                                        width: 196px;
+                                        height: 32px;
+                                        color: $text-blue;
+                                        line-height: 32px;
+
+                                        input {
+                                            width: 196px;
+                                            height: 32px;
+                                            color: $text-blue;
+                                            line-height: 32px;
+                                        }
+                                    }
+
+
+                                }
+
+                                .form-item.label-left {
+                                    .form-label {}
+
+                                    .selector-wrapper {
+                                        input {}
+                                    }
+
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .pannel.billing-shipping {
+                    .title-wrapper {
+                        .flex-between {
+                            .title {}
+
+                            @include clickable('.action-add-address');
+                            .action-add-address {
+                                font-size: 14px;
+                                font-family: Montserrat-Bold, Montserrat;
+                                font-weight: bold;
+                                color: rgba(20, 37, 128, 1);
+                                line-height: 32px;
+                            }
+                        }
+                    }
+
+                    .sm-title {}
+
+                    .pannel-body {
+                        .list-wrapper {
+                            .list-item {
+                                @include ptb(12px);
+                                border-bottom: 1px solid rgba(216, 216, 216, 1);
+
+                                .data-wrapper {
+                                    .name {}
+
+                                    .infos {}
+                                }
+
+                                .action-wrapper {
+                                    .edit {}
+
+                                    .vl.ml-10.mr-10 {
+                                        user-select: none;
+                                    }
+
+                                    .remove {}
+                                }
+                            }
+
+
+
+                            .list-item {
+                                .data-wrapper {
+                                    .name {}
+
+                                    .infos {}
+                                }
+
+                                .action-wrapper {
+                                    .edit {}
+
+                                    .vl.ml-10.mr-10 {}
+
+                                    .remove {}
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .pannel.update-email-subscription {
+                    .title-wrapper {
+                        .title-wrapper {
+                            .title {}
+                        }
+                    }
+
+                    .sm-title {}
+
+                    .pannel-body {
+                        .form-wrapper {
+                            .form-title {}
+
+                            .flex.flex-2part {
+                                .form-item {
+                                    .input-container {
+                                        width: 296px;
+
+                                        input {}
+                                    }
+
+
+                                }
+
+                                .form-item {
+                                    .button.go {
+                                        width: 88px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .pannel.rewards-card {
+                    .title-wrapper {
+                        .title-wrapper {
+                            .title {}
+                        }
+                    }
+
+                    .sm-title {}
+
+                    .sm-title2 {}
+
+                    .pannel-body {
+                        .form-wrapper {
+
+
+                            .flex.flex-2part {
+                                .form-item {
+                                    .input-container {
+                                        input {}
+                                    }
+
+
+                                }
+
+                                .form-item {
+                                    .input-container {
+                                        input {}
+                                    }
+
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

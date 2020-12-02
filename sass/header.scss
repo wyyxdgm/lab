@@ -1,0 +1,1306 @@
+.account-hover-pannel {
+    cursor: default;
+    position: absolute;
+    z-index: 2;
+    right: 0px;
+    top: 45px;
+    width: 258px;
+    // height: 256px;
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(204, 204, 204, 0.17);
+    border-radius: 3px 0px 3px 3px;
+    padding: 30px 20px;
+    text-align: center;
+
+    .avatar-wrapper {
+        margin-bottom: 2px;
+
+        i.icon.icon-account-gray {}
+    }
+
+    .account-name {
+        font-size: 16px;
+        font-family: Montserrat;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 1);
+        line-height: 2;
+    }
+
+    .sign-out {
+        @include flex-center;
+        font-size: 12px;
+        font-family: Montserrat;
+        font-weight: 300;
+        color: rgba(1, 1, 1, 1);
+        line-height: (32px/12px);
+
+        i.icon.icon-sign-out {
+            margin-right: 6px;
+        }
+    }
+
+    .icons-group {
+        @include flex-between;
+        margin-top: (40px-10px);
+
+        .icon-item {
+            i.icon.icon-account-management {}
+
+            .text {
+                font-size: 10px;
+                font-family: Montserrat;
+                font-weight: 300;
+                color: rgba(0, 0, 0, 1);
+                line-height: (32px/10px);
+            }
+        }
+
+    }
+
+    .footer-text {
+        margin-top: (41px-10px-11px);
+        font-size: 12px;
+        font-family: Montserrat;
+        font-weight: 300;
+        color: rgba(191, 191, 191, 1);
+        line-height: (32px/12px);
+    }
+}
+
+.account-hover-pannel.no-login {
+    .account-name-nologin {
+        margin-top: (46px-9px-30px);
+        margin-bottom: (30px-9px);
+        font-size: 14px;
+        font-family: Montserrat;
+        font-weight: 400;
+        color: rgba(1, 1, 1, 1);
+        line-height: (32px/14px);
+    }
+
+    .button.red.btn-bg.login {
+        height: 44px;
+        line-height: 44px;
+        width: 190px;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .button.blue.signup {
+        margin-top: 26px;
+        margin-bottom: (52px-30px);
+        height: 44px;
+        line-height: 44px;
+        width: 190px;
+        font-size: 14px;
+        font-family: Montserrat;
+        font-weight: 400;
+        color: rgba(20, 37, 128, 1);
+        // line-height:28px;
+    }
+}
+
+.cart-hover-pannel {
+    cursor: default;
+    position: absolute;
+    z-index: 2;
+    right: 0px;
+    top: 45px;
+    width: 359px;
+    // height: 256px;
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(204, 204, 204, 0.17);
+    border-radius: 3px 0px 3px 3px;
+
+    .title-wrapper {
+        padding: 20px;
+        font-size: 16px;
+        font-family: Montserrat;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 1);
+        line-height: 1.1;
+        text-align: left;
+    }
+
+    @include plr(20px);
+
+    .list-wrapper {
+        border-top: 1px dashed rgba(219, 219, 219, 1);
+        border-bottom: 1px dashed rgba(219, 219, 219, 1);
+
+        .item {
+            @include ptb(12px);
+            @include flex-start;
+            @include plr(8px);
+
+            .image-container {
+                width: 65px;
+                min-width: 65px;
+                height: 63px;
+                @include imagecontaincenter;
+
+                img {}
+            }
+
+            .p {
+                text-align: left;
+                margin-left: 27px;
+                width: 215px;
+                font-size: 12px;
+                font-family: Montserrat;
+                font-weight: 400;
+                color: rgba(13, 13, 13, 1);
+                line-height: 1.5;
+            }
+        }
+    }
+
+    @include clickable('.button');
+
+    .button.red.btn-bg {
+        margin: 26px auto;
+        font-size: 12px;
+    }
+}
+
+.header-top-2 .right-wrapper .item-wrapper {
+    margin-left: 5px;
+
+    .cart-hover-pannel {
+        display: none;
+    }
+
+    &:hover {
+        .cart-hover-pannel {
+            display: block;
+        }
+    }
+
+    .account-hover-pannel {
+        display: none;
+
+        &.hover {
+            display: block;
+        }
+    }
+
+    .icon-menu-arrow-down {
+        will-change: transform;
+        margin-left: 9px;
+    }
+
+    &:hover,
+    &.hover {
+        .account-hover-pannel {
+            display: block;
+        }
+
+        .icon-menu-arrow-down {
+            transform: rotate(180deg);
+            // transition: .3s ease;
+        }
+    }
+
+}
+
+.page-sign-in {
+    @include flex-center;
+    padding-top: 30px;
+}
+
+// 登录注册 start
+.dialog {
+    background: white;
+
+    &.sign-up,
+    &.sign-in,
+    &.recover-password {
+        width: 490px;
+    }
+
+    .form {
+        color: black;
+        line-height: 1em;
+        padding: 35px 50px 28px;
+        font-family: Montserrat-Regular, Montserrat;
+        font-weight: 400;
+        font-size: 14px;
+
+        .form-title {
+            line-height: 32px;
+            font-size: 26px;
+            color: rgba(0, 0, 0, 1);
+            padding-bottom: 12px;
+        }
+
+        .form-item {
+            padding-top: 8px;
+            padding-bottom: 12px;
+
+            .form-label {
+                line-height: 17px;
+
+                &:after {
+                    content: '*';
+                    color: $bar-red;
+                    @include fs(16px);
+                    margin-left: 3px;
+                }
+            }
+
+            .input-container {
+                margin-top: 12px;
+                font-size: 16px;
+                @include w(390px);
+                @include h(51px);
+                line-height: 51px;
+                border-radius: 6px;
+                overflow: hidden;
+                background-color: rgba(255, 255, 255, 1);
+
+                border: 1px solid rgba(0, 0, 0, 0.17);
+
+                input {
+                    @include placeholder(rgba(0, 0, 0, 0.45));
+                    padding-left: 16px;
+                    padding-right: 16px;
+                    font-size: 16px;
+                    width: 100%;
+                    height: 100%;
+                    font-weight: 500;
+                    @include clear-input;
+
+                    &[type="password"] {
+                        font-size: 16px;
+                        letter-spacing: 0.1em;
+                    }
+                }
+            }
+
+            .error-tip {
+                color: $bar-red;
+                font-size: 14px;
+                font-weight: 300;
+                display: none;
+            }
+
+        }
+
+        .tip-txt {
+            display: inline-block;
+            color: $bar-red;
+            font-size: 14px;
+            font-weight: 300;
+            margin-bottom: 12px;
+        }
+
+        [has-error="true"].form-item .error-tip {
+            display: block;
+            line-height: 28px;
+        }
+
+        [has-error="true"].form-item .input-container {
+            border: 1px solid rgba(255, 19, 0, 1);
+        }
+
+        .form-button-wrapper {
+            @include clickable('.button');
+
+            .button {
+                width: 390px;
+                height: 50px;
+                background: rgba(189, 36, 24, 1);
+                border-radius: 6px;
+
+                font-size: 16px;
+                font-weight: 400;
+                color: rgba(255, 255, 255, 1);
+            }
+        }
+
+        .small-tip-center {
+            margin-top: 12px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 300;
+
+            .red {
+                cursor: pointer;
+                font-weight: 400;
+                color: $main-red;
+            }
+        }
+
+        .or-line-wrapper {
+            margin-top: 12px;
+            @include flex-center;
+
+            .line {
+                height: 1px;
+                width: 120px;
+                background: rgba(216, 216, 216, 1);
+            }
+
+            .or {
+                text-align: center;
+                width: 40px;
+                font-size: 12px;
+                font-family: Montserrat-Light, Montserrat;
+                font-weight: 300;
+                color: rgba(0, 0, 0, 1);
+                line-height: 25px;
+            }
+        }
+
+        .small-tip-center {}
+
+        .auth-icon-group {
+            margin-top: 12px;
+            @include flex-center;
+            @include clickable('.icon');
+
+            .icon {
+                @include w(48px);
+                @include h(48px);
+                margin: auto 12px;
+            }
+
+            i.icon.auth-icon-google {
+                background-image: url('../images/home/auth-icon-google.png');
+            }
+
+            i.icon.auth-icon-facebook {
+                background-image: url('../images/home/auth-icon-facebook.png');
+            }
+
+            i.icon.auth-icon-youtube {
+                background-image: url('../images/home/auth-icon-youtube.png');
+            }
+        }
+    }
+}
+
+@media(max-width: 767px) {
+
+    .dialog {
+        background: white;
+
+        &.sign-up,
+        &.sign-in,
+        &.recover-password {
+            width: 100vw;
+        }
+
+        .form {
+            color: black;
+            line-height: $lh_;
+            padding: rem(35px) rem(50px) rem(28px);
+            font-family: Montserrat-Regular, Montserrat;
+            font-weight: 400;
+            font-size: rem(14px);
+
+            .form-title {
+                line-height: rem(32px);
+                font-size: rem(26px);
+                color: rgba(0, 0, 0, 1);
+                padding-bottom: rem(12px);
+            }
+
+            .form-item {
+                padding-top: rem(8px);
+                padding-bottom: rem(12px);
+
+                .form-label {
+                    line-height: rem(17px);
+
+                    &:after {
+                        content: '*';
+                        color: $bar-red;
+                        @include fs_(16px);
+                        margin-left: rem(3px);
+                    }
+                }
+
+                .input-container {
+                    margin-top: rem(12px);
+                    font-size: rem(16px);
+                    // @include w_(390px);
+                    @include h_(51px);
+                    width: 100%;
+                    line-height: rem(51px);
+                    border-radius: rem(6px);
+                    overflow: hidden;
+                    background-color: rgba(255, 255, 255, 1);
+
+                    border: 1px solid rgba(0, 0, 0, 0.17);
+
+                    input {
+                        @include placeholder(rgba(0, 0, 0, 0.45));
+                        padding-left: rem(16px);
+                        padding-right: rem(16px);
+                        font-size: rem(16px);
+                        width: 100%;
+                        height: 100%;
+                        font-weight: 500;
+                        @include clear-input;
+
+                        &[type="password"] {
+                            font-size: rem(16px);
+                            letter-spacing: 0.1em;
+                        }
+                    }
+                }
+
+                .error-tip {
+                    color: $bar-red;
+                    font-size: rem(14px);
+                    font-weight: 300;
+                    display: none;
+                }
+
+            }
+
+            .tip-txt {
+                display: inline-block;
+                color: $bar-red;
+                font-size: rem(14px);
+                font-weight: 300;
+                margin-bottom: rem(12px);
+            }
+
+            [has-error="true"].form-item .error-tip {
+                display: block;
+                line-height: 2;
+            }
+
+            [has-error="true"].form-item .input-container {
+                border: 1px solid rgba(255, 19, 0, 1);
+            }
+
+            .form-button-wrapper {
+                @include clickable('.button');
+
+                .button {
+                    width: 100%;
+                    height: rem(50px);
+                    line-height: rem(50px);
+                    background: rgba(189, 36, 24, 1);
+                    border-radius: rem(6px);
+
+                    font-size: rem(16px);
+                    font-weight: 400;
+                    color: rgba(255, 255, 255, 1);
+                }
+            }
+
+            .small-tip-center {
+                margin-top: rem(12px);
+                text-align: center;
+                font-size: rem(14px);
+                font-weight: 300;
+
+                .red {
+                    cursor: pointer;
+                    font-weight: 400;
+                    color: $main-red;
+                }
+            }
+
+            .or-line-wrapper {
+                margin-top: rem(12px);
+                @include flex-center;
+
+                .line {
+                    height: 1px;
+                    width: rem(120px);
+                    background: rgba(216, 216, 216, 1);
+                }
+
+                .or {
+                    text-align: center;
+                    width: rem(40px);
+                    font-size: rem(12px);
+                    font-family: Montserrat-Light, Montserrat;
+                    font-weight: 300;
+                    color: rgba(0, 0, 0, 1);
+                    line-height: rem(25px);
+                }
+            }
+
+            .small-tip-center {}
+
+            .auth-icon-group {
+                margin-top: rem(12px);
+                @include flex-center;
+                @include clickable('.icon');
+
+                .icon {
+                    @include w_(48px);
+                    @include h_(48px);
+                    margin: auto rem(12px);
+                }
+
+                i.icon.auth-icon-google {
+                    background-image: url('../images/home/auth-icon-google.png');
+                }
+
+                i.icon.auth-icon-facebook {
+                    background-image: url('../images/home/auth-icon-facebook.png');
+                }
+
+                i.icon.auth-icon-youtube {
+                    background-image: url('../images/home/auth-icon-youtube.png');
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+// 登录注册 end
+
+
+.header {
+    font-family: Montserrat;
+    margin-top: 29px;
+    user-select: none;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+
+
+    .header-top {
+        width: $content-width2;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 18px;
+
+        color: rgba(0, 0, 0, 1);
+
+        .header-top-1 {
+            .link {
+                font-size: 12px;
+                font-family: Montserrat;
+                font-weight: 300;
+                color: rgba(0, 0, 0, 1);
+            }
+
+            .header-top-1-left {
+                .lang-wrapper {
+                    position: relative;
+
+                    .icon.icon-arrow-down {
+                        cursor: pointer;
+                        margin-left: 10px;
+                        background-image: url("../images/home/arrow-down.png");
+                        @include wh(12px, 19px);
+                        /*  --fix */
+                    }
+
+                    .langs-wrapper {
+                        display: none;
+                        @include w(63px);
+                        position: absolute;
+                        height: auto;
+                        top: 21px;
+                        right: 0px;
+                        background-color: rgba(253, 253, 253, 1);
+                        border: 0.5px solid rgba(224, 224, 224, 1);
+                        box-shadow: 1px 0px 12px 1px rgba(190, 189, 189, 0.21);
+
+
+                        .lang-item {
+                            @include pl(5px);
+                            @include h(27px);
+                            @include lh(27px);
+                            border-bottom: 1px solid rgba(235, 235, 235, 1);
+
+                            &:last-child {
+                                border-bottom: none;
+                            }
+                        }
+
+                    }
+
+                    &:hover {
+                        .icon-arrow-down {
+                            transform: rotate(180deg);
+                        }
+
+                        .langs-wrapper {
+                            display: block;
+                        }
+                    }
+                }
+
+                .about-us {
+                    margin-left: 18px;
+                }
+
+                .dd-text {
+                    margin-left: 34px;
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: rgba(189, 36, 24, 1);
+                }
+            }
+
+            .header-top-1-right {
+                padding-right: 10px;
+
+                .icon-gap-line {
+                    margin-left: 32px;
+                    margin-right: 32px;
+                }
+
+                .item-wrapper {
+                    font-size: 12px;
+                    font-family: Montserrat;
+                    font-weight: 300;
+                    color: rgba(0, 0, 0, 1);
+                    @include flex;
+
+                    &>.icon {
+                        margin-right: 9px;
+                    }
+                }
+            }
+        }
+
+        .header-top-2 {
+            margin-top: 24px;
+            font-size: 16px;
+            @include flex-between;
+
+            .left-wrapper {
+                @include flex;
+
+                .logo {
+                    width: 221px;
+                    height: 91px;
+                }
+
+                .search-wrapper {
+                    position: relative;
+                    margin-left: 38px;
+                    width: 523.4px;
+                    height: 46px;
+                    background: rgba(255, 255, 255, 1);
+                    border: 1px solid rgba(204, 204, 204, 0.17);
+                    box-shadow: 0px 3px 5px 3px rgba(205, 205, 205, 0.43);
+                    /* opacity: 0.5; */
+                    border-radius: 10px;
+                    @include flex;
+
+                    &.expanded {
+                        // border-bottom-left-radius: 0px;
+                        // border-bottom-right-radius: 0px;
+
+                        .search-result-pannel {
+                            display: flex;
+                        }
+                    }
+
+                    .icon {
+                        margin-left: 15px;
+                        margin-right: 15px;
+                    }
+
+                    input {
+                        flex: 1;
+                        margin-left: 30px;
+                        background: transparent;
+                        @include clear-input;
+                        font-size: 16px;
+                        font-family: Montserrat;
+                        font-weight: 300;
+                        width: 715px;
+                        height: 46px;
+                        line-height: 46px;
+                        /* -webkit-appearance: none ; */
+
+                        /* 使用webkit内核的浏览器 */
+                        &::-webkit-input-placeholder {
+                            color: rgba(205, 205, 205, 1);
+                        }
+
+                        /* Firefox版本4-18 */
+                        &:-moz-placeholder {
+                            color: rgba(205, 205, 205, 1);
+                        }
+
+                        /* Firefox版本19+ */
+                        &::-moz-placeholder {
+                            color: rgba(205, 205, 205, 1);
+                        }
+
+                        /* IE浏览器 */
+                        &:-ms-input-placeholder {
+                            color: rgba(205, 205, 205, 1);
+                        }
+                    }
+
+                    .search-result-pannel {
+                        display: none;
+                        z-index: 10001;
+                        position: absolute;
+                        left: -20px;
+                        top: 46px+12px;
+                        border-radius: 10px;
+                        border: 1px solid rgba(205, 205, 205, 0.23);
+
+                        &:before {
+                            content: '';
+                            @include setArrow(top, 15px, #ebebeb);
+                            background: white;
+                            position: absolute;
+                            top: -9px;
+                            left: 100px;
+                        }
+
+                        &>div {
+                            .title {
+                                padding-top: 20px;
+                                padding-bottom: 20px;
+                                padding-left: 30px;
+                                font-size: 14px;
+                                font-family: Montserrat;
+                                font-weight: 400;
+                                color: rgba(189, 36, 24, 1);
+                            }
+
+                            .result-body {
+                                a.item-wrapper {
+                                    padding-left: 30px;
+
+                                    &:hover {
+                                        text-decoration: none;
+                                        color: inherit;
+                                    }
+
+                                    @include flex;
+                                    width:298px;
+                                    height:36px;
+
+                                    &:hover {
+                                        background: rgba(235, 235, 235, 1);
+                                    }
+
+                                    .icon-search-result-link {
+                                        margin-left: auto;
+                                        margin-right: 9px;
+                                    }
+
+                                    span.choosed {
+                                        font-weight: 600;
+                                    }
+                                }
+                            }
+
+                        }
+
+                        .result-left-wrapper {
+                            background: white;
+                            border-left: 1px solid rgba(235, 235, 235, 1);
+                            border-bottom: 1px solid rgba(235, 235, 235, 1);
+                            border-bottom-left-radius: 10px;
+                            border-top-left-radius: 10px;
+                        }
+
+                        .result-right-wrapper {
+                            border-left: 1px solid rgba(235, 235, 235, 1);
+                            background: white;
+                            border-bottom-right-radius: 10px;
+                            border-right: 1px solid rgba(235, 235, 235, 1);
+                            border-bottom: 1px solid rgba(235, 235, 235, 1);
+                            border-top-right-radius: 10px;
+                            width: 416px;
+
+                            /* flex: 1; */
+                            .products-wrapper {
+                                @include flex;
+
+                                .product-wrapper {
+                                    border: 1px solid rgba(189, 36, 24, 0);
+
+                                    &:hover {
+                                        border: 1px solid rgba(189, 36, 24, 1);
+                                    }
+
+                                    margin-left: 20px;
+
+                                    &:first-child {
+                                        margin-left: 30px;
+                                    }
+
+                                    padding: 4px 5px;
+                                    width: 110px;
+                                    height: 181px;
+                                    border-radius: 3px;
+
+                                    .product-image-wrapper {
+                                        width: 100px;
+                                        height: 100px;
+                                        margin: auto;
+
+                                        .product-image {
+                                            width: 100%;
+                                            height: 100%;
+                                            object-fit: contain;
+                                        }
+                                    }
+
+                                    .product-desc {
+                                        font-size: 12px;
+                                        font-family: Montserrat;
+                                        font-weight: 300;
+                                        color: rgba(0, 0, 0, 1);
+                                        line-height: 14px;
+                                    }
+                                }
+                            }
+
+                            .result-more-wrapper {
+                                text-align: right;
+                                margin-top: 30px;
+                                margin-bottom: 12px;
+                                font-size: 12px;
+                                font-family: Montserrat;
+                                font-weight: 300;
+                                color: rgba(191, 191, 191, 1);
+                                padding-right: 17px;
+
+                                .icon {
+                                    margin-left: 5px;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            .right-wrapper {
+                @include flex;
+                padding-left: 15px;
+
+                @include clickable('.item-wrapper');
+
+                .item-wrapper {
+                    position: relative;
+                    // &:last-child{
+                    //     margin-right: 10px;
+                    // };
+                    @include plr(16px);
+                    @include mlr(10px);
+                    height: 50px;
+                    border-radius: 3px 3px 0px 0px;
+                    border: 1px solid rgba(204, 204, 204, 0);
+
+
+                    &:not(:first-child):hover {
+                        background: rgba(234, 234, 234, 1);
+                        border: 1px solid rgba(204, 204, 204, 0.17);
+                        box-shadow: 0px 3px 5px 3px rgba(205, 205, 205, 0.04);
+
+                    }
+
+                    @include flex;
+
+                    &>.icon {
+                        position: relative;
+
+                        &:first-child {
+                            margin-right: 9px;
+                        }
+
+                        &:last-child {
+                            margin-left: 9px;
+                        }
+
+                        .unread {
+                            position: absolute;
+                            @include flex-center;
+                            top: -12px;
+                            left: 14px;
+                            padding: 0 3px;
+                            font-size: 12px;
+                            font-style: normal;
+                            color: $main-red;
+                            border: 2px solid $main-red;
+                            line-height: 1em;
+                            min-height: 17px;
+                            min-width: 17px;
+                            background: white;
+                            border-radius: 100px;
+                        }
+
+                    }
+                }
+            }
+        }
+
+    }
+
+    .header-bottom {
+        height: 50px;
+        /* border-top: 1px solid $border-color; */
+        /* border-bottom: 1px solid $border-color; */
+        background: rgba(189, 36, 24, 1);
+        display: block;
+        min-width: 1270px;
+        margin-bottom: -1px;
+
+        ul.nav {
+            // height: 51px;
+            position: relative;
+            width: 1270px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 13px;
+            max-width: 100%;
+            @include flex-between;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .nav ul {
+            margin: 0;
+            padding: 0;
+            border: 1px solid $border-color;
+            box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.40);
+        }
+
+        .nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 1.15em 0 1.15em;
+            margin-right: -10px;
+            text-transform: capitalize;
+            position: relative;
+        }
+
+        .nav>li {
+            height: 47px;
+            padding-left: 5px;
+            padding-right: 5px;
+
+            a {
+                margin-bottom: 1px;
+                font-weight: 700;
+            }
+
+            &.has-child:hover {
+                background: white;
+
+                a {
+                    color: black;
+                }
+            }
+        }
+
+        /* submenu positioning */
+
+        .nav .category-item-pannel {
+            margin-top: -1px;
+            position: absolute;
+            white-space: nowrap;
+            border: 1px solid $border-color;
+            border-top: none;
+            background-color: white;
+            z-index: 10000;
+            left: -99999em;
+            /* left: 0; */
+            padding: 29px 34px 28px 0;
+            display: block;
+            font-size: 12px;
+            font-family: Montserrat;
+            font-weight: 300;
+            color: rgba(0, 0, 0, 1);
+
+            .product-item-wrapper {
+                display: block;
+                float: left;
+                width: 182px;
+                margin-left: 60px;
+                text-align: center;
+
+                img {
+                    width: 100%;
+                    height: 113px;
+                    object-fit: contain;
+                    border: none;
+                    border: 1px solid rgba(242, 242, 242, 1);
+                }
+
+                .product-name {
+                    font-size: 12px;
+                    font-family: Montserrat;
+                    font-weight: 300;
+                    color: rgba(0, 0, 0, 1);
+                }
+
+                &:hover {
+                    img {
+                        border: 1px solid rgba(189, 36, 24, 1);
+                    }
+
+                    .product-name {
+                        font-weight: 500;
+                    }
+                }
+            }
+
+            .show-more-wrapper {
+                float: left;
+                margin-left: 57px;
+                width: 238px;
+                height: 150px;
+                background: rgba(189, 36, 24, 1);
+                @include flex-column;
+                justify-content: center;
+                padding-left: 18px;
+                color: rgba(255, 255, 255, 1);
+                cursor: pointer;
+
+                a,
+                span {
+                    display: block;
+
+                    a {
+                        display: none;
+                    }
+                }
+
+                .also {
+                    font-size: 14px;
+                    margin-bottom: 1em;
+                }
+
+                .see-all {
+                    font-size: 18px;
+
+                    .icon {
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+
+        .nav>li:hover>.category-item-pannel {
+            left: 0;
+            min-width: 100%;
+        }
+
+    }
+
+
+    .search-responsive {
+        display: none;
+
+        .search-content {
+            border-bottom: 1px solid $border-color;
+            border-top: 1px solid $border-color;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .search {
+                width: 80%;
+                border: none;
+                font-size: 16px;
+            }
+
+            .right {
+                float: right;
+            }
+        }
+    }
+}
+
+.left-menu-wrapper {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .header-108 {
+        @include mt_(108px);
+    }
+
+    .header {
+        position: fixed;
+        z-index: 11;
+        background: white;
+        left: 0px;
+        top: 0px;
+        @include mt_(0px);
+        @include w_(750px);
+        @include h_(108px);
+        color: rgba(250, 250, 250, 1);
+
+        i.icon.icon-nav {
+            display: inline-block;
+        }
+
+        i.icon.icon-close {
+            display: none;
+        }
+
+
+        .header-wrapper {
+            width: 100%;
+            position: relative;
+
+            .nav-button {
+                i.icon.icon-nav {}
+            }
+
+            .logo-container {
+                @include ml_(35px);
+                // margin-left: rem(35px);
+                @include w_(118px);
+                @include h_(51px);
+                @include imagecontaincenter();
+            }
+
+            .icon-group.flex {
+                i.icon.icon-shop-cart {}
+
+                i.icon.icon-search.ml-35 {}
+            }
+
+            .search-box-h5 {
+                @include flex;
+                display: none;
+                position: absolute;
+                bottom: rem(-91px);
+                left: 0px;
+                width: 100vw;
+                height: rem(91px);
+                box-shadow: 2px 1px 3px rgba(1, 1, 1, .3);
+
+                input {
+                    border: none;
+                    @include clear-input;
+                    flex: 1;
+                    padding: 0 rem(40px);
+                    height: rem(91px);
+                    line-height: rem(91px);
+                    font-size: rem(22px);
+
+                    &::placeholder {
+                        font-size: rem(22px);
+                        font-family: Montserrat;
+                        font-weight: 300;
+                        color: rgba(191, 191, 191, 1);
+                    }
+                }
+
+                button {
+                    @include clear-button;
+                    font-size: rem(24px);
+                    font-family: Montserrat;
+                    font-weight: 300;
+                    // line-height: rem(91px);
+                    vertical-align: middle;
+                    color: rgba(255, 255, 255, 1);
+                    width: rem(114px);
+                    height: rem(91px);
+                    background: rgba(189, 36, 24, 1);
+                }
+            }
+
+            &.show-h5-search {
+                .icon.icon-search {
+                    background-image: url('../images/home/close@2x.png');
+                }
+
+                .search-box-h5 {
+                    display: flex;
+                }
+            }
+        }
+
+        &.left-menu-on {
+            .header-wrapper .nav-button {
+                @include wh_(40px);
+                @include flex-center;
+
+                i.icon.icon-nav {
+                    display: none;
+                }
+
+                i.icon.icon-close {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    /* 菜单 */
+    .left-menu-wrapper {
+        display: none;
+        width: 100%;
+        position: fixed;
+        top: 0px;
+        z-index: 10;
+        top: rem(108px);
+        height: calc(100vh - 1.44rem);
+        background: rgba(0, 0, 0, 0.57);
+
+        &.on {
+            display: block;
+        }
+
+    }
+
+    .left-menu {
+        // transform: translateX(rem(-450px));
+
+        &.on {
+            left: 0rem;
+            // transform: translateX(0px);
+        }
+
+        z-index: 12;
+        position: fixed;
+        left: - rem(450px);
+        outline: none;
+        width: rem(450px);
+        transition: left .3s ease 0s;
+        will-change: left;
+        // transform: translateX(rem(-450px));
+
+        height: calc(100vh - 1.44rem);
+        background: white;
+
+        .menu-item {
+            display: block;
+            height: rem(90px);
+            @include flex;
+            @include pl_(40px);
+            color: rgba(1, 1, 1, 1);
+
+            @include reset-a(rgba(1, 1, 1, 1));
+
+            border-bottom: 1px solid rgba(233, 233, 233, 1);
+
+            &.red {
+                background: $main-red;
+                border-bottom: 1px solid $main-red;
+                @include reset-a(rgba(255, 255, 255, 1));
+            }
+
+            font-family: Montserrat;
+            font-weight: 300;
+            color: rgba(1, 1, 1, 1);
+
+            @include fs_(24px);
+        }
+    }
+
+}

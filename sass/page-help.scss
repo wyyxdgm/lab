@@ -1,0 +1,203 @@
+.content-width {
+    width: $content-width;
+    @include ma();
+}
+
+.page.page-help {
+    background: rgba(255, 255, 255, 1);
+    padding-bottom: 92px;
+
+    .title-wrapper {
+        height: 108px;
+        @include flex;
+
+        .title {
+            line-height: 1.2;
+            font-size: 28px;
+            font-family: Montserrat;
+            font-weight: 400;
+            color: rgba(0, 0, 0, 1);
+        }
+    }
+
+    .nav-bg.text-center {
+        // height: 235px;
+        background: rgba(250, 250, 250, 1);
+        border-radius: 3px;
+
+        .content-width.grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            .grid-item {
+                .nav-item {
+                    @include ma();
+                    width: 300px;
+                    @include pt(45px);
+                    @include pb(45px - (35px-12px)/2);
+                    border: 1px solid rgba(204, 204, 204, 0);
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 1);
+                        border: 1px solid rgba(204, 204, 204, 0.17);
+                        box-shadow: 0px 1px 7px 1px rgba(242, 240, 240, 0.89);
+                        border-radius: 3px;
+                    }
+
+
+                    font-size: 12px;
+
+                    i.icon.icon-7 {}
+
+                    .title {
+                        line-height: 30px;
+                        margin-top: (34px - (30px-8px)/2);
+                        font-size: 18px;
+                    }
+
+                    .desc2line {
+                        line-height: 30px;
+                    }
+                }
+            }
+        }
+    }
+
+    .questions-bg {
+        margin-bottom: 76px;
+
+        .content-width {
+            .title {
+                padding-top: (77px-9px);
+                font-size: 22px;
+                font-family: Montserrat;
+                font-weight: 500;
+                color: rgba(0, 0, 0, 1);
+                line-height: 40px;
+            }
+        }
+
+        .lr-container {
+            @include ma();
+            width: $content-width;
+            @include flex-start;
+            @include mt(37px-9px);
+            justify-content: space-between;
+
+            .pannel {
+                min-height: 670px;
+                background: rgba(255, 255, 255, 1);
+                border: 1px solid rgba(204, 204, 204, 0.17);
+                box-shadow: 0px 3px 5px 3px rgba(242, 240, 240, 0.89);
+                border-radius: 5px;
+            }
+
+            .topics.pannel {
+                width: 260px;
+                // height: 680px;
+                font-family: Montserrat;
+
+                .pannel-title.red-bg {
+                    @include plr(29px);
+                    line-height: 67px;
+                    width: 260px;
+                    height: 67px;
+                    background: rgba(189, 36, 24, 1);
+                    border-radius: 5px 5px 0px 0px;
+                    color: rgba(255, 255, 255, 1);
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+
+                .pannel-body {
+                    .list-wrapper {
+                        padding-top: 15px;
+                        padding-bottom: 10px;
+
+                        .list-item {
+                            @include plr(29px);
+                            min-height: 36px;
+                            padding-top: 8px;
+                            padding-bottom: 8px;
+                            font-size: 12px;
+                            font-weight: 300;
+                            color: rgba(92, 92, 92, 1);
+
+                            &:hover,&.active {
+                                font-weight: 400;
+                                color: $text-blue;
+                                background: rgba(235, 235, 235, 1);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .popqustions.pannel {
+                // margin-left: 30px;
+                width: 982px;
+
+                .pannel-title.gray-bg {
+                    padding-left: 60px;
+                    width: 982px;
+                    height: 67px;
+                    background: rgba(235, 235, 235, 1);
+                    border-radius: 5px 5px 0px 0px;
+                    font-size: 18px;
+                    font-family: Montserrat;
+                    font-weight: 500;
+                    color: rgba(20, 37, 128, 1);
+                    line-height: 67px;
+                }
+
+                .pannel-body {
+                    padding-bottom: 40px;
+
+                    .el-collapse-item__arrow {
+                        color: $text-blue;
+                    }
+
+                    .el-collapse-item__header {
+                        font-family: Montserrat;
+                        font-weight: 500;
+                        color: $text-black;
+                        height: 64px;
+                        line-height: 64px;
+                        padding-left: 60px;
+                        padding-right: 80px;
+                        border-bottom-style: dashed;
+
+                        // &.is-active {
+                        //     border-bottom: none;
+                        // }
+                    }
+
+                    .el-collapse-item__content {
+                        padding-bottom: 15px;
+                    }
+
+                    .el-collapse-item__wrap {
+                        border-bottom: 1px dashed rgba(235, 235, 235, 1);
+                    }
+
+                    .list-wrapper {
+                        .content-wrapper {
+                            font-size: 12px;
+                            font-family: Montserrat;
+                            font-weight: 300;
+                            color: rgba(92, 92, 92, 1);
+                            line-height: 32px;
+                            padding-left: 60px;
+                            padding-right: 90px;
+                            p {
+                                font-size: 12px;
+                                color: rgba(92, 92, 92, 1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
