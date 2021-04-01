@@ -18,20 +18,29 @@ const path = require('path');
 //   ['iconx', 'icon']
 // ]
 
-// 活动图标
-const dir = '/Users/damo/Downloads/v2.0/活动图标/';
+// // 活动图标
+// const dir = '/Users/damo/Downloads/v2.0/活动图标/';
+// // i-大点位-活动-捕鱼@2x.png
+// // i-点位-活动-捕鱼@2x.png
+// const conifg = [
+//   ['鸭子', 'duck'],
+//   ['拼图', 'puzzle'],
+//   ['萌宠', 'pet'],
+//   ['成就', 'achievement'],
+//   [/捕鱼/, 'fishing'],
+//   // [/^(.*)备份\s2\@2x(.*)$/, '$1-recommended.png'],
+//   // [/^(.*)备份\@2x(.*)$/, '$1-recommended-arrived.png'],
+//   [/^(.*)大点位-活动(.*)\.png$/, '$1activity-icon$2-lg.png'],
+//   [/^(.*)点位-活动(.*)\.png$/, '$1activity-icon$2.png'],
+//   ['@2x', ''],
+// ]
+
+// animation 图标
+const dir = '/Users/damo/workspace/sightp.com/ARTravel-wxapp/remote/images/map-markers/animation/v2/';
 // i-大点位-活动-捕鱼@2x.png
 // i-点位-活动-捕鱼@2x.png
 const conifg = [
-  ['鸭子', 'duck'],
-  ['拼图', 'puzzle'],
-  ['萌宠', 'pet'],
-  ['成就', 'achievement'],
-  [/捕鱼/, 'fishing'],
-  // [/^(.*)备份\s2\@2x(.*)$/, '$1-recommended.png'],
-  // [/^(.*)备份\@2x(.*)$/, '$1-recommended-arrived.png'],
-  [/^(.*)大点位-活动(.*)\.png$/, '$1activity-icon$2-lg.png'],
-  [/^(.*)点位-活动(.*)\.png$/, '$1activity-icon$2.png'],
+  ['点位语音讲解', 'animtaion-'],
   ['@2x', ''],
 ]
 fs.readdir(dir, (err, source) => {
