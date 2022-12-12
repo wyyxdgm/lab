@@ -1,0 +1,263 @@
+<view class="page">
+  <clsvk
+    wx:if="{{showClsVk}}"
+    firstLocate="{{firstLocate}}"
+    bind:loaded="clsvkLoaded"
+    bind:arrived="navArrived"
+    bind:message="navMessage"
+    bind:erect="phoneErect"
+    bind:locate="locateSuccess"
+    bind:reset="resetRoute"
+    bind:updatefloor="updateFloor"
+    bind:fail="locateFail"
+    bind:vkchange="vkChange"
+    bindnavbreak="navBreak"
+  ></clsvk>
+  <view class="mask" bindtap="maskTap" wx:if="{{!shopFold}}"></view>
+  <view class="mask_floor" bindtap="maskFloorTap" wx:if="{{!floorFold}}"></view>
+  <view class="popup_shop {{shopFold ? '' : 'popup_shop_unfold'}}" wx:if="{{!navigating}}">
+    <view class="operate_bar" bindtap="shopPopupFold">
+      <image wx:if="{{shopFold}}" class="unfold_icon" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/unfold_icon.png"></image>
+      <image wx:else class="packup_icon" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/packup_icon.png"></image>
+    </view>
+    <block wx:if="{{!showSearch}}">
+      <view class="input_content">
+        <view class="input_view {{pickerList.length > 1 ? 'input_view_building' : ''}}">
+          <image class="search_icon" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/search_icon.png"></image>
+          <input
+            class="search_input"
+            type="text"
+            placeholder="搜索目的地"
+            bindfocus="searchFoucs"
+            bindtap="searchTap"
+            disabled="{{disabledSearch}}"
+            adjust-position="{{false}}"
+          />
+        </view>
+        <view class="building_picker" wx:if="{{pickerList.length > 1}}">
+          <picker
+            bindchange="buildingChange"
+            bindtap="buildingTap"
+            range="{{pickerList}}"
+            value="{{pickerIndex}}"
+            range-key="value"
+            disabled="{{shopFold}}"
+          >
+            <view class="picker_view">{{pickerList[pickerIndex].value}}</view>
+          </picker>
+          <image class="picker_arrow" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/picker_arrow.png"></image>
+        </view>
+      </view>
+      <view class="first_sort2">
+        <view
+          wx:for="{{tabList}}"
+          wx:key="index"
+          class="first_sort2_item {{activeTab == item.key ? 'first_sort2_item_active' : ''}}"
+          bindtap="selectTab"
+          data-key="{{item.key}}"
+        >{{item.value}}</view>
+      </view>
+      <view class="shop_main">
+        <view class="floor_view">
+          <view class="floor_item {{activeFloor == '' ? 'floor_active' : ''}}" bindtap="selectFloor" data-key="">全部</view>
+          <view
+            class="floor_item {{activeFloor == item.key ? 'floor_active' : ''}}"
+            wx:for="{{floorList}}"
+            wx:key="index"
+            bindtap="selectFloor"
+            data-key="{{item.key}}"
+          >{{item.value}}</view>
+        </view>
+        <view class="shop_content">
+          <view class="second_sort" wx:if="{{tags.length}}">
+            <view class="second_sort_item {{activeTag == '' ? 'second_sort_active' : ''}}" bindtap="selectTag" data-key="">全部</view>
+            <view
+              class="second_sort_item {{activeTag == item.key ? 'second_sort_active' : ''}}"
+              wx:for="{{tags}}"
+              wx:key="index"
+              bindtap="selectTag"
+              data-key="{{item.key}}"
+            >{{item.value}}</view>
+          </view>
+          <view class="shop_list">
+            <view class="shop_item" wx:for="{{shopList}}" wx:key="index">
+              <image wx:if="{{item.logo}}" class="shop_img" src="{{item.logo}}" mode="aspectFit"></image>
+              <image wx:else class="shop_img" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/shop_default.png"></image>
+              <view class="shop_info">
+                <view class="shop_title">{{item.name}}</view>
+                <view class="shop_attr">{{item.typeName}}</view>
+              </view>
+              <view class="shop_nav" bindtap="selectShop" data-poi="{{item}}">
+                <image class="shop_nav_icon" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/nav_icon.png"></image>
+                <view class="shop_nav_text">AR导航</view>
+              </view>
+            </view>
+            <view class="shop_none" wx:if="{{!shopList.length}}">无结果</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!-- 搜索 -->
+    <block wx:else>
+      <view class="input_content">
+        <view class="input_view input_view_search">
+          <image class="search_icon" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/search_icon.png"></image>
+          <input
+            class="search_input"
+            type="text"
+            placeholder="搜索目的地"
+            bindinput="searchInput"
+            bindfocus="searchFoucs"
+            bindtap="searchTap"
+            value="{{searchVal}}"
+            adjust-position="{{false}}"
+            focus="{{inputFocus}}"
+          />
+          <image wx:if="{{searchVal}}" bindtap="searchClear" class="search_close_icon" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/search_close_icon.png"></image>
+        </view>
+        <view bindtap="searchCancel" class="search_cancel">取消</view>
+      </view>
+      <view class="search_main">
+        <block wx:for="{{searchRes}}" wx:key="index">
+          <view class="search_res_content" wx:for="{{item.firstSortList}}" wx:for-item="item2" wx:for-index="index2" wx:key="index2" wx:if="{{item2.shopList.length}}">
+            <view wx:if="{{pickerList.length > 1}}" class="search_res_title">{{item.value}} > {{item2.value}}</view>
+            <view wx:else class="search_res_title">{{item2.value}}</view>
+            <view class="shop_item search_item" wx:for="{{item2.shopList}}" wx:for-item="item3" wx:for-index="index3" wx:key="index3">
+              <image wx:if="{{item3.logo}}" class="shop_img" mode="aspectFit" src="{{item3.logo}}"></image>
+              <image wx:else class="shop_img" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/shop_default.png"></image>
+              <view class="shop_info">
+                <view class="shop_title">{{item3.name}}</view>
+              </view>
+              <view class="shop_nav" bindtap="selectShop" data-poi="{{item3}}">
+                <image class="shop_nav_icon" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/nav_icon.png"></image>
+                <view class="shop_nav_text">AR导航</view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+  <view class="popup_floor {{floorFold ? '' :'popup_floor_unfold'}}">
+    <view class="operate_bar" bindtap="maskFloorTap">
+      <image class="packup_icon" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/packup_icon.png"></image>
+    </view>
+    <view class="popup_floor_title">
+      <!-- <view>开始导航前</view> -->
+      <view>请选择您当前所在楼层</view>
+    </view>
+    <view class="floor_picker">
+      <view class="picker_center"></view>
+      <picker-view indicator-style="height: 40px;" class="picker" value="{{floorVal}}" bindchange="pickerChange">
+        <picker-view-column>
+          <view class="picker_item" wx:for="{{floorList}}" wx:key="index" style="line-height: 40px">
+            {{item.value}}
+          </view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+    <view class="popup_floor_btn" bindtap="confirmFloor">重新定位</view>
+  </view>
+  <!-- 乘电梯提示 -->
+  <view class="bylift_remind" wx:if="{{byliftRemind}}">
+    <view class="bylift_content">
+      <view wx:if="{{breakAction == 'Escalator'}}" class="bylift_title">请乘扶梯至{{targetFloorName}}</view>
+      <view wx:if="{{breakAction == 'Elevator'}}" class="bylift_title">请乘直梯至{{targetFloorName}}</view>
+      <view wx:if="{{breakAction == 'Stairs'}}" class="bylift_title">请沿步梯至{{targetFloorName}}</view>
+      <image wx:if="{{breakAction == 'Escalator'}}" class="bylift_img" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/by_lift.png"></image>
+      <image wx:if="{{breakAction == 'Elevator'}}" class="bylift_img" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/by_elevator.png"></image>
+      <image wx:if="{{breakAction == 'Stairs'}}" class="bylift_img" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/by_stairs.png"></image>
+      <view wx:if="{{breakAction == 'Stairs'}}" class="bylift_tip">为了您的安全，上下楼梯时请勿查看手机</view>
+      <view wx:if="{{breakAction == 'Escalator'}}" class="bylift_tip">为了您的安全，乘坐扶梯时请勿查看手机</view>
+      <view wx:if="{{breakAction == 'Elevator'}}" class="bylift_tip">为了您的安全，乘坐直梯时请勿查看手机</view>
+      <view class="bylift_btn" bindtap="liftSuccess">到达{{targetFloorName}}后请点我</view>
+    </view>
+  </view>
+  <!-- 识别提示 -->
+  <view class="bylift_remind" wx:if="{{showScan}}">
+    <image class="layer_close_btn" bindtap="closeLayer" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/close_icon_light.png"></image>
+    <view class="bylift_content">
+      <view class="scan_title" wx:if="{{firstLocate}}">开始导航前先定位</view>
+      <view class="scan_title" wx:else>继续导航前先定位</view>
+      <view class="erect_img">
+        <css-animation width="578" height="358" count="60" duration="2" url="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/css_sprites3.png"></css-animation>
+      </view>
+      <view class="erect_tip">
+        <view>请竖起手机缓慢扫描空间</view>
+        <view>对准大厅、商铺等更容易识别哦~</view>
+      </view>
+    </view>
+  </view>
+  <!-- 识别异常 -->
+  <view class="abnormal_layer" wx:if="{{showAbnormal}}">
+    <view class="abnormal_item abnormal_fail">
+      <image bindtap="openAbnormalText" class="abnormal_animation" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/warning_icon.png"></image>
+      <view wx:if="{{showAbnormalText}}">持续定位失败，请对准空间定位</view>
+    </view>
+  </view>
+  <view class="abnormal_layer" wx:if="{{showAbnormalSuccess}}">
+    <view class="abnormal_item abnormal_success">
+      <image src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/success_icon.png"></image>
+      <view>定位成功</view>
+    </view>
+  </view>
+  <!-- 定位失败提示 -->
+  <view class="bylift_remind" wx:if="{{showLocateFail}}">
+    <image class="layer_close_btn" bindtap="closeLayer" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/close_icon_light.png"></image>
+    <view class="bylift_content">
+      <image class="bylift_img" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/locate_fail.png"></image>
+      <view class="bylift_tip">定位失败，换个地方试试吧</view>
+      <view class="locate_fail_btn" bindtap="locateAgain">重新试试</view>
+    </view>
+  </view>
+  <!-- 总库定位楼层 -->
+  <view class="bylift_remind" wx:if="{{showFloorJudge}}">
+    <image class="layer_close_btn" bindtap="closeLayer" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/close_icon_light.png"></image>
+    <view class="floor_judge">
+      <view class="floor_judge_title">检测到当前楼层为</view>
+      <view class="floor_judge_floor">{{currentFloorName}}</view>
+      <view bindtap="confirmBegin" class="floor_judge_btn">楼层正确，开始导航</view>
+      <view bindtap="confirmSelf" class="floor_judge_btn">楼层不对，自己选择</view>
+    </view>
+  </view>
+  <!-- <hint
+    wx:if="{{showScan}}"
+    scan="{{showScan}}"
+    erect="{{erectRemind}}"
+  ></hint> -->
+  <!-- 导航信息显示 -->
+  <view class="popup_info" wx:if="{{navigating && (navigateInfo || byliftRemind)}}">
+    <view class="nav_exit" wx:if="{{navigateExit}}">
+      <view class="exit_title" bindtap="confirmExit">退出AR导航</view>
+      <view class="exit_cancel" bindtap="cancelExit">取消</view>
+    </view>
+    <view class="nav_info" wx:else>
+      <view class="nav_name">{{targetName}}</view>
+      <view class="nav_detail" wx:if="{{!navigateEnd && !byliftRemind}}">{{navigateInfo}}</view>
+      <view class="nav_detail arrive_txt" wx:if="{{navigateEnd && !byliftRemind}}">已到达目的地</view>
+      <view class="nav_detail arrive_txt" wx:if="{{byliftRemind}}">
+        <text wx:if="{{breakAction == 'Elevator'}}">直梯</text>
+        <text wx:if="{{breakAction == 'Escalator'}}">扶梯</text>
+        <text wx:if="{{breakAction == 'Stairs'}}">楼梯</text>
+        <text>附近已暂停导航</text>
+      </view>
+      <view class="nav_close_icon" bindtap="exitNav">
+        <image src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/close_icon.png"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 当前导航楼层 -->
+  <!-- <view wx:if="{{showBackStatus}}" class="current_floor">定位中</view> -->
+  <view class="auth_layer" wx:if="{{showExit}}">
+    <view class="auth_content">
+      <view class="auth_txt auth_txt_two">
+        <view>是否退出导航？</view>
+      </view>
+      <view class="auth_btn_group">
+        <view class="auth_setting_btn" bindtap="exitScan">退出</view>
+        <view class="auth_exit_btn" bindtap="continueScan">取消</view>
+      </view>
+    </view>
+  </view>
+</view>
+<image style="display: none;" src="https://sightppp.oss-cn-shanghai.aliyuncs.com/projects/ARNav/css_sprites3.png"></image>

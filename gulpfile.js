@@ -105,14 +105,17 @@ gulp.task('watchdev', function(cb) {
         // txt2less
         else if (/\.css$/.test(paths.srcPath)) {
             if ('deleted' === event.type) return cleanFiles([paths.distPath.replace(/\.\w+$/, '.css')]);
-            gutil.log('Dist ' + paths.distPath)
+            gutil.log('convert [txt->less] Dist ' + paths.distPath)
             lab.buildTxtToLess(paths.srcPath, paths.distPath);
         } else if (/variable\.scss$/.test(paths.srcPath)) {
-            gutil.log('Dist ' + paths.distPath)
+            gutil.log('convert [variable.scss] Dist ' + paths.distPath)
             lab.updateVariableCache(paths.srcPath, paths.distPath);
         } else if (/h5\.scss$/.test(paths.srcPath)) {
-            gutil.log('Dist ' + paths.distPath)
+            gutil.log('convert [h5.scss] Dist ' + paths.distPath)
             lab.toH5(paths.srcPath, paths.distPath);
+        } else if (/\.vue.wxml$/.test(paths.srcPath)) {
+            gutil.log('convert [vue->wxml] ' + paths.distPath)
+            lab.miniprogramToVue(paths.srcPath, paths.distPath);
         } else {
             gutil.log(gutil.colors.green(event.type || 'changed') + ' ' + paths.srcPath + '-->' + '???');
         }
@@ -351,6 +354,7 @@ gulp.task('watchdev', function(cb) {
 //   });
 // })
 
+// -d 开启加载最新js不使用缓存
 gulp.task('default', gulp.series('watchdev', (cb) => cb()));
 // gulp.task('watch', gulp.series('default', 'watchhtml', 'watchi18n', 'watchcss', 'watchcopy', 'watchdev', 'serve'));
 gulp.task('watchreact', function(cb) {
