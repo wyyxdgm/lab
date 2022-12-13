@@ -114,6 +114,7 @@ gulp.task('watchdev', function(cb) {
             gutil.log('convert [h5.scss] Dist ' + paths.distPath)
             lab.toH5(paths.srcPath, paths.distPath);
         } else if (/\.vue.wxml$/.test(paths.srcPath)) {
+            paths.distPath = paths.distPath.replace(".vue.wxml", ".wxml.vue");
             gutil.log('convert [vue->wxml] ' + paths.distPath)
             lab.miniprogramToVue(paths.srcPath, paths.distPath);
         } else {
