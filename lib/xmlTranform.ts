@@ -42,19 +42,18 @@ export function miniprogramToVue(s: string, d: string, opt: any) {
       // attr
       for (let attr in node.attributes) {
         if (attr === 'wx:for') { // for k,v
-          let [item, key, index, arr] = [
+          let [item, /* key, */ index, arr] = [
             node.attributes['wx:for-item'] || 'item',
-            node.attributes['wx:for-key'] || 'key',
+            // node.attributes['wx:for-key'] || 'key',
             node.attributes['wx:for-index'] || 'index',
             node.attributes['wx:for'],
           ]
-          let forStr = `(${item},${key},${index}) in ${filterV('v-for', arr)[1]}`
+          let forStr = `(${item},${index}) in ${filterV('v-for', arr)[1]}`
           node.attributes['v-for'] = forStr;
           delete node.attributes['wx:for']
         } else {
           let re = null;
           let [k, v] = filterKV(attr, node.attributes[attr]);
-          if (k.startsWith('@')) console.log('k-----------', k)
           node.attributes[k] = v;
           if (k != attr) delete node.attributes[attr];
         }

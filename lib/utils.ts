@@ -26,27 +26,12 @@ export function filterKV(k: string, v: string): [string, string] {
     // console.warn('key 未处理', k)
   }
   return filterV(k, v);
-  // if (re = /^{{([^{}]+)}}$/.exec(v)) { // v
-  //   return [k, re[1]]
-  // } else if (re = /({{([^{}]+)}})+/.test(v)) {
-  //   let strs = v.split(/({{[^{}]+}})/).filter(s => !!s);
-  //   console.log(`strs------------------`, strs);
-  //   v = strs.map(x => {
-  //     let r = x.trim().startsWith('{{') ? x.replace(/{{(.+)}}/, '($1)') : JSON.stringify(x)
-  //     console.log(`x`, x, r);
-  //     return r
-  //   }).join('+')
-  //   if (!k.startsWith('v-') && !k.startsWith('@')) k = 'v-bind:' + k;
-  //   return [k, v];
-  // } else {
-  //   console.warn('/???')
-  //   return [k, v]
-  // }
 }
 export function filterV(k: string, v: string): [string, string] {
   let re = null;
   if (re = /^{{([^{}]+)}}$/.exec(v)) { // v
     // console.log(`filterV`, v);
+    if (!k.startsWith('v-') && !k.startsWith('@') && !k.startsWith(':')) k = ':' + k;
     return [k, resolveProp(re[1])]
   } else if (re = /({{([^{}]+)}})+/.test(v)) {
     let strs = v.split(/({{[^{}]+}})/).filter(s => !!s);
@@ -56,7 +41,7 @@ export function filterV(k: string, v: string): [string, string] {
       // console.log(`x`, x, r);
       return r
     }).join('+')
-    if (!k.startsWith('v-') && !k.startsWith('@')) k = 'v-bind:' + k;
+    if (!k.startsWith('v-') && !k.startsWith('@') && !k.startsWith(':')) k = ':' + k;
     return [k, v];
   } else {
     // console.warn('/???')
@@ -66,10 +51,8 @@ export function filterV(k: string, v: string): [string, string] {
 
 function resolveProp(props: string) {
   return props.replace(/\b([\w_\d]+(\.[\w_\d]+)+)\b/g, function (match, p1, p2, p3) {
-    console.log('match', match, 'p1', p1, 'p2', p2, 'p3', p3);
-    let str = '';
+    // console.log('match', match, 'p1', p1, 'p2', p2, 'p3', p3);
     let arr = match.split('.');
-
     return '(' + arr.slice(1).reduce((p, c) => p + '&&' + p + '.' + c, arr[0]) + ')';
   })
 }
