@@ -51,11 +51,12 @@ export function miniprogramToVue(s: string, d: string, opt: any) {
           let forStr = `(${item},${key},${index}) in ${filterV('v-for', arr)[1]}`
           node.attributes['v-for'] = forStr;
           delete node.attributes['wx:for']
+        } else {
+          let re = null;
+          let [k, v] = filterKV(attr, node.attributes[attr]);
+          node.attributes[k] = v;
+          if (k != attr && attr) delete node.attributes[attr];
         }
-        let re = null;
-        let [k, v] = filterKV(attr, node.attributes[attr]);
-        node.attributes[k] = v;
-        if (k != attr && attr) delete node.attributes[attr];
       }
 
       // for (let attr2 in node.attributes) { // 
