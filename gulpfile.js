@@ -77,11 +77,11 @@ const cleanFiles = (fileList) => {
 //   return line;
 // }, 100);
 
-gulp.task('watchdev', function(cb) {
+gulp.task('watchdev', function (cb) {
     let lab = require('./lib/lab.js')
     if (!fs.existsSync('src')) fs.mkdirSync('src');
     if (!fs.existsSync('dist')) fs.mkdirSync('dist');
-    watch(['src/**'], _.throttle(function(event) {
+    watch(['src/**'], _.throttle(function (event) {
         var paths = watchPath(event, 'src/', 'dist/')
         gutil.log(gutil.colors.green(event.type || 'changed') + ' ' + paths.srcPath + '-->' + paths.distPath);
         // html
@@ -118,6 +118,15 @@ gulp.task('watchdev', function(cb) {
             gutil.log('=============================================================')
             gutil.log('convert [vue->wxml] ' + paths.distPath)
             lab.miniprogramToVue(paths.srcPath, paths.distPath);
+        } else if (/\.less.wxss$/.test(paths.srcPath)) {
+            paths.distPath = paths.distPath.replace(".less.wxss", ".wxss.less");
+            gutil.log('=============================================================')
+            gutil.log('convert [wxss->less] ' + paths.distPath)
+            lab.wxssToless(paths.srcPath, paths.distPath);
+            return gulp.src(paths.distPath)
+                .pipe(less())
+                .pipe(rename({ extname: '.css' }))
+                .pipe(gulp.dest('./dist'));
         } else {
             gutil.log(gutil.colors.green(event.type || 'changed') + ' ' + paths.srcPath + '-->' + '???');
         }
@@ -359,11 +368,11 @@ gulp.task('watchdev', function(cb) {
 // -d 开启加载最新js不使用缓存
 gulp.task('default', gulp.series('watchdev', (cb) => cb()));
 // gulp.task('watch', gulp.series('default', 'watchhtml', 'watchi18n', 'watchcss', 'watchcopy', 'watchdev', 'serve'));
-gulp.task('watchreact', function(cb) {
+gulp.task('watchreact', function (cb) {
     if (!fs.existsSync('react')) fs.mkdirSync('react');
     if (!fs.existsSync('react/src')) fs.mkdirSync('react/src');
     if (!fs.existsSync('react/dist')) fs.mkdirSync('react/dist');
-    watch(['react/src/**'], _.throttle(function(event) {
+    watch(['react/src/**'], _.throttle(function (event) {
         var paths = watchPath(event, 'react/src/', 'react/dist/')
         gutil.log(gutil.colors.green(event.type || 'changed') + ' ' + paths.srcPath + '-->' + paths.distPath);
     }, 500));

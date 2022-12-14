@@ -54,10 +54,13 @@ export function miniprogramToVue(s: string, d: string, opt: any) {
         } else {
           let re = null;
           let [k, v] = filterKV(attr, node.attributes[attr]);
+          if (k.startsWith('@')) console.log('k-----------', k)
           node.attributes[k] = v;
-          if (k != attr && attr) delete node.attributes[attr];
+          if (k != attr) delete node.attributes[attr];
         }
       }
+      console.log(Object.keys(node.attributes));
+      
 
       // for (let attr2 in node.attributes) { // 
       //   let re = null;
