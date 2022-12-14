@@ -54,10 +54,8 @@ export function miniprogramToVue(s: string, d: string, opt: any) {
         }
         let re = null;
         let [k, v] = filterKV(attr, node.attributes[attr]);
-        if (k != attr) {
-          node.attributes[k] = v;
-          delete node.attributes[attr];
-        }
+        node.attributes[k] = v;
+        if (k != attr && attr) delete node.attributes[attr];
       }
 
       // for (let attr2 in node.attributes) { // 

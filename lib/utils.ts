@@ -46,6 +46,7 @@ export function filterKV(k: string, v: string): [string, string] {
 export function filterV(k: string, v: string): [string, string] {
   let re = null;
   if (re = /^{{([^{}]+)}}$/.exec(v)) { // v
+    console.log(`filterV`, v);
     return [k, re[1]]
   } else if (re = /({{([^{}]+)}})+/.test(v)) {
     let strs = v.split(/({{[^{}]+}})/).filter(s => !!s);
