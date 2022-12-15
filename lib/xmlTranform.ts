@@ -37,6 +37,9 @@ export function miniprogramToVue(s: string, d: string, opt: any) {
         console.log(`import-----s`, node.attributes.src);
       } else if (node.tagName === 'view') {
         node.tagName = 'div';
+      } else if (node.tagName === 'image') {
+        node.tagName = 'img';
+        node.selfClosing = true;
       }
 
       // attr
